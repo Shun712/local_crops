@@ -9,5 +9,7 @@ import "channels"
 import "bootstrap";
 import "../stylesheets/application.scss";
 
+require("jquery")
+
 Rails.start()
 ActiveStorage.start()
