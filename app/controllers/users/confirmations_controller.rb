@@ -1,5 +1,4 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
-
   def new
     super
   end
@@ -15,7 +14,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   protected
 
   # メール認証後のページ遷移先を設定
-  def after_confirmation_path_for(resource_name, resource)
+  def after_confirmation_path_for(_resource_name, resource)
     sign_in(resource)
     root_path
   end

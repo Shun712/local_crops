@@ -1,5 +1,4 @@
 class Users::SessionsController < Devise::SessionsController
-
   def new
     super
   end
@@ -11,5 +10,4 @@ class Users::SessionsController < Devise::SessionsController
   def destroy
     super
   end
-
 end
