@@ -9,10 +9,9 @@
             h3.d-inline-block.align-middle.fs-base.fw-medium.mb-2.me-2
               | SNSアカウントでログイン
             .d-inline-block.align-middle
-              a.btn-social.bs-line.me-2.mb-2 data-bs-toggle="tooltip" href="#" title=("Sign in with Google")
-                i.fa-brands.fa-line.fa-2x
-              a.btn-social.bs-twitter.me-2.mb-2 data-bs-toggle="tooltip" href="#" title=("Sign in with Twitter")
-                i.fa-brands.fa-twitter.fa-2x
+              - resource_class.omniauth_providers.each do |provider|
+                = link_to omniauth_authorize_path(resource_name, provider), method: :post, class: "btn-social bs-#{provider} me-2 mb-2" do
+                  i.fa-brands.fa-2x class="fa-#{provider}"
           hr
           h3.fs-base.pt-4.pb-2
             | メールアドレスとパスワードでログイン

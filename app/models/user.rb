@@ -8,9 +8,11 @@
 #  confirmed_at           :datetime
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
+#  provider               :string(255)
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
+#  uid                    :string(255)
 #  unconfirmed_email      :string(255)
 #  username               :string(255)      default(""), not null
 #  created_at             :datetime         not null
@@ -32,7 +34,28 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable
+         :confirmable, :omniauthable, omniauth_providers: %i[line]
+
+  def social_profile(provider)
+    social_profiles.select { |sp| sp.provider == provider.to_s }.first
+  end
+
+  def set_values(omniauth)
+    return if provider.to_s != omniauth["provider"].to_s || uid != omniauth["uid"]
+    credentials = omniauth["credentials"]
+    info = omniauth["info"]
+
+    access_token = credentials["refresh_token"]
+    access_secret = credentials["secret"]
+    credentials = credentials.to_json
+    name = info["name"]
+    # self.set_values_by_raw_info(omniauth['extra']['raw_info'])
+  end
+
+  def set_values_by_raw_info(raw_info)
+    self.raw_info = raw_info.to_json
+    self.save!
+  end
 
   private
 

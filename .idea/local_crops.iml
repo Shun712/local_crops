@@ -535,6 +535,51 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="devise-i18n (vbundled(1.10.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-1.10.2/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-1.10.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-1.10.2/rails" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-1.10.2/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-1.10.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-1.10.2/rails" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-1.10.2/rails" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="devise-i18n-views (vbundled(0.3.7)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-views-0.3.7/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-views-0.3.7/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-views-0.3.7/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-views-0.3.7/locales" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-views-0.3.7/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-views-0.3.7/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-views-0.3.7/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-views-0.3.7/locales" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-views-0.3.7/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/devise-i18n-views-0.3.7/locales" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="erubi (vbundled(1.10.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
