@@ -3,23 +3,27 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     basic_action
   end
 
+  def twitter
+    basic_action
+  end
+
   private
 
   def basic_action
-    @omniauth = request.env["omniauth.auth"]
+    @omniauth = request.env['omniauth.auth']
     if @omniauth.present?
-      @profile = User.find_or_initialize_by(provider: @omniauth["provider"], uid: @omniauth["uid"])
-      if @profile.email.blank?
-        email = @omniauth["info"]["email"] ? @omniauth["info"]["email"] : "#{@omniauth["uid"]}-#{@omniauth["provider"]}@example.com"
-        @profile = current_user || User.create!(provider: @omniauth["provider"], uid: @omniauth["uid"], email: email, username: @omniauth["info"]["name"], password: Devise.friendly_token[0, 20])
+      @profile = SocialProfile.where(provider: @omniauth['provider'], uid: @omniauth['uid']).first
+      if @profile
+        @profile.set_values(@omniauth)
+        sign_in(:user, @profile.user)
+      else
+        @profile = SocialProfile.new(provider: @omniauth['provider'], uid: @omniauth['uid'])
+        email = @omniauth['info']['email'] || Faker::Internet.email
+        @profile.user = current_user || User.create!(email: email, username: @omniauth['info']['name'], password: Devise.friendly_token[0, 20])
+        @profile.set_values(@omniauth)
+        sign_in(:user, @profile.user)
       end
-      @profile.set_values(@omniauth)
-      sign_in(:user, @profile)
     end
     redirect_to root_path, success: 'ログインしました。'
-  end
-
-  def fake_email(uid, provider)
-    "#{auth.uid}-#{auth.provider}@example.com"
   end
 end

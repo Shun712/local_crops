@@ -580,6 +580,39 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="dotenv (vbundled(2.7.6)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/dotenv-2.7.6/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/dotenv-2.7.6/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/dotenv-2.7.6/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/dotenv-2.7.6/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/dotenv-2.7.6/bin" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="dotenv-rails (vbundled(2.7.6)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/dotenv-rails-2.7.6/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/dotenv-rails-2.7.6/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="erubi (vbundled(1.10.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -590,6 +623,42 @@
         <JAVADOC />
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/erubi-1.10.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="faraday (vbundled(2.2.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faraday-2.2.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faraday-2.2.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faraday-2.2.0/examples" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faraday-2.2.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faraday-2.2.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faraday-2.2.0/examples" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faraday-2.2.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faraday-2.2.0/examples" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="faraday-net_http (vbundled(2.0.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faraday-net_http-2.0.1/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faraday-net_http-2.0.1/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -629,6 +698,20 @@
         <JAVADOC />
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/globalid-1.0.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="hashie (vbundled(5.0.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/hashie-5.0.0/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/hashie-5.0.0/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -712,6 +795,44 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jbuilder-2.11.5/test" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jbuilder-2.11.5/.github" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jbuilder-2.11.5/gemfiles" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="json (vbundled(2.6.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/json-2.6.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/json-2.6.1/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/json-2.6.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/json-2.6.1/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/json-2.6.1/ext" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jwt (vbundled(2.3.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jwt-2.3.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jwt-2.3.0/.github" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jwt-2.3.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jwt-2.3.0/.github" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jwt-2.3.0/.github" />
         </excluded>
       </library>
     </orderEntry>
@@ -888,6 +1009,34 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="multi_json (vbundled(1.15.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/multi_json-1.15.0/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/multi_json-1.15.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="multi_xml (vbundled(0.6.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/multi_xml-0.6.0/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/multi_xml-0.6.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="mysql2 (vbundled(0.5.3)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -962,6 +1111,107 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/nokogiri-1.13.3-x86_64-darwin/bin" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/nokogiri-1.13.3-x86_64-darwin/ext" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/nokogiri-1.13.3-x86_64-darwin/gumbo-parser" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="oauth2 (vbundled(1.4.9)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/oauth2-1.4.9/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/oauth2-1.4.9/spec" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/oauth2-1.4.9/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/oauth2-1.4.9/spec" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/oauth2-1.4.9/spec" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="omniauth (vbundled(1.9.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-1.9.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-1.9.1/.github" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-1.9.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-1.9.1/.github" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-1.9.1/.github" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="omniauth-line (vbundled(0.1.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-line-0.1.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-line-0.1.0/spec" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-line-0.1.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-line-0.1.0/spec" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-line-0.1.0/spec" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="omniauth-oauth2 (vbundled(1.7.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth2-1.7.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth2-1.7.2/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth2-1.7.2/.github" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth2-1.7.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth2-1.7.2/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth2-1.7.2/.github" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth2-1.7.2/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth2-1.7.2/.github" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="omniauth-rails_csrf_protection (vbundled(0.1.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-rails_csrf_protection-0.1.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-rails_csrf_protection-0.1.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-rails_csrf_protection-0.1.2/.circleci" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-rails_csrf_protection-0.1.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-rails_csrf_protection-0.1.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-rails_csrf_protection-0.1.2/.circleci" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-rails_csrf_protection-0.1.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-rails_csrf_protection-0.1.2/.circleci" />
         </excluded>
       </library>
     </orderEntry>
@@ -1509,6 +1759,25 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby-progressbar-1.11.0/lib" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ruby2_keywords (vbundled(0.0.5)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby2_keywords-0.0.5/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby2_keywords-0.0.5/logs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby2_keywords-0.0.5/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby2_keywords-0.0.5/logs" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby2_keywords-0.0.5/logs" />
+        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
