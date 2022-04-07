@@ -7,7 +7,7 @@
             = t('.sign_up')
           h3.fs-base.pt-4.pb-2
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-            = render 'shared/error_messages', object: resource
+            = render 'devise/shared/error_messages', object: resource
             .input-group.mb-3
               i.ci-user.position-absolute.top-50.translate-middle-y.text-muted.fs-base.ms-3
               = f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "ユーザー名", class: "form-control rounded-start", required: ""
