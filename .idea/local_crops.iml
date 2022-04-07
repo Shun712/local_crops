@@ -1148,6 +1148,25 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="rails-i18n (vbundled(7.0.3)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rails-i18n-7.0.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rails-i18n-7.0.3/rails" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rails-i18n-7.0.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rails-i18n-7.0.3/rails" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rails-i18n-7.0.3/rails" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="railties (vbundled(6.1.5)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
