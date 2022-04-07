@@ -1,18 +1,38 @@
-h2
-  | Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.container.py-4.py-lg-5.my-4
+  .row
+    .col-md-6.offset-md-3
+      .card.border-0.shadow
+        .card-body
+          h2.h4.mb-1
+            = t('.sign_in')
+          .py-3
+            h3.d-inline-block.align-middle.fs-base.fw-medium.mb-2.me-2
+              | SNSアカウントでログイン
+            .d-inline-block.align-middle
+              a.btn-social.bs-line.me-2.mb-2 data-bs-toggle="tooltip" href="#" title=("Sign in with Google")
+                i.fa-brands.fa-line
+              a.btn-social.bs-twitter.me-2.mb-2 data-bs-toggle="tooltip" href="#" title=("Sign in with Twitter")
+                i.fa-brands.fa-twitter
+          hr
+          h3.fs-base.pt-4.pb-2
+            | メールアドレスとパスワードでログイン
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .input-group.mb-3
+              i.ci-mail.position-absolute.top-50.translate-middle-y.text-muted.fs-base.ms-3
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control rounded-start", required: ""
+            .input-group.mb-3
+              i.ci-locked.position-absolute.top-50.translate-middle-y.text-muted.fs-base.ms-3
+              .password-toggle.w-100
+                = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form-control", required: ""
+                label.password-toggle-btn aria-label=("Show/hide password")
+                  input.password-toggle-check type="checkbox"
+                  span.password-toggle-indicator
+            - if devise_mapping.rememberable?
+            .d-flex.flex-wrap.justify-content-between
+              .form-check
+                = f.check_box :remember_me, class: "form-check-input", checked: "checked", type: "checkbox"
+                = f.label :remember_me, class: "form-check-label", for: "remember_me"
+            .text-end.pt-4
+              = f.submit t('.sign_in'), class: "btn btn-primary", type: "submit"
+            hr.mt-4
+            = render "devise/shared/links"
