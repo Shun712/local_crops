@@ -7,9 +7,16 @@ import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap";
+import '@fortawesome/fontawesome-free/js/all';
 import "../stylesheets/application.scss";
+import "../stylesheets/theme.scss";
+import "../stylesheets/simplebar.scss";
+import "../stylesheets/tiny-slider.scss";
 
 require("jquery")
+require("simplebar")
+require("smooth-scroll")
+require("tiny-slider")
 
 Rails.start()
 ActiveStorage.start()
