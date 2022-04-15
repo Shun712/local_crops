@@ -15,7 +15,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if user.present?
       sign_in(:user, user)
       redirect_to root_path, success: 'ログインしました。'
-      redirect_to root_path
     else
       user = User.create(request.env['omniauth.auth'])
       sign_in(:user, user)
