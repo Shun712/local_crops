@@ -627,6 +627,25 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="faker (vbundled(2.20.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faker-2.20.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faker-2.20.0/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faker-2.20.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faker-2.20.0/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/faker-2.20.0/bin" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="faraday (vbundled(2.2.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1115,6 +1134,25 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="oauth (vbundled(0.5.8)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/oauth-0.5.8/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/oauth-0.5.8/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/oauth-0.5.8/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/oauth-0.5.8/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/oauth-0.5.8/bin" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="oauth2 (vbundled(1.4.9)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1172,6 +1210,25 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="omniauth-oauth (vbundled(1.2.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth-1.2.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth-1.2.0/spec" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth-1.2.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth-1.2.0/spec" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-oauth-1.2.0/spec" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="omniauth-oauth2 (vbundled(1.7.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1212,6 +1269,25 @@
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-rails_csrf_protection-0.1.2/test" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-rails_csrf_protection-0.1.2/.circleci" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="omniauth-twitter (vbundled(1.4.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-twitter-1.4.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-twitter-1.4.0/spec" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-twitter-1.4.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-twitter-1.4.0/spec" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/omniauth-twitter-1.4.0/spec" />
         </excluded>
       </library>
     </orderEntry>
@@ -2218,7 +2294,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.3.9, rbenv: 2.7.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.3.11, rbenv: 2.7.5) [gem]" level="application" />
   </component>
   <component name="RakeTasksCache">
     <option name="myRootTask">
