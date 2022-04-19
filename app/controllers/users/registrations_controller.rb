@@ -4,6 +4,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    # super
+    devise_create
+  end
+
+  def devise_create
     build_resource(sign_up_params)
 
     resource.save
