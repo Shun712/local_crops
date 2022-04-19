@@ -10,10 +10,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def basic_action(provider)
-    unless auth_params
-      flash[:danger] = "認証に失敗しました。他の方法をお試しください。"
-      redirect_to new_user_session_path && return
-    end
     provider = provider.to_s
     user = User.find_for_oauth!(auth_params)
     if user.present?
