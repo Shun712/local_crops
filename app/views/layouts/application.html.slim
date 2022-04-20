@@ -30,6 +30,22 @@ html
                     i.fa-solid.fa-house
                     |  ホーム
                 li.nav-item
+                  = link_to about_path, class: "nav-link" do
+                    i.fa-solid.fa-circle-question
+                    |  使い方
+                li.nav-item
+                  = link_to use_of_terms_path, class: "nav-link" do
+                    i.fa-solid.fa-list
+                    |  利用規約
+                li.nav-item
+                  = link_to feedbacks_path, class: "nav-link" do
+                    i.fa-solid.fa-comment
+                    |  フィードバック
+                li.nav-item
+                  = link_to privacy_policy_path, class: "nav-link" do
+                    i.fa-solid.fa-lock
+                    |  プライバシーポリシー
+                li.nav-item
                   = link_to destroy_user_session_path, class: "nav-link", method: :delete do
                     i.fa-solid.fa-arrow-right-from-bracket
                     |  ログアウト
