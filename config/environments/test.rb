@@ -41,6 +41,7 @@ Rails.application.configure do
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
+  # テスト環境ではメールを実際に送信しない
   config.action_mailer.delivery_method = :test
 
   # Print deprecation notices to the stderr.
@@ -57,4 +58,6 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+  # テスト環境のデフォルトオプション
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

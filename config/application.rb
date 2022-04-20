@@ -17,7 +17,13 @@ module LocalCrops
       g.skip_routes true
       g.assets false
       g.helper false
-      g.test_framework false
+      g.test_framework :rspec,
+        controller_specs: false,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        controller_specs: false,
+        request_specs: false
     end
 
     config.time_zone = 'Tokyo'

@@ -6,14 +6,14 @@ Rails.application.routes.draw do
                        omniauth_callbacks: 'users/omniauth_callbacks'
                      }
   devise_scope :user do
-    get 'login', to: 'devise/sessions#new', as: :new_user_session
-    post 'login', to: 'devise/sessions#create', as: :user_session
-    delete 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session
-    get 'signup', to: 'devise/registrations#new', as: :new_user_registration
-    post 'signup', to: 'devise/registrations#create', as: :user_registration
-    get 'password', to: 'devise/passwords#new', as: :new_user_password
-    post 'password', to: 'devise/passwords#create', as: :user_password
-    get 'password/edit', to: 'devise/passwords#edit', as: :edit_user_password
+    get 'login', to: 'users/sessions#new', as: :new_user_session
+    post 'login', to: 'users/sessions#create', as: :user_session
+    delete 'logout', to: 'users/sessions#destroy', as: :destroy_user_session
+    get 'signup', to: 'users/registrations#new', as: :new_user_registration
+    post 'signup', to: 'users/registrations#create', as: :user_registration
+    get 'password', to: 'users/passwords#new', as: :new_user_password
+    post 'password', to: 'users/passwords#create', as: :user_password
+    get 'password/edit', to: 'users/passwords#edit', as: :edit_user_password
   end
   root 'home#index'
 end

@@ -11,17 +11,20 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def basic_action(provider)
     provider = provider.to_s
-    user = User.find_for_oauth!(request.env['omniauth.auth'])
+    user = User.find_for_oauth!(auth_params)
     if user.present?
       sign_in(:user, user)
       redirect_to root_path, success: 'ログインしました。'
-      redirect_to root_path
     else
-      user = User.create(request.env['omniauth.auth'])
+      user = User.create(auth_params)
       sign_in(:user, user)
       #TODO リダイレクト先をプロフィール変更ページへ
       flash[:success] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
       redirect_to root_path
     end
+  end
+
+  def auth_params
+    request.env['omniauth.auth']
   end
 end
