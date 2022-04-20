@@ -38,11 +38,15 @@ RSpec.describe 'Users', type: :system do
     end
 
     context 'LINE認証ができる場合' do
-      it '新規登録できること' do
+      it '新規登録し、以降はログインできること' do
         Rails.application.env_config['omniauth.auth'] = line_mock
         expect(page).not_to have_content('ログアウト')
         find_link(href: '/users/auth/line').click
         expect(page).to have_content('Line アカウントによる認証に成功しました。')
+        visit root_path
+        click_on('ログアウト')
+        find_link(href: '/users/auth/line').click
+        expect(page).to have_content('ログインしました。')
       end
     end
 
@@ -56,11 +60,15 @@ RSpec.describe 'Users', type: :system do
     end
 
     context 'Twitter認証ができる場合' do
-      it '新規登録できること' do
+      it '新規登録でき、以降はログインできること' do
         Rails.application.env_config['omniauth.auth'] = twitter_mock
         expect(page).not_to have_content('ログアウト')
         find_link(href: '/users/auth/twitter').click
         expect(page).to have_content('Twitter アカウントによる認証に成功しました。')
+        visit root_path
+        click_on('ログアウト')
+        find_link(href: '/users/auth/twitter').click
+        expect(page).to have_content('ログインしました。')
       end
     end
 
