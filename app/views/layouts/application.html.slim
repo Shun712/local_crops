@@ -9,42 +9,42 @@ html
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body
-    - if user_signed_in?
-      header.navbar.navbar-light.shadow-sm
-        .container
-          /! Brand
-          = link_to 'LocalCrop', root_path, class: 'navbar-brand'
-          /! Toolbar
-          .navbar-toolbar.d-flex.align-items-center.order-lg-3
-            button.navbar-toggler data-bs-target="#navbarOffcanvas" data-bs-toggle="offcanvas" type="button"
-              span.navbar-toggler-icon
-          /! Offcanvas menu
-          #navbarOffcanvas.offcanvas.offcanvas-end.me-auto.order-lg-2
-            .offcanvas-header
-              h5.offcanvas-title メニュー
-              button.btn-close.text-reset aria-label="Close" data-bs-dismiss="offcanvas" type="button"
-            .offcanvas-body
-              ul.navbar-nav
-                li.nav-item
-                  = link_to root_path, class: "nav-link" do
-                    i.fa-solid.fa-house
-                    |  ホーム
-                li.nav-item
-                  = link_to about_path, class: "nav-link" do
-                    i.fa-solid.fa-circle-question
-                    |  使い方
-                li.nav-item
-                  = link_to use_of_terms_path, class: "nav-link" do
-                    i.fa-solid.fa-list
-                    |  利用規約
+    header.navbar.navbar-light.shadow-sm
+      .container
+        /! Brand
+        = link_to 'LocalCrop', root_path, class: 'navbar-brand'
+        /! Toolbar
+        .navbar-toolbar.d-flex.align-items-center.order-lg-3
+          button.navbar-toggler data-bs-target="#navbarOffcanvas" data-bs-toggle="offcanvas" type="button"
+            span.navbar-toggler-icon
+        /! Offcanvas menu
+        #navbarOffcanvas.offcanvas.offcanvas-end.me-auto.order-lg-2
+          .offcanvas-header
+            h5.offcanvas-title メニュー
+            button.btn-close.text-reset aria-label="Close" data-bs-dismiss="offcanvas" type="button"
+          .offcanvas-body
+            ul.navbar-nav
+              li.nav-item
+                = link_to root_path, class: "nav-link" do
+                  i.fa-solid.fa-house
+                  |  ホーム
+              li.nav-item
+                = link_to about_path, class: "nav-link" do
+                  i.fa-solid.fa-circle-question
+                  |  使い方
+              li.nav-item
+                = link_to use_of_terms_path, class: "nav-link" do
+                  i.fa-solid.fa-list
+                  |  利用規約
+              li.nav-item
+                = link_to privacy_policy_path, class: "nav-link" do
+                  i.fa-solid.fa-lock
+                  |  プライバシーポリシー
+              - if user_signed_in?
                 li.nav-item
                   = link_to feedbacks_path, class: "nav-link" do
                     i.fa-solid.fa-comment
                     |  フィードバック
-                li.nav-item
-                  = link_to privacy_policy_path, class: "nav-link" do
-                    i.fa-solid.fa-lock
-                    |  プライバシーポリシー
                 li.nav-item
                   = link_to destroy_user_session_path, class: "nav-link", method: :delete do
                     i.fa-solid.fa-arrow-right-from-bracket
