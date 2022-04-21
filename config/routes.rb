@@ -18,6 +18,5 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'about', to: 'static_pages#about'
   get 'use_of_terms', to: 'static_pages#terms'
-  get 'feedbacks', to: 'static_pages#feedbacks'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
 end

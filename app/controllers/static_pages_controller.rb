@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def about
   end
 
@@ -6,8 +8,5 @@ class StaticPagesController < ApplicationController
   end
 
   def privacy_policy
-  end
-
-  def feedbacks
   end
 end
