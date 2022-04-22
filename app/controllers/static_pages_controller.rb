@@ -7,6 +7,6 @@ class StaticPagesController < ApplicationController
   def terms
   end
 
-  def privacy_policy
+  def privacy
   end
 end
