@@ -18,7 +18,6 @@ module LocalCrops
       g.assets false
       g.helper false
       g.test_framework :rspec,
-        controller_specs: false,
         view_specs: false,
         helper_specs: false,
         routing_specs: false,
