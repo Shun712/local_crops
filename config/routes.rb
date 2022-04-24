@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   get 'about', to: 'static_pages#about'
   get 'terms', to: 'static_pages#terms'
   get 'privacy', to: 'static_pages#privacy'
+  resources :feedbacks, only: %i[new create]
 end
