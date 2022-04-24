@@ -1,0 +1,30 @@
+/! Contact form
+.container.py-4.py-lg-5.my-4
+  .row
+    .col-md-8.offset-md-2
+      .card.border-0.shadow
+        .card-body
+          h2.h4.mb-3 お問い合わせフォーム
+          p.fs-sm.text-muted ご意見、ご不明な点がございましたら下記のフォームからご連絡ください。
+          = form_with model: @feedback, class: 'needs-validation mb-3', local: true do |f|
+            .row.g-3
+              .col-sm-6
+                label.form-label
+                  | 名前:
+                  span.text-danger
+                    | *必須
+                = f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "山田 太郎", class: "form-control rounded-start", required: ""
+              .col-sm-6
+                label.form-label
+                  | メールアドレス:
+                  span.text-danger
+                    | *必須
+                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "taro_yamada@email.com", class: "form-control rounded-start", required: ""
+              .col-12
+                label.form-label
+                  | お問い合わせ内容:
+                  span.text-danger
+                    | *必須
+                = f.text_area :body, autofocus: true, autocomplete: "body", placeholder: "お問い合わせ内容を入力してください。", class: "form-control rounded-start", required: "", rows: 6
+            .text-end.pt-4
+              = f.submit '送信', class: 'btn btn-primary mt-4'
