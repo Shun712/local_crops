@@ -68,3 +68,16 @@
   display: inline-block;
   color: red;
 }
+
+// ナビゲーションバー
+.navbar-sticky.navbar-stuck {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-animation: navbar-show .25s;
+  animation: navbar-show .25s;
+  box-shadow: 0 0.25rem 0.5625rem -0.0625rem rgb(0 0 0 / 3%), 0 0.275rem 1.25rem -0.0625rem rgb(0 0 0 / 5%);
+  z-index: 1030;
+  background-color: snow;
+}
