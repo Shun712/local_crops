@@ -6,7 +6,7 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = current_user.feedbacks.build(feedback_params)
     if @feedback.save
-      redirect_to feedback_path, success: 'フィードバックを送信しました。'
+      redirect_to new_feedback_path, success: 'フィードバックを送信しました。'
     else
       flash.now[:danger] = '送信に失敗しました。'
       render :new
@@ -16,6 +16,6 @@ class FeedbacksController < ApplicationController
   private
 
   def feedback_params
-    params.require(:feedback).permit(:body)
+    params.require(:feedback).permit(:body).merge(user_id: params[:user_id])
   end
 end
