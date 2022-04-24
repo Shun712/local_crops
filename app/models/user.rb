@@ -34,6 +34,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: %i[line twitter]
   has_many :social_profiles, dependent: :destroy
+  has_many :feedbacks
 
   def self.find_for_oauth!(auth)
     user = User.joins(:social_profiles)
