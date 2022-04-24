@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   end
   root 'home#index'
   get 'about', to: 'static_pages#about'
-  get 'use_of_terms', to: 'static_pages#terms'
+  get 'terms', to: 'static_pages#terms'
   get 'privacy', to: 'static_pages#privacy'
 end

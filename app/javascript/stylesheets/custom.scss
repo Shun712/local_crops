@@ -1,3 +1,4 @@
+// ログインフォーム
 .card-hr:before {
   content: "";
   background-color: #999faf;
@@ -13,4 +14,57 @@
   font-size: 14px;
   background-color: #fff;
   color: #575f74;
+}
+
+// 利用規約
+.Inner {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+.Inner-Headline {
+  text-align: center;
+}
+.Inner-Text {
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+  font-size: 15px;
+}
+.Inner-Text.first {
+  margin-top: 36px;
+}
+.Inner-Box {
+  margin-top: 16px;
+}
+.Inner-Box-Headline {
+  font-weight: bold;
+  font-size: 28px;
+}
+@media screen and (max-width: 480px) {
+  .Inner-Box-Headline {
+    font-size: 20px;
+  }
+}
+.Inner-Box-List {
+  margin: 20px 0 0 40px;
+}
+.Inner-Box-List-Item {
+  margin-top: 10px;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+  list-style-type: decimal;
+}
+.Inner-Box-List-Item-Ol {
+  margin: 20px 0 0 40px;
+}
+.Inner-Box-List-Item-Ol-Item {
+  margin-top: 10px;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+  list-style-type: decimal;
+}
+.Inner-Box-List-Item-Link {
+  text-decoration: underline;
+  display: inline-block;
+  color: red;
 }
