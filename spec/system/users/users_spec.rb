@@ -34,7 +34,7 @@ RSpec.describe 'Users', type: :system do
     before do
       OmniAuth.config.mock_auth[:line] = nil
       OmniAuth.config.mock_auth[:twitter] = nil
-      visit new_user_session_path
+      visit new_user_registration_path
     end
 
     context 'LINE認証ができる場合' do

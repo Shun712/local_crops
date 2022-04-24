@@ -1,0 +1,16 @@
+.card-hr:before {
+  content: "";
+  background-color: #999faf;
+  position: absolute;
+}
+
+.card-hr:after {
+  content: "Or";
+  position: absolute;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0);
+  padding: 0 16px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #575f74;
+}

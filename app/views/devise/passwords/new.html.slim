@@ -13,5 +13,5 @@
               = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control rounded-start", required: ""
             .text-end.pt-4
               = f.submit t('.send_me_reset_password_instructions'), class: "btn btn-primary", type: "submit"
-            hr.mt-4
+            hr.mt-4.mb-3
             = render "devise/shared/links"
