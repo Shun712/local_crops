@@ -9,6 +9,7 @@ import "channels"
 import "bootstrap";
 import '@fortawesome/fontawesome-free/js/all';
 import "../stylesheets/application.scss";
+import "../stylesheets/custom.scss";
 import "../stylesheets/theme.scss";
 import "../stylesheets/simplebar.scss";
 import "../stylesheets/tiny-slider.scss";
@@ -17,6 +18,7 @@ require("jquery")
 require("simplebar")
 require("smooth-scroll")
 require("tiny-slider")
+require("prismjs")
 
 Rails.start()
 ActiveStorage.start()

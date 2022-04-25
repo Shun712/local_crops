@@ -33,7 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for
-    #TODO リダイレクト先をプロフィール変更ページへ
+    # TODO: リダイレクト先をプロフィール変更ページへ
     root_path
   end
 
@@ -41,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     scope = Devise::Mapping.find_scope!(resource)
     router_name = Devise.mappings[scope].router_name
     context = router_name ? send(router_name) : self
-    context.respond_to?(:new_user_registration_path) ? context.new_user_registration_path : "/signup"
+    context.respond_to?(:new_user_registration_path) ? context.new_user_registration_path : '/signup'
   end
 
   def after_logout_path_for

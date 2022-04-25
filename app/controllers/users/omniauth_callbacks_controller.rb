@@ -18,7 +18,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       user = User.create(auth_params)
       sign_in(:user, user)
-      #TODO リダイレクト先をプロフィール変更ページへ
+      # TODO: リダイレクト先をプロフィール変更ページへ
       flash[:success] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
       redirect_to root_path
     end

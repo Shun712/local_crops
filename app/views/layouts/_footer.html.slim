@@ -1,0 +1,20 @@
+/! Dark footer
+footer.bg-secondary.pt-5
+  .container
+    .row.pb-2
+      .col-md-4.col-sm-6
+
+      .col-md-4.col-sm-6
+        .widget.widget-links.pb-2.mb-4
+          ul.widget-list
+            li.widget-list-item
+              = link_to '使い方', about_path, class: 'widget-list-link'
+            li.widget-list-item
+              = link_to '利用規約', terms_path, class: 'widget-list-link'
+            li.widget-list-item
+              = link_to 'プライバシーポリシー', privacy_path, class: 'widget-list-link'
+            - if user_signed_in?
+              li.widget-list-item
+                = link_to 'お問い合わせ', new_feedback_path, class: 'widget-list-link'
+    .pb-4.fs-xs.text-muted.text-center.text-md-center
+      | © LocalCrop. All rights reserved.

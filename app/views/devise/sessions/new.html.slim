@@ -8,13 +8,9 @@
           .py-3
             h3.d-inline-block.align-middle.fs-base.fw-medium.mb-2.me-2
               | SNSアカウントでログイン
-            .d-inline-block.align-middle
-              - resource_class.omniauth_providers.each do |provider|
-                = link_to omniauth_authorize_path(resource_name, provider), method: :post, class: "btn-social bs-#{provider} me-2 mb-2" do
-                  i.fa-brands.fa-2x class="fa-#{provider}" title="Sign in with #{provider}"
-          hr
-          h3.fs-base.pt-4.pb-2
-            | メールアドレスとパスワードでログイン
+            = render 'devise/shared/sns_authorization'
+          hr.card-hr
+          .fs-base.pt-4.pb-2
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
             = render 'devise/shared/error_messages', object: resource
             .input-group.mb-3
@@ -34,5 +30,5 @@
                 = f.label :remember_me, class: "form-check-label", for: "remember_me"
             .text-end.pt-4
               = f.submit t('.sign_in'), class: "btn btn-primary", type: "submit"
-            hr.mt-4
+            hr.mt-4.mb-3
             = render "devise/shared/links"

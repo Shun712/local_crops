@@ -34,11 +34,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: %i[line twitter]
   has_many :social_profiles, dependent: :destroy
+  has_many :feedbacks
 
   def self.find_for_oauth!(auth)
-    user = User.joins(:social_profiles)
-               .find_by(social_profiles: { uid: auth['uid'], provider: auth['provider'] })
-    user
+    User.joins(:social_profiles)
+        .find_by(social_profiles: { uid: auth['uid'], provider: auth['provider'] })
   end
 
   def self.create(auth)
@@ -51,7 +51,8 @@ class User < ApplicationRecord
     user.save!
     user.social_profiles.create!(
       provider: auth['provider'],
-      uid: auth['uid'])
+      uid: auth['uid']
+    )
     user
   end
 
