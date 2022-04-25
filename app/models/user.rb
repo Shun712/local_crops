@@ -37,9 +37,8 @@ class User < ApplicationRecord
   has_many :feedbacks
 
   def self.find_for_oauth!(auth)
-    user = User.joins(:social_profiles)
-               .find_by(social_profiles: { uid: auth['uid'], provider: auth['provider'] })
-    user
+    User.joins(:social_profiles)
+        .find_by(social_profiles: { uid: auth['uid'], provider: auth['provider'] })
   end
 
   def self.create(auth)
@@ -52,7 +51,8 @@ class User < ApplicationRecord
     user.save!
     user.social_profiles.create!(
       provider: auth['provider'],
-      uid: auth['uid'])
+      uid: auth['uid']
+    )
     user
   end
 

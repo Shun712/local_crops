@@ -18,11 +18,11 @@ module LocalCrops
       g.assets false
       g.helper false
       g.test_framework :rspec,
-        view_specs: false,
-        helper_specs: false,
-        routing_specs: false,
-        controller_specs: false,
-        request_specs: false
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: false,
+                       request_specs: false
     end
 
     config.time_zone = 'Tokyo'
@@ -31,6 +31,6 @@ module LocalCrops
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
-    config.action_view.field_error_proc = proc { |html_tag, instance| html_tag }
+    config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
   end
 end
