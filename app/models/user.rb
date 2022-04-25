@@ -41,7 +41,7 @@ class User < ApplicationRecord
         .find_by(social_profiles: { uid: auth['uid'], provider: auth['provider'] })
   end
 
-  def self.create(auth)
+  def self.sign_up(auth)
     user = User.new(
       username: auth['info']['name'],
       email: auth['info']['email'] || Faker::Internet.email,
