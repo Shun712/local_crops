@@ -18,7 +18,7 @@
 #
 FactoryBot.define do
   factory :feedback do
-    user { nil }
-    body { "MyText" }
+    association :user
+    body { "作物登録方法を教えてください。" }
   end
 end

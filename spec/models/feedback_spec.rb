@@ -19,5 +19,24 @@
 require 'rails_helper'
 
 RSpec.describe Feedback, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:feedback) { create(:feedback) }
+
+  context "バリデーション" do
+    it "お問い合わせ内容があれば有効な状態であること" do
+      expect(feedback).to be_valid
+    end
+
+    it "お問い合わせ内容がなければ無効な状態であること" do
+      feedback = build(:feedback, body: nil)
+      feedback.valid?
+      expect(feedback.errors[:body]).to include('を入力してください')
+    end
+
+    it "お問い合わせ内容は1000文字以内であること" do
+      body = "a" * 1001
+      feedback = build(:feedback, body: body)
+      feedback.valid?
+      expect(feedback.errors[:body]).to include("は1000文字以内で入力してください")
+    end
+  end
 end
