@@ -20,6 +20,7 @@ require 'rails_helper'
 
 RSpec.describe Feedback, type: :model do
   let(:feedback) { create(:feedback) }
+  let(:user) { create(:user) }
 
   context "バリデーション" do
     it "お問い合わせ内容があれば有効な状態であること" do
