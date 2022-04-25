@@ -64,6 +64,7 @@ group :development do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring-commands-rspec'
+  gem 'letter_opener_web'
 end
 
 group :test do
