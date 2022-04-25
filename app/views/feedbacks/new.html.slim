@@ -8,18 +8,6 @@
           p.fs-sm.text-muted ご意見、ご不明な点がございましたら下記のフォームからご連絡ください。
           = form_with model: @feedback, class: 'needs-validation mb-3', local: true do |f|
             .row.g-3
-              .col-sm-6
-                label.form-label
-                  | 名前:
-                  span.text-danger
-                    | *必須
-                = f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "山田 太郎", class: "form-control rounded-start", required: ""
-              .col-sm-6
-                label.form-label
-                  | メールアドレス:
-                  span.text-danger
-                    | *必須
-                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "taro_yamada@email.com", class: "form-control rounded-start", required: ""
               .col-12
                 label.form-label
                   | お問い合わせ内容:

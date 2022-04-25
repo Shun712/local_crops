@@ -6,7 +6,9 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = current_user.feedbacks.build(feedback_params)
     if @feedback.save
-      redirect_to new_feedback_path, success: 'フィードバックを送信しました。'
+      UserMailer.with(user_from: current_user,
+                      feedback: @feedback).feedback.deliver_later
+      redirect_to new_feedback_path, success: 'お問い合わせ内容を送信しました。'
     else
       flash.now[:danger] = '送信に失敗しました。'
       render :new
