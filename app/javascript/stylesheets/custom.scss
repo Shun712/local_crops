@@ -81,3 +81,15 @@
   z-index: 1030;
   background-color: snow;
 }
+
+// 作物一覧
+.crop-index {
+  margin-bottom: 0.5rem;
+}
+
+// 作物詳細画像
+.crop-detail {
+  object-fit: cover;
+  width: 600px;
+  height: 300px;
+}

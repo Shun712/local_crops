@@ -1,0 +1,21 @@
+.col-lg-4.col-sm-6.mb-grid-gutter
+  .card.border-0.shadow
+    = image_tag '400x200-crop-dummy.png', size: '400x200'
+    .card-body.text-center
+      = link_to crop.name, crop_path(crop)
+      p.fs-sm.text-muted.pb-2.crop-index
+        = crop.description
+      .fs-xs.text-nowrap.text-start
+        a.blog-entry-meta-link.text-nowrap
+          | 収穫日
+        span.blog-entry-meta-divider.mx-2
+        a.blog-entry-meta-link.text-nowrap
+          = crop.harvested_on
+      .fs-xs.text-nowrap.text-start
+        a.blog-entry-meta-link.text-nowrap
+          | 生産者
+        span.blog-entry-meta-divider.mx-2
+        a.blog-entry-meta-link.text-nowrap
+          = link_to crop.user.username
+      / TODO 予約リンクへ変更する
+      = link_to '予約する', root_path, class: 'btn btn-outline-primary btn-sm my-2'

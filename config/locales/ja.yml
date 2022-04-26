@@ -28,7 +28,7 @@ ja:
       feedback:
         body: お問い合わせ内容
       crop:
-        name: 名前
+        name: 作物名
         picture: 画像
         description: 説明
         harvested_on: 収穫日

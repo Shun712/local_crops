@@ -20,4 +20,7 @@
 #
 class Crop < ApplicationRecord
   belongs_to :user
+  validates :name, presence: true, length: { maximum: 255 }
+  validates :description, length: { maximum: 1000 }
+  validates :harvested_on, presence: true
 end
