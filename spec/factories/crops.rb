@@ -2,13 +2,13 @@
 #
 # Table name: crops
 #
-#  id          :bigint           not null, primary key
-#  description :text(65535)
-#  havested_on :date
-#  name        :string(255)      not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :bigint           not null
+#  id           :bigint           not null, primary key
+#  description  :text(65535)
+#  harvested_on :date
+#  name         :string(255)      not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  user_id      :bigint           not null
 #
 # Indexes
 #

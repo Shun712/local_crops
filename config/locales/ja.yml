@@ -27,9 +27,15 @@ ja:
         updated_at: 更新日
       feedback:
         body: お問い合わせ内容
+      crop:
+        name: 名前
+        picture: 画像
+        description: 説明
+        harvested_on: 収穫日
     models:
       user: ユーザー
       feedback: お問い合わせ
+      crop: 作物
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2022_04_25_140625) do
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.text "description"
-    t.date "havested_on"
+    t.date "harvested_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_crops_on_user_id"
