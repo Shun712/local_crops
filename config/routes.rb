@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     post 'password', to: 'users/passwords#create', as: :user_password
     get 'password/edit', to: 'users/passwords#edit', as: :edit_user_password
   end
-  root 'home#index'
+  root 'crops#index'
   get 'about', to: 'static_pages#about'
   get 'terms', to: 'static_pages#terms'
   get 'privacy', to: 'static_pages#privacy'
