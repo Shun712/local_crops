@@ -4,19 +4,16 @@
 #
 #  id         :bigint           not null, primary key
 #  body       :text(65535)      not null
+#  email      :string(255)      not null
+#  name       :string(255)      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :bigint           not null
-#
-# Indexes
-#
-#  index_feedbacks_on_user_id  (user_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (user_id => users.id)
 #
 class Feedback < ApplicationRecord
-  belongs_to :user
+  validates :name, presence: true, length: { maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  validates :email, presence: true, length: { maximum: 255 },
+            format: { with: VALID_EMAIL_REGEX }
+  before_save { self.email = email.downcase }
   validates :body, presence: true, length: { maximum: 1000 }
 end

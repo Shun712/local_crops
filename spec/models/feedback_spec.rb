@@ -4,27 +4,42 @@
 #
 #  id         :bigint           not null, primary key
 #  body       :text(65535)      not null
+#  email      :string(255)      not null
+#  name       :string(255)      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :bigint           not null
-#
-# Indexes
-#
-#  index_feedbacks_on_user_id  (user_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (user_id => users.id)
 #
 require 'rails_helper'
 
 RSpec.describe Feedback, type: :model do
   let(:feedback) { create(:feedback) }
-  let(:user) { create(:user) }
 
   context "バリデーション" do
     it "お問い合わせ内容があれば有効な状態であること" do
       expect(feedback).to be_valid
+    end
+
+    it "名前がなければ無効な状態であること" do
+      feedback = build(:feedback, name: nil)
+      feedback.valid?
+      expect(feedback.errors[:name]).to include('を入力してください')
+    end
+
+    it "メールアドレスがなければ無効な状態であること" do
+      feedback = build(:feedback, email: nil)
+      feedback.valid?
+      expect(feedback.errors[:email]).to include('を入力してください')
+    end
+
+    it "メールアドレスは小文字で保存されること" do
+      email = "ExamPle@example.com"
+      feedback = create(:feedback, email: email)
+      expect(feedback.email).to eq email.downcase
+    end
+
+    it "重複したメールアドレスでも有効な状態であること" do
+      other_feedback = build(:feedback, email: feedback.email)
+      expect(other_feedback).to be_valid
     end
 
     it "お問い合わせ内容がなければ無効な状態であること" do

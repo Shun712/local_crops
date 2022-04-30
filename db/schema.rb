@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 2022_04_25_140625) do
   end
 
   create_table "feedbacks", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.string "email", null: false
     t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
   create_table "social_profiles", charset: "utf8mb4", force: :cascade do |t|
@@ -59,6 +59,5 @@ ActiveRecord::Schema.define(version: 2022_04_25_140625) do
   end
 
   add_foreign_key "crops", "users"
-  add_foreign_key "feedbacks", "users"
   add_foreign_key "social_profiles", "users"
 end

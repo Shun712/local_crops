@@ -26,6 +26,8 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
       feedback:
+        name: お名前
+        email: メールアドレス
         body: お問い合わせ内容
       crop:
         name: 作物名
