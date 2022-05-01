@@ -3,8 +3,8 @@
 # Table name: social_profiles
 #
 #  id         :bigint           not null, primary key
-#  provider   :string(255)
-#  uid        :string(255)
+#  provider   :string(255)      not null
+#  uid        :string(255)      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :bigint           not null
@@ -20,5 +20,8 @@
 #
 class SocialProfile < ApplicationRecord
   belongs_to :user
+  validates :user_id, presence: true
+  validates :provider, presence: true
+  validates :uid, presence: true
   validates :uid, uniqueness: { scope: :provider }
 end
