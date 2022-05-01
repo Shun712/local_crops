@@ -60,10 +60,4 @@ class User < ApplicationRecord
   def own?(object)
     id == object.user_id
   end
-
-  private
-
-  def downcase_email
-    self.email = email.downcase
-  end
 end
