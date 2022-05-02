@@ -3,7 +3,7 @@
   .row.pt-4
     .col-md-6.offset-md-3
       .card.border-0.shadow
-        = image_tag '400x200-crop-dummy.png', class: 'crop-detail'
+        = image_tag @crop.picture, class: 'crop-show'
         .card-body.text-center
           = link_to @crop.name, crop_path(@crop)
           p.fs-sm.text-muted.pb-2.crop-index

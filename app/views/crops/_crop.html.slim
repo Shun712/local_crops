@@ -1,6 +1,6 @@
 .col-lg-4.col-sm-6.mb-grid-gutter
   .card.border-0.shadow
-    = image_tag '400x200-crop-dummy.png', size: '400x200'
+    = image_tag crop.picture, class: 'crop-detail'
     .card-body.text-center
       = link_to crop.name, crop_path(crop)
       p.fs-sm.text-muted.pb-2.crop-index
