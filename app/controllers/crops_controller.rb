@@ -38,6 +38,6 @@ class CropsController < ApplicationController
   private
 
   def crop_params
-    params.require(:crop).permit(:name, :description, :harvested_on)
+    params.require(:crop).permit(:name, :description, :harvested_on, :picture)
   end
 end
