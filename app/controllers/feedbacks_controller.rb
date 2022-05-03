@@ -12,8 +12,8 @@ class FeedbacksController < ApplicationController
                       feedback: @feedback).feedback.deliver_later
       redirect_to new_feedback_path, success: 'お問い合わせ内容を送信しました。'
     else
-      flash[:danger] = '送信に失敗しました。'
-      redirect_to new_feedback_path
+      flash.now[:danger] = '送信に失敗しました。'
+      render :new
     end
   end
 
