@@ -1,6 +1,6 @@
 class CropsController < ApplicationController
   def index
-    @crops = Crop.all.includes(:user)
+    @crops = Crop.all.includes(:user).order(harvested_on: :desc)
   end
 
   def new
