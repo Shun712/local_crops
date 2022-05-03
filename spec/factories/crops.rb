@@ -20,9 +20,25 @@
 #
 FactoryBot.define do
   factory :crop do
-    user { nil }
-    name { "MyString" }
-    description { "MyText" }
-    havested_on { "2022-04-25" }
+    name { Faker::Food.vegetables }
+    description { Faker::Hacker.say_something_smart }
+    harvested_on { Date.today }
+    association :user, factory: :user, strategy: :create
+
+    after(:build) do |crop|
+      crop.picture.attach(io: File.open('spec/fixture/files/test.png'), filename: 'test.png')
+    end
+  end
+
+  trait :yesterday do
+    harvested_on { 1.day.ago }
+  end
+
+  trait :two_days_ago do
+    harvested_on { 2.day.ago }
+  end
+
+  trait :three_days_ago do
+    harvested_on { 3.day.ago }
   end
 end

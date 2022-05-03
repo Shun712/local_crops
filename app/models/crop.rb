@@ -25,12 +25,13 @@ class Crop < ApplicationRecord
   validates :harvested_on, presence: true
   has_one_attached :picture
   validate :picture_presence
-  validates :picture, content_type: { in: %w(image/jpeg image/gif image/png), message: 'は有効なファイルを選択してください' },
+  validates :picture,
+            content_type: { in: %w(image/jpeg image/gif image/png), message: 'は有効なファイルを選択してください' },
             size: { less_than: 5.megabytes, message: 'は5MB以下を選択してください' }
 
   private
 
   def picture_presence
-    errors.add(:picture, 'ファイルを添付してください。') unless picture.attached?
+    errors.add(:picture, 'ファイルを添付してください') unless picture.attached?
   end
 end
