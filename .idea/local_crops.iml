@@ -109,6 +109,22 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="active_storage_validations (vbundled(0.9.8)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/active_storage_validations-0.9.8/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/active_storage_validations-0.9.8/config" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/active_storage_validations-0.9.8/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/active_storage_validations-0.9.8/config" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="activejob (vbundled(6.1.5)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

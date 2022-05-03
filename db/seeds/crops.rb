@@ -1,8 +1,10 @@
 puts 'Start inserting seed "crops" ...'
-User.limit(10).each do |user|
-  crop = user.crops.create({ name: Faker::Food.vegetables,
-                             description: Faker::Hacker.say_something_smart,
-                             harvested_on: Faker::Date.between(from: 2.days.ago, to: Date.today),
-                             picture: [open("#{Rails.root}/db/fixtures/dummy.png")] })
+User.limit(3).each do |user|
+  crop = user.crops.new(name: Faker::Food.vegetables,
+                           description: Faker::Hacker.say_something_smart,
+                           harvested_on: Faker::Date.between(from: 2.days.ago, to: Date.today),
+  )
+  crop.picture.attach(io: File.open(Rails.root.join('app/assets/images/400x200-crop-dummy.png')), filename: 'test.jpg')
+  crop.save!
   puts "crop#{crop.id} has created!"
 end
