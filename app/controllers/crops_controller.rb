@@ -35,6 +35,12 @@ class CropsController < ApplicationController
     end
   end
 
+  def destroy
+    @crop = current_user.crops.find(params[:id])
+    @crop.destroy!
+    redirect_to crops_path, success: '作物を削除しました'
+  end
+
   private
 
   def crop_params
