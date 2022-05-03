@@ -1,6 +1,6 @@
 class CropsController < ApplicationController
   def index
-    @crops = Crop.all
+    @crops = Crop.all.includes(:user)
   end
 
   def new
