@@ -58,6 +58,15 @@ RSpec.describe 'Crops', type: :system do
           expect(page).to have_css '.reserve-button'
         end
       end
+
+      it 'ページネーションボタンが表示されること' do
+        create_list(:crop, 30)
+        # create_listした後はページ更新しなければ作成されない
+        visit crops_path
+        expect(page).to have_css('.page-link')
+        expect{ find_link('2', rel="next").click }
+        expect{ find_link('1', rel="prev").click }
+      end
     end
   end
 
