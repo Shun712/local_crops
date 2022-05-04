@@ -1,0 +1,9 @@
+.container.py-4.py-lg-5.my-4
+  h2.h3.text-center 作物一覧
+  .row.pt-4
+    - if @crops.present?
+      = render @crops
+    - else
+      .text-center.font-weight-bold
+        | 投稿がありません
+    = paginate @crops, theme: 'bootstrap-5', class: 'justify-content-center'

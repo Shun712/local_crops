@@ -12,11 +12,12 @@ html
     header.navbar.navbar-light.shadow-sm.navbar-sticky.navbar-stuck
       .container
         /! Brand
-        = link_to 'LocalCrop', root_path, class: 'navbar-brand'
+        = link_to 'LocalCrops', root_path, class: 'navbar-brand'
         - if user_signed_in?
           = render 'shared/header'
         - else
           = render 'shared/before_login_header'
     = render 'shared/flash_messages'
-    = yield
+    main
+      = yield
     = render 'layouts/footer'

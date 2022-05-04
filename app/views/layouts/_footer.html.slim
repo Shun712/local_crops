@@ -13,8 +13,7 @@ footer.bg-secondary.pt-5
               = link_to '利用規約', terms_path, class: 'widget-list-link'
             li.widget-list-item
               = link_to 'プライバシーポリシー', privacy_path, class: 'widget-list-link'
-            - if user_signed_in?
-              li.widget-list-item
-                = link_to 'お問い合わせ', new_feedback_path, class: 'widget-list-link'
+            li.widget-list-item
+              = link_to 'お問い合わせ', new_feedback_path, class: 'widget-list-link'
     .pb-4.fs-xs.text-muted.text-center.text-md-center
       | © LocalCrop. All rights reserved.

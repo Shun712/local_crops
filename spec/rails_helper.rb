@@ -72,4 +72,5 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
   # サポートモジュールの読み込み（テストで使う仮のユーザーデータ）
   config.include OmniauthMocks
+  config.include SelectDateHelpers
 end

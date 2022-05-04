@@ -26,10 +26,25 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
       feedback:
+        name: お名前
+        email: メールアドレス
         body: お問い合わせ内容
+      crop:
+        name: 作物名
+        picture: 画像
+        description: 説明
+        harvested_on: 収穫日
     models:
       user: ユーザー
       feedback: お問い合わせ
+      crop: 作物
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
+      truncate: "..."
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

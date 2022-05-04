@@ -1,0 +1,25 @@
+.col-lg-4.col-sm-6.mb-grid-gutter
+  .card.border-0.shadow id="crop-#{crop.id}"
+    = image_tag crop.picture, class: 'crop-detail'
+    .card-body.text-center
+      = link_to crop.name, crop_path(crop)
+      p.fs-sm.text-muted.pb-2.crop-index
+        = crop.description
+      .fs-xs.text-nowrap.text-start
+        a.blog-entry-meta-link.text-nowrap
+          | 収穫日
+        span.blog-entry-meta-divider.mx-2
+        a.blog-entry-meta-link.text-nowrap
+          = crop.harvested_on
+      .fs-xs.text-nowrap.text-start
+        a.blog-entry-meta-link.text-nowrap
+          | 生産者
+        span.blog-entry-meta-divider.mx-2
+        a.blog-entry-meta-link.text-nowrap
+          = link_to crop.user.username
+      - if current_user&.own?(crop)
+        = link_to '編集', edit_crop_path(crop), class: 'btn btn-outline-warning btn-sm my-2 me-2 edit-button'
+        = link_to '削除', crop_path(crop), class: 'btn btn-outline-info btn-sm my-2 delete-button', method: :delete, data: { confirm: '本当に削除しますか?' }
+      - else
+        / TODO 予約リンクへ変更する
+        = link_to '予約する', root_path, class: 'btn btn-outline-primary btn-sm my-2 reserve-button'

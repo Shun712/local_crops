@@ -34,14 +34,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: %i[line twitter]
   has_many :social_profiles, dependent: :destroy
-  has_many :feedbacks
+  has_many :feedbacks, dependent: :destroy
+  has_many :crops, dependent: :destroy
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)
         .find_by(social_profiles: { uid: auth['uid'], provider: auth['provider'] })
   end
 
-  def self.create(auth)
+  def self.sign_up(auth)
     user = User.new(
       username: auth['info']['name'],
       email: auth['info']['email'] || Faker::Internet.email,
@@ -56,9 +57,7 @@ class User < ApplicationRecord
     user
   end
 
-  private
-
-  def downcase_email
-    self.email = email.downcase
+  def own?(object)
+    id == object.user_id
   end
 end
