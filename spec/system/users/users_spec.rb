@@ -3,9 +3,12 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :system do
 
   describe 'ユーザー登録' do
+    before do
+      visit new_user_registration_path
+    end
+
     context '入力情報が正しい場合' do
       it '新規登録できること' do
-        visit new_user_registration_path
         fill_in 'ユーザー名', with: 'テストユーザー'
         fill_in 'メールアドレス', with: 'test@example.com'
         fill_in 'パスワード(6文字以上)', with: 'password'
@@ -19,7 +22,6 @@ RSpec.describe 'Users', type: :system do
 
     context '入力情報に間違いがある場合' do
       it '新規登録できないこと' do
-        visit new_user_registration_path
         fill_in 'ユーザー名', with: ' '
         fill_in 'メールアドレス', with: 'test@example.com'
         fill_in 'パスワード(6文字以上)', with: 'password'

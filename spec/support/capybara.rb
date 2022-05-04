@@ -1,5 +1,5 @@
 # システムスペック用の設定
-Capybara.javascript_driver = :chrome_headless
+require 'capybara/rspec'
 
 RSpec.configure do |config|
   config.before(:each, type: :system) do
@@ -7,6 +7,6 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :system, js: true) do
-    driven_by :chrome_headless
+    driven_by :selenium_chrome_headless
   end
 end
