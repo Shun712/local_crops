@@ -250,25 +250,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="archive-zip (vbundled(0.12.0)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/archive-zip-0.12.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/archive-zip-0.12.0/spec" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/archive-zip-0.12.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/archive-zip-0.12.0/spec" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/archive-zip-0.12.0/spec" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="ast (vbundled(2.4.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -558,31 +539,6 @@
         </SOURCES>
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/childprocess-4.1.0/spec" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="chromedriver-helper (vbundled(2.1.1)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/chromedriver-helper-2.1.1/bin" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/chromedriver-helper-2.1.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/chromedriver-helper-2.1.1/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/chromedriver-helper-2.1.1/concourse" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/chromedriver-helper-2.1.1/bin" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/chromedriver-helper-2.1.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/chromedriver-helper-2.1.1/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/chromedriver-helper-2.1.1/concourse" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/chromedriver-helper-2.1.1/bin" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/chromedriver-helper-2.1.1/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/chromedriver-helper-2.1.1/concourse" />
         </excluded>
       </library>
     </orderEntry>
@@ -990,25 +946,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="io-like (vbundled(0.3.1)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/io-like-0.3.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/io-like-0.3.1/spec" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/io-like-0.3.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/io-like-0.3.1/spec" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/io-like-0.3.1/spec" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="jbuilder (vbundled(2.11.5)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1083,6 +1020,77 @@
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jwt-2.3.0/.github" />
         </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kaminari (vbundled(1.2.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-1.2.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-1.2.2/misc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-1.2.2/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-1.2.2/gemfiles" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-1.2.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-1.2.2/misc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-1.2.2/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-1.2.2/gemfiles" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-1.2.2/misc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-1.2.2/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-1.2.2/gemfiles" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kaminari-actionview (vbundled(1.2.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-actionview-1.2.2/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-actionview-1.2.2/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kaminari-activerecord (vbundled(1.2.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-activerecord-1.2.2/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-activerecord-1.2.2/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kaminari-core (vbundled(1.2.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-core-1.2.2/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-core-1.2.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-core-1.2.2/config" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-core-1.2.2/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-core-1.2.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/kaminari-core-1.2.2/config" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
