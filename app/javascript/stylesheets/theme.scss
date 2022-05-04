@@ -5109,12 +5109,10 @@ textarea.form-control-lg {
 }
 
 .page-item:first-child .page-link {
-  border-top-left-radius: 0.3125rem;
-  border-bottom-left-radius: 0.3125rem;
+  border-radius: 50%;
 }
 .page-item:last-child .page-link {
-  border-top-right-radius: 0.3125rem;
-  border-bottom-right-radius: 0.3125rem;
+  border-radius: 50%;
 }
 
 .pagination-lg .page-link {
@@ -17635,8 +17633,7 @@ a.nav-link:hover .media-tab-media {
 }
 
 .pagination .page-link {
-  border-radius: 0.3125rem;
-  font-size: 0.9375rem;
+  border-radius: 50%;
 }
 
 .pagination-sm .page-link {
