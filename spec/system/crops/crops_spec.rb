@@ -61,7 +61,7 @@ RSpec.describe 'Crops', type: :system do
 
       it 'ページネーションボタンが表示されること' do
         create_list(:crop, 30)
-        # create_listした後はページ更新しなければ作成されない
+        # create_listした後はページ更新しなければ表示されない
         visit crops_path
         expect(page).to have_css('.page-link')
         expect{ find_link('2', rel="next").click }
