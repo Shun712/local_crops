@@ -19,6 +19,7 @@ require("simplebar")
 require("smooth-scroll")
 require("tiny-slider")
 require("prismjs")
+require('./theme')
 
 Rails.start()
 ActiveStorage.start()
