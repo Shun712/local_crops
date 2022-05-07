@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   resources :feedbacks, only: %i[new create]
   resources :crops
   resources :users, only: %i[show]
+  namespace :mypage do
+    resources :account, only: %i[edit update]
+  end
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
