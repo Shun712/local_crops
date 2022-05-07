@@ -1,2 +1,35 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+.page-title-overlap.bg-accent.pt-4
+  .container.d-flex.flex-wrap.flex-sm-nowrap.justify-content-center.justify-content-sm-between.align-items-center.mb-2.pt-2
+    .d-flex.align-items-center
+      .img-thumbnail.rounded-circle.position-relative.flex-shrink-0
+        / TODO アバター画像を設定
+        = image_tag 'profile-placeholder.png', class: 'rounded-circle mr-1'
+      .ps-3
+        h3.h5.mb-2.text-light
+          = @user.username
+    .my-sm-0.my-3.text-sm-end.pt-1.ms-4
+      .d-flex.align-items-center.text-nowrap.fs-sm
+        / TODO フォロー数を設定
+        .mb-2.me-sm-3.me-2.text-muted
+          span.fw-medium.text-light 766
+          span.text-white.opacity-70 followers
+        .mb-2.ps-sm-3.ps-2.border-start.border-light.text-muted
+          span.fw-medium.text-light 2K
+          span.text-white.opacity-70 following
+.container.mb-5.pb-3
+  .bg-light.shadow-lg.rounded-3.overflow-hidden
+    .row.my-4
+      /! Content
+      section.col-lg-9.pt-lg-4.mb-3
+        .pt-2.px-4.ps-lg-0.pe-xl-5
+          .d-flex.flex-column.align-items-sm-center.justify-content-between
+            h1.h3.mb-sm-0.my-2.pb-1.text-sm-center.text-center 出品一覧
+      .col-md-10.offset-md-1
+        .row
+          - if @user.crops.present?
+            // collectionをコントローラ内で定義した@cropsにすれば指定した件数を表示できる。
+            = render partial: 'crops/thumbnail_crop', collection: @crops
+          - else
+            .text-center.font-weight-bold
+              | 出品はありません
+          = paginate @crops, theme: 'bootstrap-5'
