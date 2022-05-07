@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'privacy', to: 'static_pages#privacy'
   resources :feedbacks, only: %i[new create]
   resources :crops
+  resources :users, only: %i[show]
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
