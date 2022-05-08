@@ -31,7 +31,7 @@ FactoryBot.define do
     confirmed_at { Time.current }
 
     after(:build) do |user|
-      user.avatar.attach(io: File.open('spec/fixture/files/test.png'), filename: 'test.png')
+      user.avatar.attach(io: File.open('spec/fixture/files/avatar.png'), filename: 'avatar.png')
     end
   end
 end

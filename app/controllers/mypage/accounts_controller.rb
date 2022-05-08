@@ -16,6 +16,6 @@ class Mypage::AccountsController < Mypage::BaseController
   private
 
   def account_params
-    params.require(:user).permit(:username, :email, :avatar)
+    params.require(:user).permit(:username, :avatar)
   end
 end

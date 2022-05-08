@@ -19,7 +19,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       user = User.sign_up(auth_params)
       sign_in(:user, user)
       flash[:success] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
-      redirect_to edit_mypage_account_path
+      redirect_to root_path
     end
   end
 
