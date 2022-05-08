@@ -1,0 +1,13 @@
+= form_with model: @user, url: mypage_account_path, method: :patch, local: true do |f|
+  = render 'shared/error_messages', object: f.object
+  .form-group.mb-3
+    = f.label :avatar
+    = f.file_field :avatar, class: 'form-control'
+  .form-group.mb-3
+    = f.label :username
+    = f.text_field :username, class: 'form-control'
+  .form-group.mb-3
+    = f.label :email
+    = f.email_field :email, class: 'form-control'
+  .text-center.pt-4
+    = f.submit class: 'btn btn-primary btn-raised'
