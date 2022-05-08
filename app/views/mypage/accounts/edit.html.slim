@@ -3,6 +3,10 @@
   .form-group.mb-3
     = f.label :avatar
     = f.file_field :avatar, class: 'form-control'
+    - if @user.avatar.attached?
+      = image_tag @user.avatar, size: '100x100', class: 'rounded-circle ms-4 my-2'
+    - else
+      = image_tag 'default-avatar.png', size: '100x100', class: 'rounded-circle ms-4 my-2'
   .form-group.mb-3
     = f.label :username
     = f.text_field :username, class: 'form-control'
