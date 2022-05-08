@@ -34,8 +34,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: %i[line twitter]
   has_many :social_profiles, dependent: :destroy
-  has_many :feedbacks, dependent: :destroy
   has_many :crops, dependent: :destroy
+  has_one_attached :avatar
+  validates :avatar,
+            content_type: { in: %w(image/jpeg image/gif image/png), message: 'は有効なファイルを選択してください' },
+            size: { less_than: 5.megabytes, message: 'は5MB以下を選択してください' }
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)

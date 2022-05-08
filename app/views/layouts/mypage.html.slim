@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title
+      | LocalCrops
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_pack_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+  body
+    header.navbar.navbar-light.shadow-sm.navbar-sticky.navbar-stuck
+      .container
+        = link_to 'LocalCrops', root_path, class: 'navbar-brand'
+        = render 'shared/header'
+    = render 'shared/flash_messages'
+    main
+      .container.py-4.py-lg-5.my-4
+        .row
+          .col-md-8.offset-md-2
+            .card.border-0.shadow
+              .card-body
+                h2.h4.text-center.mb-3 プロフィール編集
+                .row
+                  .col-md-8.offset-md-2
+                    .mypage_content
+                      = yield

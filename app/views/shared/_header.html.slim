@@ -21,6 +21,10 @@
           i.fa-solid.fa-carrot
           |  作物登録
       li.nav-item
+        = link_to edit_mypage_account_path, class: "nav-link" do
+          i.fa-solid.fa-user-pen
+          |  プロフィール編集
+      li.nav-item
         = link_to destroy_user_session_path, class: "nav-link", method: :delete do
           i.fa-solid.fa-arrow-right-from-bracket
           |  ログアウト
