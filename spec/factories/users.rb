@@ -28,7 +28,10 @@ FactoryBot.define do
     email { Faker::Internet.unique.email }
     password { 'testpassword' }
     password_confirmation { 'testpassword' }
-    # createのときは自動でconfirm
-    after(:create) { |user| user.confirm }
+    confirmed_at { Time.current }
+
+    after(:build) do |user|
+      user.avatar.attach(io: File.open('spec/fixture/files/test.png'), filename: 'test.png')
+    end
   end
 end
