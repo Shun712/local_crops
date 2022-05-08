@@ -38,6 +38,7 @@ RSpec.describe 'Crops', type: :system do
     let!(:other_user) { create(:user) }
     let!(:crop) { create(:crop, user: user) }
     let!(:crop_by_other_user) { create(:crop, user: other_user) }
+    let!(:crop_two_weeks_ago) { create(:crop, :two_weeks_ago) }
     before do
       sign_in user
       visit crops_path
@@ -66,6 +67,10 @@ RSpec.describe 'Crops', type: :system do
         expect(page).to have_css('.page-link')
         expect{ find_link('2', rel="next").click }
         expect{ find_link('1', rel="prev").click }
+      end
+
+      it '1週間以内の作物しか表示されないこと' do
+        expect(page.all(".card").count).to eq 2
       end
     end
   end

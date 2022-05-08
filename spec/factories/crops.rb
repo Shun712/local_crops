@@ -41,4 +41,8 @@ FactoryBot.define do
   trait :three_days_ago do
     harvested_on { 3.day.ago }
   end
+
+  trait :two_weeks_ago do
+    harvested_on { 2.weeks.ago }
+  end
 end
