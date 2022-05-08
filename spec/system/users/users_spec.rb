@@ -27,7 +27,7 @@ RSpec.describe 'Users', type: :system do
         fill_in 'パスワード(6文字以上)', with: 'password'
         fill_in 'パスワード確認', with: 'password'
         click_button 'アカウント登録'
-        expect(page).to have_content 'ユーザー名を入力してください'
+        expect(page).to have_content 'お名前を入力してください'
       end
     end
   end

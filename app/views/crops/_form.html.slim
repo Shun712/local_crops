@@ -4,7 +4,8 @@
     .form-group.mb-3
       = f.label :picture
       = f.file_field :picture, class: 'form-control'
-    = image_tag crop.picture, class: 'crop-detail ms-4 mb-2'
+      - if crop.picture.attached?
+        = image_tag crop.picture, class: 'crop-detail ms-4 mb-2'
     .form-group.mb-3
       = f.label :name
       = f.text_field :name, class: 'form-control'
