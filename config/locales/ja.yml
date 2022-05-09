@@ -36,10 +36,13 @@ ja:
         picture: 画像
         description: 説明
         harvested_on: 収穫日
+      reservation:
+        received_at: 受け取り日時
     models:
       user: ユーザー
       feedback: お問い合わせ
       crop: 作物
+      reservation: 予約
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>

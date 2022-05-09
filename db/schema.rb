@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_02_133627) do
+ActiveRecord::Schema.define(version: 2022_05_09_182506) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +58,17 @@ ActiveRecord::Schema.define(version: 2022_05_02_133627) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reservations", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "crop_id", null: false
+    t.date "received_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["crop_id"], name: "index_reservations_on_crop_id"
+    t.index ["user_id", "crop_id"], name: "index_reservations_on_user_id_and_crop_id", unique: true
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
   create_table "social_profiles", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "provider", null: false
@@ -89,5 +100,7 @@ ActiveRecord::Schema.define(version: 2022_05_02_133627) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "crops", "users"
+  add_foreign_key "reservations", "crops"
+  add_foreign_key "reservations", "users"
   add_foreign_key "social_profiles", "users"
 end
