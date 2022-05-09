@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  # user登録でユーザー名を登録できるようにする
   def configure_permitted_parameters
+    # user登録でユーザー名を登録できるようにする
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+    # user更新でユーザー名、メールアドレス、アバター画像を更新できるようにする
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :email, :avatar])
   end
 end

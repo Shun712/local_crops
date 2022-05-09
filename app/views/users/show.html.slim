@@ -3,7 +3,7 @@
     .d-flex.align-items-center
       .img-thumbnail.rounded-circle.position-relative.flex-shrink-0
         - if @user.avatar.attached?
-          = image_tag @user.avatar, size: '50x50', class: 'rounded-circle mr-1'
+          = image_tag @user.avatar, class: 'rounded-circle mr-1 user-detail'
         - else
           = image_tag 'default-avatar.png', size: '50x50', class: 'rounded-circle mr-1'
       .ps-3
