@@ -29,8 +29,8 @@ class Crop < ApplicationRecord
             content_type: { in: %w(image/jpeg image/gif image/png), message: 'は有効なファイルを選択してください' },
             size: { less_than: 5.megabytes, message: 'は5MB以下を選択してください' }
   # 1週間以内に収穫した作物を抽出
-  scope :harvested_within_a_week, -> { where("harvested_on >= ?", 1.week.ago).order(harvested_on: :desc) }
-
+  scope :harvested_within_a_week, -> { where("harvested_on >= ?", 1.week.ago) }
+  scope :sorted, -> { order(harvested_on: :desc) }
   private
 
   def picture_presence

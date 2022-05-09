@@ -1,6 +1,7 @@
 class CropsController < ApplicationController
   def index
     @crops = Crop.harvested_within_a_week
+                 .sorted
                  .includes(:user)
                  .page(params[:page])
                  .per(12)
