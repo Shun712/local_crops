@@ -5,9 +5,10 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @crop = Crop.find(params[:crop_id])
     @reservation = current_user.reservations.build(reservation_params)
     if @reservation.save
-      redirect_to crops_path, success: '作物を予約しました'
+      redirect_to root_path, success: '作物を予約しました'
     else
       flash.now[:danger] = '作物の予約に失敗しました'
       render :new
@@ -27,6 +28,6 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:received_at)
+    params.require(:reservation).permit(:received_at).merge(crop_id: params[:crop_id])
   end
 end
