@@ -39,6 +39,7 @@ class User < ApplicationRecord
   validates :avatar,
             content_type: { in: %w(image/jpeg image/gif image/png), message: 'は有効なファイルを選択してください' },
             size: { less_than: 5.megabytes, message: 'は5MB以下を選択してください' }
+  has_many :resevations, dependent: :destroy
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)

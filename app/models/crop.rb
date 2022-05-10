@@ -20,6 +20,7 @@
 #
 class Crop < ApplicationRecord
   belongs_to :user
+  has_many :resevations, dependent: :destroy
   validates :name, presence: true, length: { maximum: 255 }
   validates :description, length: { maximum: 1000 }
   validates :harvested_on, presence: true
@@ -31,6 +32,7 @@ class Crop < ApplicationRecord
   # 1週間以内に収穫した作物を抽出
   scope :harvested_within_a_week, -> { where("harvested_on >= ?", 1.week.ago) }
   scope :sorted, -> { order(harvested_on: :desc) }
+
   private
 
   def picture_presence
