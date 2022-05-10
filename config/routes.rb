@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   namespace :mypage do
     resource :account, only: %i[edit update]
   end
+  resources :reservations, only: %i[new create show destroy]
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end

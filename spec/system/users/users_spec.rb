@@ -76,8 +76,8 @@ RSpec.describe 'Users', type: :system do
 
       it'有効なプロフィール更新を行うと、更新成功フラッシュが表示されること' do
         attach_file 'user[avatar]', "#{Rails.root}/spec/fixture/files/avatar2.png"
-        fill_in 'お名前', with: '編集: テストユーザー'
-        fill_in 'Eメール', with: 'edit@example.com'
+        fill_in 'user[username]', with: '編集: テストユーザー'
+        fill_in 'user[email]', with: 'edit@example.com'
         click_button '更新する'
         expect(current_path).to eq user_path(user)
         expect(page).to have_content 'プロフィールを更新しました'
@@ -86,7 +86,7 @@ RSpec.describe 'Users', type: :system do
       end
 
       it'無効なプロフィール更新をしようとすると、更新失敗フラッシュが表示されること' do
-        fill_in 'お名前', with: ' '
+        fill_in 'user[username]', with: ' '
         click_button '更新する'
         expect(page).to have_content 'プロフィールの更新に失敗しました'
         expect(page).to have_content 'お名前を入力してください'

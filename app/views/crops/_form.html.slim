@@ -2,18 +2,18 @@
   = form_with model: crop, local: true do |f|
     = render 'shared/error_messages', object: crop
     .form-group.mb-3
-      = f.label :picture
+      = f.label :picture, class: 'ms-3'
       = f.file_field :picture, class: 'form-control'
       - if crop.picture.attached?
-        = image_tag crop.picture, class: 'crop-detail ms-4 mb-2'
+        = image_tag crop.picture, class: 'crop-detail ms-4 my-2'
+    .form-group.mb-3.form-floating
+      = f.text_field :name, id: 'fl-text', placeholder: "作物名", class: 'form-control'
+      = f.label :name, for: 'fl-text'
+    .form-group.mb-3.form-floating
+      = f.text_area :description, id: 'fl-text', placeholder: "説明", class: 'form-control'
+      label for='fl-text' 説明 *任意
     .form-group.mb-3
-      = f.label :name
-      = f.text_field :name, class: 'form-control'
-    .form-group.mb-3
-      = f.label :description
-      = f.text_area :description, class: 'form-control'
-    .form-group.mb-3
-      = f.label :harvested_on
-      = f.date_select :harvested_on, class: 'form-control'
+      = f.label :harvested_on, class: 'me-2'
+      = f.date_select :harvested_on, {}, {class: 'form-control', style: 'display: inline-block;width: auto;'}
     .text-center.pt-4
       = f.submit class: 'btn btn-primary btn-raised'

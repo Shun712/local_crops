@@ -9,7 +9,7 @@ ja:
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
-        email: Eメール
+        email: メールアドレス
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻
@@ -37,7 +37,7 @@ ja:
         description: 説明
         harvested_on: 収穫日
       reservation:
-        received_at: 受け取り日時
+        received_at: 受け取り希望日時
     models:
       user: ユーザー
       feedback: お問い合わせ

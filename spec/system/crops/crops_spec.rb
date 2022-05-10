@@ -12,7 +12,7 @@ RSpec.describe 'Crops', type: :system do
     context '入力情報が正しい場合' do
       it '新規登録できること' do
         attach_file 'crop[picture]', "#{Rails.root}/spec/fixture/files/test.png"
-        fill_in '作物名', with: 'トマト'
+        fill_in 'crop[name]', with: 'トマト'
         fill_in '説明', with: 'テスト説明'
         select_date('2022-5-4', from: '収穫日')
         click_button '登録する'
@@ -24,7 +24,7 @@ RSpec.describe 'Crops', type: :system do
     context '入力情報に間違いがある場合' do
       it '新規登録できないこと' do
         attach_file 'crop[picture]', "#{Rails.root}/spec/fixture/files/test.png"
-        fill_in '作物名', with: ' '
+        fill_in 'crop[name]', with: ' '
         fill_in '説明', with: ' '
         select_date('2022-5-4', from: '収穫日')
         click_button '登録する'
@@ -65,8 +65,8 @@ RSpec.describe 'Crops', type: :system do
         # create_listした後はページ更新しなければ表示されない
         visit crops_path
         expect(page).to have_css('.page-link')
-        expect{ find_link('2', rel="next").click }
-        expect{ find_link('1', rel="prev").click }
+        expect { find_link('2', rel = "next").click }
+        expect { find_link('1', rel = "prev").click }
       end
 
       it '1週間以内の作物しか表示されないこと' do
@@ -135,7 +135,7 @@ RSpec.describe 'Crops', type: :system do
     context '入力情報が正しい場合' do
       it '更新処理ができること' do
         attach_file 'crop[picture]', "#{Rails.root}/spec/fixture/files/test2.png"
-        fill_in '作物名', with: '編集:トマト'
+        fill_in 'crop[name]', with: '編集:トマト'
         fill_in '説明', with: '編集:説明'
         select_date('2022-5-5', from: '収穫日')
         click_button '更新する'
@@ -151,7 +151,7 @@ RSpec.describe 'Crops', type: :system do
     context '入力情報に間違いがある場合' do
       it '更新処理ができないこと' do
         attach_file 'crop[picture]', "#{Rails.root}/spec/fixture/files/test2.png"
-        fill_in '作物名', with: ' '
+        fill_in 'crop[name]', with: ' '
         fill_in '説明', with: ' '
         select_date('2022-5-5', from: '収穫日')
         click_button '更新する'
