@@ -1,34 +1,35 @@
 .container.mb-5
-  .row.g-0.mx-n2.mb-xl-3
-    .card.border-0.shadow id="crop-#{@crop.id}" style=("max-width: 540px;")
-      .row.g-0
-        .col-sm-5
-          = image_tag @crop.picture, class: 'crop-detail'
-        .col-sm-7
-          .card-body
-            = link_to @crop.name
-            p.fs-sm.text-muted.pb-2.crop-index
-              = @crop.description
-            .fs-xs.text-nowrap.text-start
-              a.blog-entry-meta-link.text-nowrap
-                | 収穫日
-              span.blog-entry-meta-divider.mx-2
-              a.blog-entry-meta-link.text-nowrap
-                = @crop.harvested_on
-            .fs-xs.text-nowrap.text-start
-              a.blog-entry-meta-link.text-nowrap
-                | 生産者
-              span.blog-entry-meta-divider.mx-2
-              a.blog-entry-meta-link.text-nowrap
-                = link_to @crop.user.username, user_path(@crop.user)
-    .fs-base.pt-4.pb-2
-      = form_with model: reservation, local: true do |f|
-        = render 'shared/error_messages', object: reservation
-        // @cropレコードを持たせておく
-        = hidden_field_tag :crop_id, @crop.id
-        .form-group.mb-3
-          = f.label :received_at, class: 'me-2'
-          br
-          = f.datetime_select :received_at, {}, { class: 'form-control form-control-lg', style: 'display: inline-block;width: auto;' }
-        .text-center.pt-4
-          = f.submit '予約する', class: 'btn btn-primary btn-raised'
+  .row.g-0.mb-xl-3
+    .col-md-10.offset-md-1.justify-content-center
+      .card.border-0.shadow id="crop-#{@crop.id}"
+        .row.g-0
+          .col-sm-5
+            = image_tag @crop.picture, class: 'crop-detail'
+          .col-sm-7
+            .card-body
+              = link_to @crop.name
+              p.fs-sm.text-muted.pb-2.crop-index
+                = @crop.description
+              .fs-xs.text-nowrap.text-start
+                a.blog-entry-meta-link.text-nowrap
+                  | 収穫日
+                span.blog-entry-meta-divider.mx-2
+                a.blog-entry-meta-link.text-nowrap
+                  = @crop.harvested_on
+              .fs-xs.text-nowrap.text-start
+                a.blog-entry-meta-link.text-nowrap
+                  | 生産者
+                span.blog-entry-meta-divider.mx-2
+                a.blog-entry-meta-link.text-nowrap
+                  = link_to @crop.user.username, user_path(@crop.user)
+      .fs-base.pt-4.pb-2
+        = form_with model: reservation, local: true do |f|
+          = render 'shared/error_messages', object: reservation
+          // @cropレコードを持たせておく
+          = hidden_field_tag :crop_id, @crop.id
+          .form-group.mb-3
+            = f.label :received_at, class: 'me-2'
+            br
+            = f.datetime_select :received_at, {}, { class: 'form-control form-control-lg', style: 'display: inline-block;width: auto;' }
+          .text-center.pt-4
+            = f.submit '予約する', class: 'btn btn-primary btn-raised'
