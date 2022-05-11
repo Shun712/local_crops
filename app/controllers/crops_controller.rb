@@ -3,6 +3,7 @@ class CropsController < ApplicationController
     @crops = Crop.harvested_within_a_week
                  .sorted
                  .includes(:user)
+                 .not_reserved
                  .page(params[:page])
                  .per(12)
   end

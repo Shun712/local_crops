@@ -32,6 +32,8 @@ class Crop < ApplicationRecord
   # 1週間以内に収穫した作物を抽出
   scope :harvested_within_a_week, -> { where("harvested_on >= ?", 1.week.ago) }
   scope :sorted, -> { order(harvested_on: :desc) }
+  # 未予約の作物を抽出
+  scope :not_reserved, -> { includes(:reservations).where(reservations: { crop_id: nil }) }
 
   private
 
