@@ -44,5 +44,11 @@ RSpec.describe Reservation, type: :model do
       reservation.valid?
       expect(reservation.errors[:crop]).to include("を入力してください")
     end
+
+    it "受け取り日時がなければ無効な状態であること" do
+      reservation = build(:reservation, received_at: nil)
+      reservation.valid?
+      expect(reservation.errors[:received_at]).to include("を入力してください")
+    end
   end
 end
