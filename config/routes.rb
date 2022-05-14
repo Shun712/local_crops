@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     delete 'logout', to: 'users/sessions#destroy', as: :destroy_user_session
     get 'signup', to: 'users/registrations#new', as: :new_user_registration
     post 'signup', to: 'users/registrations#create', as: :user_registration
+    get 'mypage/account/edit', to: 'users/registrations#edit', as: :edit_mypage_account
+    put 'mypage/account', to: 'users/registrations#update', as: :mypage_account
+    delete 'mypage/account', to: 'users/registrations#destroy', as: :destroy_mypage_account
     get 'password', to: 'users/passwords#new', as: :new_user_password
     post 'password', to: 'users/passwords#create', as: :user_password
     get 'password/edit', to: 'users/passwords#edit', as: :edit_user_password
@@ -25,6 +28,7 @@ Rails.application.routes.draw do
   namespace :mypage do
     resource :account, only: %i[edit update]
   end
+  resources :reservations, only: %i[index new create destroy]
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end

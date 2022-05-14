@@ -1,0 +1,8 @@
+.modal#reservation-modal
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5.modal-title 予約登録
+        button.btn-close aria-label="Close" data-bs-dismiss="modal" type="button"
+      .modal-body
+        = render 'form', reservation: reservation

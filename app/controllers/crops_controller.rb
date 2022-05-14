@@ -1,7 +1,9 @@
 class CropsController < ApplicationController
   def index
     @crops = Crop.harvested_within_a_week
+                 .sorted
                  .includes(:user)
+                 .not_reserved
                  .page(params[:page])
                  .per(12)
   end
@@ -13,7 +15,7 @@ class CropsController < ApplicationController
   def create
     @crop = current_user.crops.build(crop_params)
     if @crop.save
-      redirect_to crops_path, success: '作物を登録しました'
+      redirect_to root_path, success: '作物を登録しました'
     else
       flash.now[:danger] = '登録に失敗しました'
       render :new
@@ -31,7 +33,7 @@ class CropsController < ApplicationController
   def update
     @crop = current_user.crops.find(params[:id])
     if @crop.update(crop_params)
-      redirect_to crops_path, success: '作物を更新しました'
+      redirect_to root_path, success: '作物を更新しました'
     else
       flash.now[:danger] = '作物の更新に失敗しました'
       render :edit
@@ -41,7 +43,7 @@ class CropsController < ApplicationController
   def destroy
     @crop = current_user.crops.find(params[:id])
     @crop.destroy!
-    redirect_to crops_path, success: '作物を削除しました'
+    redirect_to root_path, success: '作物を削除しました'
   end
 
   private

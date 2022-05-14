@@ -8,21 +8,22 @@
           = link_to @crop.name, crop_path(@crop)
           p.fs-sm.text-muted.pb-2.crop-index
             = @crop.description
-          .fs-xs.text-nowrap.text-start
+          .fs-sm.text-nowrap.text-start
             a.blog-entry-meta-link.text-nowrap
               | 収穫日
             span.blog-entry-meta-divider.mx-2
             a.blog-entry-meta-link.text-nowrap
               = @crop.harvested_on
-          .fs-xs.text-nowrap.text-start
+          .fs-sm.text-nowrap.text-start
             a.blog-entry-meta-link.text-nowrap
               | 生産者
             span.blog-entry-meta-divider.mx-2
             a.blog-entry-meta-link.text-nowrap
+              = image_tag @crop.user.avatar, class: 'rounded-circle me-1 user-show'
               = link_to @crop.user.username, user_path(@crop.user)
           - if current_user&.own?(@crop)
             = link_to '編集', edit_crop_path(@crop), class: 'btn btn-outline-warning btn-sm my-2 me-2 edit-button'
             = link_to '削除', crop_path(@crop), class: 'btn btn-outline-info btn-sm my-2 delete-button', method: :delete, data: { confirm: '本当に削除しますか?' }
-          - else
-            / TODO 予約リンクへ変更する
-            = link_to '予約する', root_path, class: 'btn btn-outline-primary btn-sm my-2 reserve-button'
+          - elsif @crop.reservations.empty?
+            = link_to '予約する', new_reservation_path(crop_id: @crop.id), remote: true, class: 'btn btn-outline-primary btn-sm my-2 reserve-button'
+          - else @crop.harvested_after_a_week? || @crop.reservations.present?

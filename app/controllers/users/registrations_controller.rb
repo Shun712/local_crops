@@ -8,6 +8,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_create
   end
 
+  def edit; end
+
+  def update
+    # super
+    devise_update
+  end
+
+  def destroy
+    super
+  end
+
   def devise_create
     build_resource(sign_up_params)
 
@@ -30,6 +41,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def devise_update
+    self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+    resource_updated = update_resource(resource, account_update_params)
+    yield resource if block_given?
+    if resource_updated
+      bypass_sign_in resource, scope: resource_name if sign_in_after_change_password?
+      redirect_to user_path(current_user), success: 'プロフィールを更新しました'
+    else
+      flash.now[:danger] = 'プロフィールの更新に失敗しました'
+      render :edit
+    end
+  end
+
   protected
 
   def after_sign_up_path_for
@@ -45,5 +69,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_logout_path_for
     new_user_session_path
+  end
+
+  # ユーザー更新時にパスワードのパラメーターは除外する
+  def update_resource(resource, params)
+    resource.update_without_password(params)
   end
 end

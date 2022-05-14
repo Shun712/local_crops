@@ -15,7 +15,7 @@ RSpec.describe 'Social_Profiles', type: :system do
         expect(page).not_to have_content('ログアウト')
         find_link(href: '/users/auth/line').click
         expect(page).to have_content('Line アカウントによる認証に成功しました。')
-        expect(current_path).to eq root_path
+        expect(current_path).to eq edit_mypage_account_path
         click_on('ログアウト')
         find_link(href: '/users/auth/line').click
         expect(page).to have_content('ログインしました。')
@@ -38,7 +38,7 @@ RSpec.describe 'Social_Profiles', type: :system do
         expect(page).not_to have_content('ログアウト')
         find_link(href: '/users/auth/twitter').click
         expect(page).to have_content('Twitter アカウントによる認証に成功しました。')
-        expect(current_path).to eq root_path
+        expect(current_path).to eq edit_mypage_account_path
         click_on('ログアウト')
         find_link(href: '/users/auth/twitter').click
         expect(page).to have_content('ログインしました。')

@@ -1,0 +1,9 @@
+= form_with model: reservation, class: 'd-flex mb-0 flex-nowrap justify-content-between' do |f|
+  // @cropをもたせておく
+  = hidden_field_tag :crop_id, @crop.id
+  .form-group.mb-3
+    = f.label :received_at, class: 'ms-2'
+    br
+    = f.datetime_field :received_at, class: 'form-control', required: ""
+  .text-center.pt-4
+    = f.submit '確定', class: 'btn btn-primary btn-raised'
