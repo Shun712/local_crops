@@ -3,7 +3,7 @@ class CreateReservations < ActiveRecord::Migration[6.1]
     create_table :reservations do |t|
       t.references :user, null: false, foreign_key: true
       t.references :crop, null: false, foreign_key: true
-      t.date :received_at, null: false
+      t.datetime :received_at, null: false
 
       t.timestamps
       t.index [:user_id, :crop_id], unique: true

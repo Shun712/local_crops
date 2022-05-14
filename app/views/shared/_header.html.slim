@@ -25,6 +25,10 @@
           i.fa-solid.fa-user-pen
           |  プロフィール
       li.nav-item
+        = link_to reservations_path, class: "nav-link" do
+          i.fa-solid.fa-list
+          |  予約リスト
+      li.nav-item
         = link_to destroy_user_session_path, class: "nav-link", method: :delete do
           i.fa-solid.fa-arrow-right-from-bracket
           |  ログアウト

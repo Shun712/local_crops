@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2022_05_09_182506) do
   create_table "reservations", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "crop_id", null: false
-    t.date "received_at", null: false
+    t.datetime "received_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["crop_id"], name: "index_reservations_on_crop_id"

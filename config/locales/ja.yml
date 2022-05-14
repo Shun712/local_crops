@@ -37,7 +37,10 @@ ja:
         description: 説明
         harvested_on: 収穫日
       reservation:
-        received_at: 受け取り希望日時
+        received_at: 希望日時
+        user_id: 対象者
+        crop_id: 作物
+        transaction: 取引
     models:
       user: ユーザー
       feedback: お問い合わせ

@@ -1,4 +1,13 @@
 class ReservationsController < ApplicationController
+  def index
+    @reservations = Reservation.includes(:user, :crop)
+                               .where(user_id: current_user.id)
+                               .or(Reservation.where(crop_id: current_user.crops.ids))
+                               .sorted
+                               .page(params[:page])
+                               .per(12)
+  end
+
   def new
     @crop = Crop.find(params[:crop_id])
     @reservation = Reservation.new

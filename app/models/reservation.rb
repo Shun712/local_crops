@@ -3,7 +3,7 @@
 # Table name: reservations
 #
 #  id          :bigint           not null, primary key
-#  received_at :date             not null
+#  received_at :datetime         not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  crop_id     :bigint           not null
@@ -25,4 +25,5 @@ class Reservation < ApplicationRecord
   belongs_to :crop
   validates :user_id, uniqueness: { scope: :crop_id }
   validates :received_at, presence: true
+  scope :sorted, -> { order(received_at: :desc) }
 end

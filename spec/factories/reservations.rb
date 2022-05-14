@@ -3,7 +3,7 @@
 # Table name: reservations
 #
 #  id          :bigint           not null, primary key
-#  received_at :date             not null
+#  received_at :datetime         not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  crop_id     :bigint           not null
