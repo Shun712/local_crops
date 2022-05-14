@@ -16,7 +16,7 @@ RSpec.describe 'Crops', type: :system do
         fill_in '説明', with: 'テスト説明'
         select_date('2022-5-4', from: '収穫日')
         click_button '登録する'
-        expect(current_path).to eq crops_path
+        expect(current_path).to eq root_path
         expect(page).to have_content '作物を登録しました'
       end
     end
@@ -70,7 +70,8 @@ RSpec.describe 'Crops', type: :system do
       end
 
       it '1週間以内の作物しか表示されないこと' do
-        expect(page.all(".card").count).to eq 2
+        crop_count =page.all(".card").count
+        expect(crop_count).to eq 2
       end
     end
   end
@@ -139,8 +140,9 @@ RSpec.describe 'Crops', type: :system do
         fill_in '説明', with: '編集:説明'
         select_date('2022-5-5', from: '収穫日')
         click_button '更新する'
-        expect(current_path).to eq crops_path
+        expect(current_path).to eq root_path
         expect(page).to have_content '作物を更新しました'
+        visit crop_path(crop)
         expect(page).to have_selector("img[src$='test2.png']")
         expect(page).to have_content '編集:トマト'
         expect(page).to have_content '編集:説明'
