@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     post 'signup', to: 'users/registrations#create', as: :user_registration
     get 'mypage/account/edit', to: 'users/registrations#edit', as: :edit_mypage_account
     put 'mypage/account', to: 'users/registrations#update', as: :mypage_account
+    delete 'mypage/account', to: 'users/registrations#destroy', as: :destroy_mypage_account
     get 'password', to: 'users/passwords#new', as: :new_user_password
     post 'password', to: 'users/passwords#create', as: :user_password
     get 'password/edit', to: 'users/passwords#edit', as: :edit_user_password

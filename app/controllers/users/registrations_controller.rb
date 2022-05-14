@@ -16,6 +16,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_update
   end
 
+  def destory
+    super
+  end
+
   def devise_create
     build_resource(sign_up_params)
 

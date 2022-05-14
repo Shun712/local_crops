@@ -21,4 +21,5 @@
               = f.email_field :email, id: 'fl-text', placeholder: "メールアドレス", class: 'form-control'
               = f.label :email, for: 'fl-text'
             .text-center.pt-4
-              = f.submit class: 'btn btn-primary btn-raised'
+              = f.submit class: 'btn btn-primary btn-raised me-5'
+              = link_to '削除', destroy_mypage_account_path, class: 'btn btn-outline-info delete-button', method: :delete, data: { confirm: '本当に削除しますか?' }
