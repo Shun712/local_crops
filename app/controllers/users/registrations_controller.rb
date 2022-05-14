@@ -8,15 +8,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_create
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     # super
     devise_update
   end
 
-  def destory
+  def destroy
     super
   end
 

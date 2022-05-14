@@ -37,7 +37,7 @@ class User < ApplicationRecord
   has_many :crops, dependent: :destroy
   has_one_attached :avatar
   validates :avatar,
-            content_type: { in: %w(image/jpeg image/gif image/png), message: 'は有効なファイルを選択してください' },
+            content_type: { in: %w[image/jpeg image/gif image/png], message: 'は有効なファイルを選択してください' },
             size: { less_than: 5.megabytes, message: 'は5MB以下を選択してください' }
   before_create :default_avatar
   has_many :reservations, dependent: :destroy
@@ -67,8 +67,8 @@ class User < ApplicationRecord
   end
 
   def default_avatar
-    unless self.avatar.attached?
-      self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-avatar.png')), filename: 'default-avatar.png', content_type: 'image/png')
+    unless avatar.attached?
+      avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-avatar.png')), filename: 'default-avatar.png', content_type: 'image/png')
     end
   end
 end
