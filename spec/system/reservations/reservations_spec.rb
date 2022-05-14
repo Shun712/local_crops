@@ -6,7 +6,7 @@ RSpec.describe 'Reservations', type: :system do
   let!(:crop_by_user) { create(:crop, user: user) }
   let!(:crop_by_other_user) { create(:crop, user: other_user) }
   let!(:reservation) { create(:reservation, user: user) }
-  let!(:other_reservation) { create(:reservation, crop: crop_by_user, user: other_user) }
+  let!(:reservation_by_other_user) { create(:reservation, crop: crop_by_user, user: other_user) }
   before do
     sign_in user
   end
@@ -66,12 +66,19 @@ RSpec.describe 'Reservations', type: :system do
       end
 
       it '自分の作物が予約された場合は、取引欄が「引渡」と表示されること' do
-        within "#reservation-#{other_reservation.id}" do
+        within "#reservation-#{reservation_by_other_user.id}" do
           expect(page).to have_content '引渡'
         end
       end
 
-      it '予約を取消できること', js: true do
+      it '生産者は予約を取消できること', js: true do
+        within "#reservation-#{reservation_by_other_user.id}" do
+          page.accept_confirm { find('.delete-button').click }
+        end
+        expect(page).to have_content '予約を取消しました'
+      end
+
+      it '消費者は予約を取消できること', js: true do
         within "#reservation-#{reservation.id}" do
           page.accept_confirm { find('.delete-button').click }
         end

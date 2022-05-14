@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation = current_user.reservations.find(params[:id])
+    @reservation = Reservation.find(params[:id])
     @reservation.destroy!
     redirect_to reservations_path, success: '予約を取消しました'
   end
