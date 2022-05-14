@@ -39,9 +39,10 @@ RSpec.describe 'Crops', type: :system do
     let!(:crop) { create(:crop, user: user) }
     let!(:crop_by_other_user) { create(:crop, user: other_user) }
     let!(:crop_two_weeks_ago) { create(:crop, :two_weeks_ago) }
+    let!(:reservation) { create(:reservation) }
     before do
       sign_in user
-      visit crops_path
+      visit root_path
     end
 
     context 'ページレイアウト' do
@@ -56,7 +57,6 @@ RSpec.describe 'Crops', type: :system do
         within "#crop-#{crop_by_other_user.id}" do
           expect(page).not_to have_css '.edit-button'
           expect(page).not_to have_css '.delete-button'
-          expect(page).to have_css '.reserve-button'
         end
       end
 
@@ -64,14 +64,25 @@ RSpec.describe 'Crops', type: :system do
         create_list(:crop, 30)
         # create_listした後はページ更新しなければ表示されない
         visit crops_path
+        expect(page.all(".card").count).to eq 12
         expect(page).to have_css('.page-link')
         expect { find_link('2', rel = "next").click }
         expect { find_link('1', rel = "prev").click }
       end
 
       it '1週間以内の作物しか表示されないこと' do
-        crop_count =page.all(".card").count
+        crop_count = page.all(".card").count
         expect(crop_count).to eq 2
+      end
+
+      it '他人の作物には予約するボタンが表示されること' do
+        within "#crop-#{crop_by_other_user.id}" do
+          expect(page).to have_css '.reserve-button'
+        end
+      end
+
+      it '予約済みの作物は作物が表示されないこと' do
+        expect(page).not_to have_css "#crop-#{reservation.crop.id}"
       end
     end
   end

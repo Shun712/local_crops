@@ -13,7 +13,7 @@
       = f.text_area :description, id: 'fl-text', placeholder: "説明", class: 'form-control'
       label for='fl-text' 説明 *任意
     .form-group.mb-3
-      = f.label :harvested_on, class: 'me-2'
+      = f.label :harvested_on, class: 'mx-3'
       = f.date_select :harvested_on, {}, {class: 'form-control', style: 'display: inline-block;width: auto;'}
     .text-center.pt-4
       = f.submit class: 'btn btn-primary btn-raised'

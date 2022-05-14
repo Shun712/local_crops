@@ -91,6 +91,11 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_content 'プロフィールの更新に失敗しました'
         expect(page).to have_content 'お名前を入力してください'
       end
+
+      it 'アカウントを削除できること', js: true do
+        page.accept_confirm { find('.delete-button').click }
+        expect(current_path).to eq new_user_session_path
+      end
     end
   end
 end
