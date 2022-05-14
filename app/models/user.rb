@@ -39,6 +39,7 @@ class User < ApplicationRecord
   validates :avatar,
             content_type: { in: %w(image/jpeg image/gif image/png), message: 'は有効なファイルを選択してください' },
             size: { less_than: 5.megabytes, message: 'は5MB以下を選択してください' }
+  before_create :default_avatar
   has_many :reservations, dependent: :destroy
 
   def self.find_for_oauth!(auth)
@@ -63,5 +64,11 @@ class User < ApplicationRecord
 
   def own?(object)
     id == object.user_id
+  end
+
+  def default_avatar
+    unless self.avatar.attached?
+      self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-avatar.png')), filename: 'default-avatar.png', content_type: 'image/png')
+    end
   end
 end
