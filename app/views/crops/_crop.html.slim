@@ -21,4 +21,4 @@
         = link_to '編集', edit_crop_path(crop), class: 'btn btn-outline-warning btn-sm my-2 me-2 edit-button'
         = link_to '削除', crop_path(crop), class: 'btn btn-outline-info btn-sm my-2 delete-button', method: :delete, data: { confirm: '本当に削除しますか?' }
       - else
-        = link_to '予約する', new_reservation_path(crop_id: crop.id), class: 'btn btn-outline-primary btn-sm my-2 reserve-button'
+        = link_to '予約する', new_reservation_path(crop_id: crop.id), remote: true, class: 'btn btn-outline-primary btn-sm my-2 reserve-button'

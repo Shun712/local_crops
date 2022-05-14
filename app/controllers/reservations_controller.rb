@@ -5,24 +5,15 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @crop = Crop.find(params[:crop_id])
     @reservation = current_user.reservations.build(reservation_params)
-    if @reservation.save
-      redirect_to root_path, success: '作物を予約しました'
-    else
-      flash.now[:danger] = '作物の予約に失敗しました'
-      render :new
-    end
-  end
-
-  def show
-    @reservation = Reservation.find(params[:id])
+    @reservation.save
+    redirect_to root_path, success: '予約を登録しました'
   end
 
   def destroy
     @reservation = current_user.reservations.find(params[:id])
     @reservation.destroy!
-    redirect_to reservations_path, success: '予約を削除しました'
+    redirect_to root_path, success: '予約を削除しました'
   end
 
   private

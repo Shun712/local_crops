@@ -962,20 +962,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="image_processing (vbundled(1.12.2)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/image_processing-1.12.2/lib" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/image_processing-1.12.2/lib" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="jbuilder (vbundled(2.11.5)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1294,20 +1280,6 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/method_source-1.0.0/spec" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/method_source-1.0.0/.circleci" />
         </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="mini_magick (vbundled(4.11.0)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/mini_magick-4.11.0/lib" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/mini_magick-4.11.0/lib" />
-        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -2287,28 +2259,6 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby-progressbar-1.11.0/lib" />
         </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="ruby-vips (vbundled(2.1.4)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby-vips-2.1.4/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby-vips-2.1.4/.github" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby-vips-2.1.4/example" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby-vips-2.1.4/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby-vips-2.1.4/.github" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby-vips-2.1.4/example" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby-vips-2.1.4/.github" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby-vips-2.1.4/example" />
-        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
