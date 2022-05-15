@@ -1,0 +1,5 @@
+div id="bookmark_area-#{crop.id}"
+  - if current_user.bookmark?(crop)
+    = render 'unbookmark', crop: crop
+  - else
+    = render 'bookmark', crop: crop

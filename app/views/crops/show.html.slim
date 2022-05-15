@@ -7,7 +7,10 @@
   .bg-light.shadow-lg.rounded-3.overflow-hidden.p-2.pb-4
     .row.pt-4
       .col-md-6.offset-md-3
-        .card.border-0.shadow
+        .card.border-0.shadow.product-card.card-static id="crop-#{@crop.id}"
+          - if current_user && !current_user.own?(@crop)
+            button.btn-wishlist.btn-lg data-bs-placement="left" data-bs-toggle="tooltip" type="button"
+              = render 'bookmark_area', crop: @crop
           = image_tag @crop.picture, class: 'crop-show'
           .card-body.text-center
             = link_to @crop.name, crop_path(@crop)

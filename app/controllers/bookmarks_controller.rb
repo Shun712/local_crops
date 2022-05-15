@@ -5,7 +5,7 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    @crop = Crop.find(params[:crop_id])
+    @crop = Bookmark.find(params[:id]).crop
     current_user.unbookmark(@crop)
   end
 end
