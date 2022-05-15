@@ -41,6 +41,7 @@ class User < ApplicationRecord
             size: { less_than: 5.megabytes, message: 'は5MB以下を選択してください' }
   before_create :default_avatar
   has_many :reservations, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)

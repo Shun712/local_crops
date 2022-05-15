@@ -34,6 +34,7 @@ class Crop < ApplicationRecord
   scope :sorted, -> { order(harvested_on: :desc) }
   # 未予約の作物を抽出
   scope :not_reserved, -> { includes(:reservations).where(reservations: { crop_id: nil }) }
+  has_many :bookmarks, dependent: :destroy
 
   def harvested_after_a_week?
     harvested_on < 1.week.ago
