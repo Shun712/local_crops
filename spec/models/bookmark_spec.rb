@@ -22,5 +22,19 @@
 require 'rails_helper'
 
 RSpec.describe Bookmark, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:bookmark) { create(:bookmark) }
+
+  it 'bookmarkインスタンスが有効な状態であること' do
+    expect(bookmark).to be_valid
+  end
+
+  it 'user_idがnilの場合、無効な状態であること' do
+    bookmark.user_id = nil
+    expect(bookmark).not_to be_valid
+  end
+
+  it 'crop_idがnilの場合、無効な状態であること' do
+    bookmark.crop_id = nil
+    expect(bookmark).not_to be_valid
+  end
 end

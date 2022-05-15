@@ -21,7 +21,7 @@
 #
 FactoryBot.define do
   factory :bookmark do
-    user { nil }
-    crop { nil }
+    association :user, factory: :user, strategy: :create
+    association :crop, factory: :crop, strategy: :create
   end
 end
