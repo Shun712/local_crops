@@ -86,10 +86,21 @@
 .crop-index {
   margin-bottom: 0.5rem;
 }
+
 .crop-detail {
   object-fit: cover;
   width: 400px;
   height: 200px;
+}
+
+.user-index {
+  object-fit: cover;
+  width: 20px;
+  height: 20px;
+}
+
+.bookmark {
+  color: gold;
 }
 
 // 作物詳細画像

@@ -1,6 +1,10 @@
 .col-lg-4.col-sm-6.mb-grid-gutter
-  .card.border-0.shadow id="crop-#{crop.id}"
-    = image_tag crop.picture, class: 'crop-detail'
+  .card.border-0.shadow.product-card.card-static id="crop-#{crop.id}"
+    - if current_user && !current_user.own?(crop)
+      button.btn-wishlist.btn-sm data-bs-placement="left" data-bs-toggle="tooltip" type="button"
+        = render 'bookmark_area', crop: crop
+    = link_to crop_path(crop) do
+      = image_tag crop.picture, class: 'crop-detail'
     .card-body.text-center
       = link_to crop.name, crop_path(crop)
       p.fs-sm.text-muted.pb-2.crop-index
@@ -16,6 +20,7 @@
           | 生産者
         span.blog-entry-meta-divider.mx-2
         a.blog-entry-meta-link.text-nowrap
+          = image_tag crop.user.avatar, class: 'rounded-circle me-1 user-index'
           = link_to crop.user.username, user_path(crop.user)
       - if current_user&.own?(crop)
         = link_to '編集', edit_crop_path(crop), class: 'btn btn-outline-warning btn-sm my-2 me-2 edit-button'

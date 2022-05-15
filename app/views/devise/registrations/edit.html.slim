@@ -1,22 +1,26 @@
-.container.py-4.py-lg-5.my-4
-  .row
-    .col-md-6.offset-md-3
-      .card.border-0.shadow
-        .card-body
-          h2.h3.text-center.mb-3 プロフィール編集
-          .py-3
-          = form_for(resource, as: resource_name, url: mypage_account_path(resource_name), html: { method: :put }) do |f|
-            = render "devise/shared/error_messages", resource: resource
-            .form-group.mb-3
-              = f.label :avatar, class: 'ms-3'
-              = f.file_field :avatar, class: 'form-control'
-            = image_tag @user.avatar, class: 'rounded-circle ms-4 mb-3 user-detail'
-            .form-group.mb-3.form-floating
-              = f.text_field :username, id: 'fl-text', placeholder: "お名前", class: 'form-control'
-              = f.label :username, for: 'fl-text'
-            .form-group.mb-3.form-floating
-              = f.email_field :email, id: 'fl-text', placeholder: "メールアドレス", class: 'form-control'
-              = f.label :email, for: 'fl-text'
-            .text-center.pt-4
-              = f.submit class: 'btn btn-primary btn-raised me-5'
-              = link_to '削除', destroy_mypage_account_path, class: 'btn btn-outline-info delete-button', method: :delete, data: { confirm: '本当に削除しますか?' }
+.page-title-overlap.bg-accent.pt-4.pb-5
+  .container.pt-2.pb-3.pt-lg-3.pb-lg-4
+    .d-lg-flex.justify-content-between.pb-3
+      .order-lg-1.pe-lg-4.text-left.text-lg-start
+        h1.h3.text-light.mb-0 プロフィール編集
+.container.mb-5.pb-3
+  .bg-light.shadow-lg.rounded-3.overflow-hidden.p-2.pb-4
+    .row
+      .col-md-6.offset-md-3
+        .card.border-0.shadow
+          .card-body
+            = form_for(resource, as: resource_name, url: mypage_account_path(resource_name), html: { method: :put }) do |f|
+              = render "devise/shared/error_messages", resource: resource
+              .form-group.mb-3
+                = f.label :avatar, class: 'ms-3'
+                = f.file_field :avatar, class: 'form-control'
+              = image_tag @user.avatar, class: 'rounded-circle ms-4 mb-3 user-detail'
+              .form-group.mb-3.form-floating
+                = f.text_field :username, id: 'fl-text', placeholder: "お名前", class: 'form-control'
+                = f.label :username, for: 'fl-text'
+              .form-group.mb-3.form-floating
+                = f.email_field :email, id: 'fl-text', placeholder: "メールアドレス", class: 'form-control'
+                = f.label :email, for: 'fl-text'
+              .text-center.pt-4
+                = f.submit class: 'btn btn-primary btn-raised me-5'
+                = link_to '削除', destroy_mypage_account_path, class: 'btn btn-outline-info delete-button', method: :delete, data: { confirm: '本当に削除しますか?' }

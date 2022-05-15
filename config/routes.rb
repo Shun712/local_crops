@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resource :account, only: %i[edit update]
   end
   resources :reservations, only: %i[index new create destroy]
+  resources :bookmarks, only: %i[index create destroy]
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end

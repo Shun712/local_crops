@@ -41,6 +41,8 @@ class User < ApplicationRecord
             size: { less_than: 5.megabytes, message: 'は5MB以下を選択してください' }
   before_create :default_avatar
   has_many :reservations, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_crops, through: :bookmarks, source: :crop
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)
@@ -70,5 +72,17 @@ class User < ApplicationRecord
     unless avatar.attached?
       avatar.attach(io: File.open(Rails.root.join('app/assets/images/default-avatar.png')), filename: 'default-avatar.png')
     end
+  end
+
+  def bookmark(crop)
+    bookmark_crops << crop
+  end
+
+  def unbookmark(crop)
+    bookmark_crops.destroy(crop)
+  end
+
+  def bookmark?(crop)
+    bookmark_crops.include?(crop)
   end
 end
