@@ -22,6 +22,8 @@
 class Bookmark < ApplicationRecord
   belongs_to :user
   belongs_to :crop
+  validates :user_id, presence: true
+  validates :crop_id, presence: true
   validates :user_id, uniqueness: { scope: :crop_id }
   scope :sorted, -> { order(harvested_on: :desc) }
 end
