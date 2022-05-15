@@ -1,7 +1,12 @@
-.container.py-4.py-lg-5.my-4
-  .row
-    .col-md-6.offset-md-3
-      .card.border-0.shadow
-        .card-body
-          h2.h3.text-center.mb-3 作物登録
-          = render 'form', crop: @crop
+.page-title-overlap.bg-accent.pt-4.pb-5
+  .container.pt-2.pb-3.pt-lg-3.pb-lg-4
+    .d-lg-flex.justify-content-between.pb-3
+      .order-lg-1.pe-lg-4.text-left.text-lg-start
+        h1.h3.text-light.mb-0 作物登録
+.container.pb-4.pb-lg-5.mb-4
+  .bg-light.shadow-lg.rounded-3.overflow-hidden.p-2.pb-4
+    .row
+      .col-md-6.offset-md-3
+        .card.border-0.shadow
+          .card-body
+            = render 'form', crop: @crop
