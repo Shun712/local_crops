@@ -7,7 +7,7 @@
       - if crop.picture.attached?
         = image_tag crop.picture, class: 'crop-detail ms-4 my-2'
     .form-group.mb-3.form-floating
-      = f.text_field :name, id: 'fl-text', placeholder: "作物名", class: 'form-control'
+      = f.text_field :name, id: 'fl-text', placeholder: "作物名", class: 'form-control', required: ""
       = f.label :name, for: 'fl-text'
     .form-group.mb-3.form-floating
       = f.text_area :description, id: 'fl-text', placeholder: "説明", class: 'form-control'
