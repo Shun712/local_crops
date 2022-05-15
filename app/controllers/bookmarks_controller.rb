@@ -1,4 +1,10 @@
 class BookmarksController < ApplicationController
+  def index
+    @bookmarks = current_user.bookmarks
+                             .page(params[:page])
+                             .per(12)
+  end
+
   def create
     @crop = Crop.find(params[:crop_id])
     current_user.bookmark(@crop)
