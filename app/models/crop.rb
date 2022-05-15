@@ -35,6 +35,7 @@ class Crop < ApplicationRecord
   # 未予約の作物を抽出
   scope :not_reserved, -> { includes(:reservations).where(reservations: { crop_id: nil }) }
   has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_users, through: :bookmarks, source: :user
 
   def harvested_after_a_week?
     harvested_on < 1.week.ago
