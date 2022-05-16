@@ -8,12 +8,13 @@
           = @user.username
     .my-sm-0.my-3.text-sm-end.pt-1.ms-4.flex-column
       .d-flex.align-items-center.text-nowrap.fs-sm
-        / TODO フォロー数を設定
         .mb-2.ms-sm-3.me-2.text-muted
-          span.fw-medium.text-light 766
+          span.fw-medium.text-light.me-1
+            = @user.followers.count
           span.text-white.opacity-70 followers
         .mb-2.ps-sm-2.ps-2.border-start.border-light.text-muted
-          span.fw-medium.text-light 2K
+          span.fw-medium.text-light.me-1
+            = @user.following.count
           span.text-white.opacity-70 following
       .d-flex.align-items-center.text-nowrap.fs-sm
         - if current_user&.id == @user.id
