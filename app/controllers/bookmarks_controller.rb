@@ -1,11 +1,10 @@
 class BookmarksController < ApplicationController
   def index
-    @bookmarks = Bookmark.includes(:user)
-                         .where(user_id: current_user.id)
-                         .joins(:crop)
-                         .sorted
-                         .page(params[:page])
-                         .per(12)
+    @crops = Crop.joins(:bookmarks)
+                 .where(bookmarks: { user_id: current_user.id })
+                 .sorted
+                 .page(params[:page])
+                 .per(12)
   end
 
   def create

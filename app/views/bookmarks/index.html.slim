@@ -8,9 +8,9 @@
     .row.my-4
       .col-md-10.offset-md-1
         .row.pt-4
-          - if @bookmarks.present?
-            = render @bookmarks
+          - if @crops.present?
+            = render partial: 'crops/bookmark_crop', collection: @crops
           - else
             .text-center.font-weight-bold
               | 作物がありません
-          = paginate @bookmarks, theme: 'bootstrap-5'
+          = paginate @crops, theme: 'bootstrap-5'
