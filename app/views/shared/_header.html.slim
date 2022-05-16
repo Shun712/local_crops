@@ -32,6 +32,15 @@
         = link_to bookmarks_path, class: "nav-link" do
           i.fa-solid.fa-bookmark
           |  ブックマーク
+      li.nav-item.dropdown
+        a.nav-link.dropdown-toggle data-bs-auto-close="outside" data-bs-toggle="dropdown"
+          i.fa-solid.fa-user.me-1
+          | ユーザー
+        ul.dropdown-menu
+          li
+            = link_to 'フォロー', mypage_following_path, class: "dropdown-item"
+          li
+            = link_to 'フォロワー', mypage_follower_path, class: "dropdown-item"
       li.nav-item
         = link_to destroy_user_session_path, class: "nav-link", method: :delete do
           i.fa-solid.fa-arrow-right-from-bracket
