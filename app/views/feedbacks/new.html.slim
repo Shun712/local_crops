@@ -1,21 +1,25 @@
-/! Contact form
-.container.py-4.py-lg-5.my-4
-  .row
-    .col-md-8.offset-md-2
-      .card.border-0.shadow
-        .card-body
-          h2.h4.text-center.mb-3 お問い合わせフォーム
-          p.fs-sm.text-muted ご意見、ご不明な点がございましたら下記のフォームからご連絡ください。
-          = form_with model: @feedback, class: 'needs-validation mb-3', local: true do |f|
-            .row.g-3
-              .col-sm-6
-                = f.label :name
-                = f.text_field :name, autofocus: true, autocomplete: "username", placeholder: "山田 太郎", class: "form-control rounded-start", required: ""
-              .col-sm-6
-                = f.label :email
-                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "taro_yamada@email.com", class: "form-control rounded-start", required: ""
-              .col-12
-                = f.label :body
-                = f.text_area :body, autofocus: true, autocomplete: "body", placeholder: "お問い合わせ内容を入力してください。", class: "form-control rounded-start", required: "", rows: 6
-            .text-end.pt-4
-              = f.submit '送信', class: 'btn btn-primary mt-4'
+.page-title-overlap.bg-accent.pt-4.pb-5
+  .container.pt-2.pb-3.pt-lg-3.pb-lg-4
+    .d-lg-flex.justify-content-between.pb-3
+      .order-lg-1.pe-lg-4.text-left.text-lg-start
+        h1.h3.text-light.mb-2.ms-5 お問い合わせフォーム
+.container.pb-4.pb-lg-5.mb-4
+  .bg-light.shadow-lg.rounded-3.overflow-hidden.p-2.pb-4
+    .row
+      .col-md-8.offset-md-2
+        .card.border-0.shadow
+          .card-body
+            p.fs-sm.text-muted ご意見、ご不明な点がございましたら下記のフォームからご連絡ください。
+            = form_with model: @feedback, class: 'needs-validation mb-3', local: true do |f|
+              .row.g-3
+                .col-sm-6
+                  = f.label :name
+                  = f.text_field :name, autofocus: true, autocomplete: "username", placeholder: "山田 太郎", class: "form-control rounded-start", required: ""
+                .col-sm-6
+                  = f.label :email
+                  = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "taro_yamada@email.com", class: "form-control rounded-start", required: ""
+                .col-12
+                  = f.label :body
+                  = f.text_area :body, autofocus: true, autocomplete: "body", placeholder: "お問い合わせ内容を入力してください。", class: "form-control rounded-start", required: "", rows: 6
+              .text-end.pt-4
+                = f.submit '送信', class: 'btn btn-primary mt-4'
