@@ -1,12 +1,12 @@
 .page-title-overlap.bg-accent.pt-4
-  .container.d-flex.flex-wrap.flex-sm-nowrap.justify-content-center.justify-content-sm-between.align-items-center.mb-2.pt-2
+  .container.d-flex.flex-wrap.flex-sm-nowrap.justify-content-center.justify-content-sm-between.align-items-center.py-2
     .d-flex.align-items-center
       .img-thumbnail.rounded-circle.position-relative.flex-shrink-0
         = image_tag @user.avatar, class: 'rounded-circle user-detail'
       .ps-3
         h3.h5.mt-2.text-light
           = @user.username
-    .my-sm-0.my-3.text-sm-end.pt-1.ms-4
+    .my-sm-0.my-3.text-sm-end.pt-1.ms-4.flex-column
       .d-flex.align-items-center.text-nowrap.fs-sm
         / TODO フォロー数を設定
         .mb-2.ms-sm-3.me-2.text-muted
@@ -15,9 +15,16 @@
         .mb-2.ps-sm-2.ps-2.border-start.border-light.text-muted
           span.fw-medium.text-light 2K
           span.text-white.opacity-70 following
-    - if current_user&.id == @user.id
-      .my-sm-0.text-sm-end.pt-1.ms-4.text-center
-        = link_to 'プロフィール編集', edit_mypage_account_path, class: 'btn btn-raised btn-warning'
+      .d-flex.align-items-center.text-nowrap.fs-sm
+        - if current_user&.id == @user.id
+          .my-sm-0.text-sm-end.pt-1.ms-4.text-center
+            = link_to 'プロフィール編集', edit_mypage_account_path, class: 'btn btn-warning btn-sm rounded-pill'
+        - else
+          .mb-2.ms-sm-3.me-2.text-muted
+            = render 'follow_area', user: @user
+          .mb-2.ps-sm-2.ps-2.text-muted
+            // TODO チャットのリンクを設定
+            = link_to 'チャット', '#', class: 'btn btn-success btn-sm rounded-pill'
 .container.mb-5.pb-3
   .bg-light.shadow-lg.rounded-3.overflow-hidden.p-4
     .row
