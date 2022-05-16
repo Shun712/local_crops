@@ -5,9 +5,9 @@
         h1.h3.text-light.mb-0 ブックマーク
 .container.mb-5.pb-3
   .bg-light.shadow-lg.rounded-3.overflow-hidden.p-2
-    .row.my-4
+    .row
       .col-md-10.offset-md-1
-        .row.pt-4
+        .row.pb-4
           - if @crops.present?
             = render partial: 'crops/bookmark_crop', collection: @crops
           - else
