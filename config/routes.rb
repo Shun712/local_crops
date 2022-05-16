@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   end
   resources :reservations, only: %i[index new create destroy]
   resources :bookmarks, only: %i[index create destroy]
+  resources :relationships, only: %i[create destroy]
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
