@@ -1,5 +1,5 @@
 tr.align-middle id="reservation-#{reservation.id}"
-  td
+  td.px-3
     = image_tag reservation.crop.picture, class: 'rounded-circle user-reservation'
     br
       = link_to reservation.crop.name, crop_path(reservation.crop)
@@ -17,5 +17,8 @@ tr.align-middle id="reservation-#{reservation.id}"
       = image_tag reservation.user.avatar, class: 'rounded-circle user-reservation'
       br
         = link_to reservation.user.username, user_path(reservation.user)
-  td= reservation.received_at.strftime('%Y/%m/%d %H:%M')
+  td
+    = reservation.received_at.strftime('%Y/%m/%d')
+    br
+    = reservation.received_at.strftime('%H:%M')
   td= link_to '取消', reservation_path(reservation), class: 'btn btn-info btn-sm my-2 delete-button', method: :delete, data: { confirm: '本当に取消しますか?' }
