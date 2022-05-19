@@ -1,0 +1,27 @@
+.col-lg-4.col-sm-6.mb-grid-gutter
+  .card.border-0.shadow.product-card.card-static id="crop-#{bookmark_crop.id}"
+    - if current_user && !current_user.own?(bookmark_crop)
+      button.btn-wishlist.btn-sm data-bs-placement="left" data-bs-toggle="tooltip" type="button"
+        = render 'crops/bookmark_area', crop: bookmark_crop
+    = link_to crop_path(bookmark_crop) do
+      = image_tag bookmark_crop.picture, class: 'crop-detail'
+    .card-body.text-center
+      = link_to bookmark_crop.name, crop_path(bookmark_crop)
+      p.fs-sm.text-muted.pb-2.crop-index
+        = bookmark_crop.description
+      .fs-xs.text-nowrap.text-start
+        a.blog-entry-meta-link.text-nowrap
+          | 収穫日
+        span.blog-entry-meta-divider.mx-2
+        a.blog-entry-meta-link.text-nowrap
+          = bookmark_crop.harvested_on
+      .fs-xs.text-nowrap.text-start
+        a.blog-entry-meta-link.text-nowrap
+          | 生産者
+        span.blog-entry-meta-divider.mx-2
+        a.blog-entry-meta-link.text-nowrap
+          = image_tag bookmark_crop.user.avatar, class: 'rounded-circle me-1 user-index'
+          = link_to bookmark_crop.user.username, user_path(bookmark_crop.user)
+      - if bookmark_crop.reservations.empty?
+        = link_to '予約する', new_reservation_path(crop_id: bookmark_crop.id), remote: true, class: 'btn btn-outline-primary btn-sm my-2 reserve-button'
+      - else bookmark_crop.harvested_after_a_week? || bookmark_crop.reservations.present?

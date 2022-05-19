@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_15_170509) do
+ActiveRecord::Schema.define(version: 2022_05_16_014354) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -68,6 +68,16 @@ ActiveRecord::Schema.define(version: 2022_05_15_170509) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "relationships", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "follower_id", null: false
+    t.bigint "followed_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
   create_table "reservations", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "crop_id", null: false
@@ -112,6 +122,8 @@ ActiveRecord::Schema.define(version: 2022_05_15_170509) do
   add_foreign_key "bookmarks", "crops"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "crops", "users"
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
   add_foreign_key "reservations", "crops"
   add_foreign_key "reservations", "users"
   add_foreign_key "social_profiles", "users"

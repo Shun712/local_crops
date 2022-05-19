@@ -5,4 +5,9 @@
         h5.modal-title 予約登録
         button.btn-close aria-label="Close" data-bs-dismiss="modal" type="button"
       .modal-body
+        .container
+          .row
+            .col-10.offset-1
+              .card.border-0.shadow
+                = image_tag @crop.picture, class: 'crop-detail'
         = render 'form', reservation: reservation

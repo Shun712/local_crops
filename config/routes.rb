@@ -26,10 +26,12 @@ Rails.application.routes.draw do
   resources :crops
   resources :users, only: %i[show]
   namespace :mypage do
-    resource :account, only: %i[edit update]
+    get 'following', to: 'relationships#following'
+    get 'follower', to: 'relationships#follower'
   end
   resources :reservations, only: %i[index new create destroy]
   resources :bookmarks, only: %i[index create destroy]
+  resources :relationships, only: %i[create destroy]
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
