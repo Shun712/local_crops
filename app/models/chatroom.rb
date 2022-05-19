@@ -7,5 +7,5 @@
 #  updated_at :datetime         not null
 #
 class Chatroom < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 end
