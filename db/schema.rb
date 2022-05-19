@@ -51,8 +51,13 @@ ActiveRecord::Schema.define(version: 2022_05_19_204019) do
   end
 
   create_table "chatrooms", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "partner_id", null: false
+    t.datetime "last_read_at"
+    t.datetime "datetime"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
   create_table "chats", charset: "utf8mb4", force: :cascade do |t|
@@ -136,6 +141,7 @@ ActiveRecord::Schema.define(version: 2022_05_19_204019) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookmarks", "crops"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "chatrooms", "users"
   add_foreign_key "chats", "chatrooms"
   add_foreign_key "chats", "users"
   add_foreign_key "crops", "users"
