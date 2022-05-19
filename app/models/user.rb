@@ -48,6 +48,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :chatrooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)
