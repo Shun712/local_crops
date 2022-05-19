@@ -47,6 +47,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :chatrooms, dependent: :destroy
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)
@@ -100,5 +101,12 @@ class User < ApplicationRecord
 
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def start_chat_with!(user)
+    chatroom = Chatroom.new
+    chatroom.users = [self, user]
+    chatroom.save!
+    chatroom
   end
 end
