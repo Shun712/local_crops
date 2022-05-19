@@ -41,11 +41,14 @@ ja:
         user_id: 対象者
         crop_id: 作物
         transaction: 取引
+      chat:
+        body: メッセージ
     models:
       user: ユーザー
       feedback: お問い合わせ
       crop: 作物
       reservation: 予約
+      chat: メッセージ
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>

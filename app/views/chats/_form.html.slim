@@ -1,0 +1,8 @@
+= form_with model: [chatroom, chat], remote: true do |f|
+  = render 'shared/error_messages', object: chat
+  = f.label :body
+  = f.text_field :body, class: 'form-control mb-3 input-message-body'
+  - if chat.new_record?
+    = f.submit '送信', 'btn btn-primary btn-raised'
+  - else
+    = f.submit '更新', 'btn btn-primary btn-raised'

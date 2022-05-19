@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-md-8.offset-sm-2
+      .card
+        .card-header
+          h2 チャットルーム
+        .card-body
+          ul.list-unstyled#chat-box
+            = render @chatroom.chats.includes(:user)
+          = render 'chats/form', chatroom: @chatroom, chat: @chat ||= Chat.new

@@ -1,0 +1,8 @@
+.modal#chat-edit-modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5.modal-title メッセージ編集
+        button.btn-close aria-label="Close" data-bs-dismiss="modal" type="button"
+      .modal-body
+        = render 'form', chatroom: nil, chat: @chat

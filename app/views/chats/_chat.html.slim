@@ -1,0 +1,16 @@
+li.media.mb-3.border-bottom.p-2 id="chat-#{chat.id}"
+  div
+    div
+      = link_to chat.user.username, user_path(chat.user)
+    = image_tag chat.user.avatar, class: 'mr-3 rounded-circle', size: '50x50'
+
+  .media-body
+    = simple_format(chat.body)
+    div.text-right
+      = chat.decorate.created_at
+    div.text-right
+      - if current_user&.own?(chat)
+        = link_to chat_path(chat), class: 'mr-3', method: :delete, data: {confirm: '本当に削除しますか？'}, remote: true do
+          i.fa-solid.fa-trash
+        = link_to edit_chat_path(chat), remote: true do
+          i.fa-solid.fa-pen-to-square
