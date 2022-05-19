@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   resources :reservations, only: %i[index new create destroy]
   resources :bookmarks, only: %i[index create destroy]
   resources :relationships, only: %i[create destroy]
-  resources :chatrooms, only: %i[create show]
+  resources :chatrooms, only: %i[create show], shallow: true do
+    resources :chats
+  end
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
