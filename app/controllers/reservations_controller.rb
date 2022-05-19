@@ -1,8 +1,7 @@
 class ReservationsController < ApplicationController
   def index
     @reservations = Reservation.includes(:user, :crop)
-                               .where(user_id: current_user.id)
-                               .or(Reservation.where(crop_id: current_user.crops.ids))
+                               .where("user_id = ? or crop_id = ?", current_user.id, current_user.crops.ids)
                                .sorted
                                .page(params[:page])
                                .per(12)
