@@ -21,8 +21,8 @@
 #
 FactoryBot.define do
   factory :chat do
-    user { "" }
-    chatroom { "" }
+    association :user, factory: :user, strategy: :create
+    association :chatroom, factory: :chatroom, strategy: :create
     body { "MyText" }
   end
 end

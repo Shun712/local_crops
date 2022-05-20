@@ -22,5 +22,19 @@
 require 'rails_helper'
 
 RSpec.describe Chat, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:user) { create(:user) }
+  let!(:chatroom) { create(:chatroom, user: user) }
+  let!(:chat) { create(:chat, user: user, chatroom: chatroom) }
+
+  context 'バリデーション' do
+    it '有効な状態であること' do
+      expect(chat).to be_valid
+    end
+
+    it 'メッセージが1000文字以内であること' do
+      chat = build(:chat, body: "a" * 1001)
+      chat.valid?
+      expect(chat.errors[:body]).to include("は1000文字以内で入力してください")
+    end
+  end
 end
