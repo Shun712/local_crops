@@ -23,4 +23,5 @@ class Chatroom < ApplicationRecord
   belongs_to :user
   belongs_to :partner, class_name: "User"
   has_many :chats, dependent: :destroy
+  scope :sorted, -> { order(created_at: :desc) }
 end
