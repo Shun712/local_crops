@@ -2,5 +2,5 @@
   = image_tag chatroom.partner.avatar, class: 'rounded-circle user-show mr-1'
   div
     p.font-weight-bold = link_to chatroom.partner.username, user_path(chatroom.partner)
-    p.font-weight-bold = link_to chatroom.chats.last&.body&.truncate(30), chatroom_path(chatroom) || 'まだメッセージがありません'
+    p.font-weight-bold = link_to chatroom.decorate.chat_text, chatroom_path(chatroom)
 hr
