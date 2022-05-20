@@ -9,7 +9,7 @@ class ChatsController < ApplicationController
 
   def update
     @chat = current_user.chats.find(params[:id])
-    @chat.update!(chat_update_params)
+    @chat.update(chat_update_params)
   end
 
   def destroy
@@ -19,6 +19,10 @@ class ChatsController < ApplicationController
 
   private
   def chat_params
+    params.require(:chat).permit(:body).merge(chatroom_id: params[:chatroom_id])
+  end
+
+  def chat_update_params
     params.require(:chat).permit(:body)
   end
 end

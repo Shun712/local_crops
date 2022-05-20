@@ -107,7 +107,7 @@ class User < ApplicationRecord
   def start_chat_with!(user)
     chatroom = Chatroom.new
     chatroom.user = self
-    chatroom.partner = user
+    chatroom.partner_id = user.id
     chatroom.save!
     chatroom
   end
