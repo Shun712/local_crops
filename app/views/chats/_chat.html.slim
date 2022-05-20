@@ -10,7 +10,7 @@ li.media.mb-3.border-bottom.p-2 id="chat-#{chat.id}"
       = chat.decorate.created_at
     div.text-right
       - if current_user&.own?(chat)
-        = link_to chat_path(chat), class: 'mr-3', method: :delete, data: {confirm: '本当に削除しますか？'}, remote: true do
+        = link_to chat_path(chat), class: 'mr-3 delete-button', method: :delete, data: {confirm: '本当に削除しますか？'}, remote: true do
           i.fa-solid.fa-trash
-        = link_to edit_chat_path(chat), remote: true do
+        = link_to edit_chat_path(chat), class: 'edit-button', remote: true do
           i.fa-solid.fa-pen-to-square
