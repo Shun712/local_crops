@@ -20,6 +20,8 @@
 #
 FactoryBot.define do
   factory :chatroom do
-    
+    association :user, factory: :user, strategy: :create
+    partner_id  { 2 }
+    last_read_at { Time.now }
   end
 end

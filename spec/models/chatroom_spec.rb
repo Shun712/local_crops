@@ -21,5 +21,12 @@
 require 'rails_helper'
 
 RSpec.describe Chatroom, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:chatroom) { create(:chatroom) }
+
+  context 'バリデーション' do
+    it '有効な状態であること' do
+      expect(chatroom).to be_valid
+    end
+
+  end
 end
