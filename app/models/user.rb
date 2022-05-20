@@ -105,11 +105,10 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def start_chat_with!(user)
-    chatroom = Chatroom.new
-    chatroom.user = self
-    chatroom.partner_id = user.id
-    chatroom.save!
+  def chatroom_for_partner(user)
+    unless (chatroom = Chatroom.find_by(partner_id: user.id))
+      chatroom = chatrooms.create(partner_id: user.id)
+    end
     chatroom
   end
 end

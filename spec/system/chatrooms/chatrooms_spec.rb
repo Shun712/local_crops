@@ -3,14 +3,24 @@ require 'rails_helper'
 RSpec.describe 'Chatrooms', type: :system do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
+  let!(:chatroom) { create(:chatroom, user: user, partner: other_user) }
   before do
     sign_in user
   end
 
-  context 'ページレイアウト' do
-    it 'ユーザー詳細ページに「チャット」ボタンが存在すること' do
-      visit user_path(other_user)
-      expect(page).to have_content 'チャット'
+  describe 'ページレイアウト' do
+    context 'ユーザー詳細ページ' do
+      it 'ユーザー詳細ページに「チャット」ボタンが存在すること' do
+        visit user_path(other_user)
+        expect(page).to have_content 'チャット'
+      end
+    end
+
+    context 'チャット一覧ページ' do
+      it 'チャットルームが表示されること' do
+        visit chatrooms_path
+        expect(current_path).to eq chatrooms_path
+      end
     end
   end
 

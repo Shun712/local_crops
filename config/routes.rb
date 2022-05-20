@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   resources :reservations, only: %i[index new create destroy]
   resources :bookmarks, only: %i[index create destroy]
   resources :relationships, only: %i[create destroy]
-  resources :chatrooms, only: %i[index create show], shallow: true do
+  resources :chatrooms, only: %i[index show], shallow: true do
     resources :chats
   end
   if Rails.env.development?

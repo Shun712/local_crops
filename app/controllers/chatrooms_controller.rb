@@ -4,9 +4,10 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id])
-    chatroom = current_user.start_chat_with!(user)
-    redirect_to chatroom_path(chatroom)
+    user = User.find(params[:id])
+    @chatroom = Chatroom.chatroom_for_partner(user)
+    @chats = @chatroom.chats.order(created_at: :desc).limit(100).reverse
+    redirect_to chatroom_path(user)
   end
 
   def show
