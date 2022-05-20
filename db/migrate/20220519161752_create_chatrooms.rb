@@ -6,5 +6,6 @@ class CreateChatrooms < ActiveRecord::Migration[6.1]
       t.datetime :last_read_at, :datetime
       t.timestamps
     end
+    add_index :chatrooms, [:user_id, :partner_id], unique: true
   end
 end

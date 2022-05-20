@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2022_05_19_204019) do
     t.datetime "datetime"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "partner_id"], name: "index_chatrooms_on_user_id_and_partner_id", unique: true
     t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 

@@ -6,5 +6,6 @@
           h2 チャットルーム
         .card-body
           ul.list-unstyled#chat-box
-            = render @chatroom.chats.includes(:user)
+            = render @chatroom.chats.includes(:user).order(created_at: :desc).limit(100).reverse
+          // Chat.newなら新規フォーム、@chatなら編集フォームとなる
           = render 'chats/form', chatroom: @chatroom, chat: @chat ||= Chat.new

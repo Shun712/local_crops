@@ -12,7 +12,8 @@
 #
 # Indexes
 #
-#  index_chatrooms_on_user_id  (user_id)
+#  index_chatrooms_on_user_id                 (user_id)
+#  index_chatrooms_on_user_id_and_partner_id  (user_id,partner_id) UNIQUE
 #
 # Foreign Keys
 #

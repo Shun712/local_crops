@@ -42,6 +42,10 @@
           li
             = link_to 'フォロワー', mypage_follower_path, class: "dropdown-item"
       li.nav-item
+        = link_to chatrooms_path, class: "nav-link" do
+          i.fa-solid.fa-comment
+          |  チャットルーム
+      li.nav-item
         = link_to destroy_user_session_path, class: "nav-link", method: :delete do
           i.fa-solid.fa-arrow-right-from-bracket
           |  ログアウト

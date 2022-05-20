@@ -12,7 +12,8 @@
 #
 # Indexes
 #
-#  index_chatrooms_on_user_id  (user_id)
+#  index_chatrooms_on_user_id                 (user_id)
+#  index_chatrooms_on_user_id_and_partner_id  (user_id,partner_id) UNIQUE
 #
 # Foreign Keys
 #
@@ -20,5 +21,6 @@
 #
 class Chatroom < ApplicationRecord
   belongs_to :user
+  belongs_to :partner, class_name: "User"
   has_many :chats, dependent: :destroy
 end
