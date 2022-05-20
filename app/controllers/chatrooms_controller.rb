@@ -7,7 +7,7 @@ class ChatroomsController < ApplicationController
     user = User.find(params[:id])
     @chatroom = Chatroom.chatroom_for_partner(user)
     @chats = @chatroom.chats.order(created_at: :desc).limit(100).reverse
-    redirect_to chatroom_path(user)
+    redirect_to chatroom_path(@chatroom)
   end
 
   def show
