@@ -3,6 +3,7 @@
 # Table name: chatrooms
 #
 #  id         :bigint           not null, primary key
+#  name       :string(255)      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -15,6 +16,5 @@ RSpec.describe Chatroom, type: :model do
     it '有効な状態であること' do
       expect(chatroom).to be_valid
     end
-
   end
 end

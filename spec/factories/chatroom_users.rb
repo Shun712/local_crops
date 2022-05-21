@@ -22,8 +22,8 @@
 #
 FactoryBot.define do
   factory :chatroom_user do
-    user { nil }
-    chatroom { nil }
+    association :user, factory: :user, strategy: :create
+    association :chatroom, factory: :chatroom, strategy: :create
     last_read_at { "2022-05-21 11:04:34" }
   end
 end

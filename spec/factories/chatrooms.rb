@@ -3,13 +3,12 @@
 # Table name: chatrooms
 #
 #  id         :bigint           not null, primary key
+#  name       :string(255)      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 FactoryBot.define do
   factory :chatroom do
-    association :user, factory: :user, strategy: :create
-    partner_id  { 2 }
-    last_read_at { Time.now }
+    name { '1:2' }
   end
 end

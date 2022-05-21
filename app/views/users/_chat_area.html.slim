@@ -1,1 +1,3 @@
-= link_to 'チャット', chatroom_path(current_user.chatroom_for_partner(user)), class: 'btn btn-success btn-sm rounded-pill'
+= form_with url: chatrooms_path, local: true do |f|
+  = f.hidden_field :user_id, value: user.id
+  = f.submit 'チャット', class: 'btn btn-success btn-sm rounded-pill'

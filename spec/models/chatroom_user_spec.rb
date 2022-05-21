@@ -23,5 +23,21 @@
 require 'rails_helper'
 
 RSpec.describe ChatroomUser, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:chatroom_user) { create(:chatroom_user) }
+
+  context 'バリデーション' do
+    it '有効な状態であること' do
+      expect(chatroom_user).to be_valid
+    end
+
+    it "user_idがnilの場合、関係性が無効であること" do
+      chatroom_user.user_id = nil
+      expect(chatroom_user).not_to be_valid
+    end
+
+    it "chatroom_idがnilの場合、関係性が無効であること" do
+      chatroom_user.chatroom_id = nil
+      expect(chatroom_user).not_to be_valid
+    end
+  end
 end

@@ -3,7 +3,7 @@
     .d-lg-flex.justify-content-between.pb-3
       .order-lg-1.pe-lg-4.text-left.text-lg-start
         h1.h3.text-light.mb-2.ms-5
-          = "#{@chatroom.partner.username}さんとのトークルーム"
+          = "#{@user.username}さんとのトークルーム"
 .container.mb-5.pb-3
   .bg-light.shadow-lg.rounded-3.overflow-hidden.p-2
     .row
@@ -11,6 +11,6 @@
         .card.border-0.shadow
           .card-body
             ul.list-unstyled#chat-box
-              = render @chats.includes(:user).order(created_at: :desc).limit(100).reverse
+              = render @chatroom.chats.includes(:user).order(created_at: :desc).limit(100).reverse
             // Chat.newなら新規フォーム、@chatなら編集フォームとなる
             = render 'chats/form', chatroom: @chatroom, chat: @chat ||= Chat.new

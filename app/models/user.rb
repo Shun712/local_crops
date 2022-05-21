@@ -47,8 +47,8 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-  has_many :chatrooms, dependent: :destroy
-  has_many :partners, through: :chatrooms
+  has_many :chatroom_users, dependent: :destroy
+  has_many :chatrooms, through: :chatroom_users
   has_many :chats, dependent: :destroy
 
   def self.find_for_oauth!(auth)
@@ -105,10 +105,11 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def chatroom_for_partner(user)
-    unless (chatroom = Chatroom.find_by(partner_id: user.id))
-      chatroom = chatrooms.create(partner_id: user.id)
+  def partner(object)
+    if id == object.users.first.id
+      object.users.last
+    else
+      object.users.first
     end
-    chatroom
   end
 end
