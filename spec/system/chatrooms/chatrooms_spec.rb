@@ -4,6 +4,7 @@ RSpec.describe 'Chatrooms', type: :system do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:chatroom) { create(:chatroom, user: user, partner: other_user) }
+  let!(:chat_by_other_user) { create(:chat, chatroom: chatroom, user: other_user) }
   before do
     sign_in user
   end
@@ -20,6 +21,13 @@ RSpec.describe 'Chatrooms', type: :system do
       it 'チャットルームが表示されること' do
         visit chatrooms_path
         expect(current_path).to eq chatrooms_path
+      end
+    end
+
+    context 'チャットルーム' do
+      it 'チャット相手のメッセージが表示されること' do
+        visit chatroom_path(user)
+        expect(page).to have_content chat_by_other_user.body
       end
     end
   end
