@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_19_204019) do
+ActiveRecord::Schema.define(version: 2022_05_21_020433) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 2022_05_19_204019) do
     t.index ["crop_id"], name: "index_bookmarks_on_crop_id"
     t.index ["user_id", "crop_id"], name: "index_bookmarks_on_user_id_and_crop_id", unique: true
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "chatroom_users", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.datetime "last_read_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_chatroom_users_on_chatroom_id"
+    t.index ["user_id", "chatroom_id"], name: "index_chatroom_users_on_user_id_and_chatroom_id", unique: true
+    t.index ["user_id"], name: "index_chatroom_users_on_user_id"
   end
 
   create_table "chatrooms", charset: "utf8mb4", force: :cascade do |t|
@@ -136,6 +147,8 @@ ActiveRecord::Schema.define(version: 2022_05_19_204019) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookmarks", "crops"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "chatroom_users", "chatrooms"
+  add_foreign_key "chatroom_users", "users"
   add_foreign_key "chats", "chatrooms"
   add_foreign_key "chats", "users"
   add_foreign_key "crops", "users"

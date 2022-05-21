@@ -7,6 +7,11 @@ class ChatroomsController < ApplicationController
                              .per(12)
   end
 
+  def create
+    user = User.find(params[:user_id])
+
+  end
+
   def show
     @chatroom = current_user.chatrooms.find(params[:id])
     @chats = Chat.where(chatroom_id: @chatroom.id)
