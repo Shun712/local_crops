@@ -9,6 +9,5 @@ class ChatroomChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def speak
-  end
+  def speak; end
 end

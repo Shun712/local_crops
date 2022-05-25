@@ -2,7 +2,7 @@ class ChatroomsController < ApplicationController
   def index
     @chatrooms = current_user.chatrooms
                              .includes(:users, chats: :user)
-                             .order("chats.created_at ASC")
+                             .order('chats.created_at ASC')
                              .page(params[:page])
                              .per(12)
   end
