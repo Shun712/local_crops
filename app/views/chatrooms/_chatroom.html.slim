@@ -1,0 +1,9 @@
+table.table.table-striped
+  tr
+    td align="left" valign="middle"
+      = image_tag current_user.partner(chatroom).avatar, class: 'rounded-circle me-1', size: '30x30'
+      = link_to current_user.partner(chatroom).username.truncate(20), user_path(current_user.partner(chatroom))
+    td align="right" valign="middle"
+      = link_to chatroom.decorate.chat_text, chatroom_path(chatroom)
+    td align="right" valign="middle"
+      = chatroom.decorate.created_at

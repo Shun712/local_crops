@@ -1,0 +1,21 @@
+- if current_user&.own?(chat)
+  li.media.mb-3.p-2 id="chat-#{chat.id}" data-sender-id="#{chat.user.id}"
+    .media-body.my-comment
+      = simple_format(chat.body)
+    div.text-right.d-inline-flex.crud-area
+      = link_to chat_path(chat), class: 'me-2 delete-button', method: :delete, data: { confirm: '本当に削除しますか？' }, remote: true do
+        i.fa-solid.fa-trash
+      = link_to edit_chat_path(chat), class: 'me-3 edit-button', remote: true do
+        i.fa-solid.fa-pen-to-square
+      div.text-right
+        = chat.decorate.created_at
+- else
+  li.media.mb-3.p-2 id="chat-#{chat.id}" data-sender-id="#{chat.user.id}"
+    div.partner-comment.d-flex
+      .face-icon
+        = link_to image_tag(chat.user.avatar, class: 'mr-3 rounded-circle', size: '50x50'), user_path(chat.user)
+      .chatting
+        .media-body.says
+          = simple_format(chat.body)
+    div.time
+      = chat.decorate.created_at
