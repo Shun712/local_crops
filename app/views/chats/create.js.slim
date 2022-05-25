@@ -1,5 +1,0 @@
-- if @chat.errors.present?
-  | alert("#{@chat.errors.full_messages.join('\n')}");
-- else
-  | $('#chat-box').prepend("#{j render('chats/chat', chat: @chat)}");
-  | $('.input-chat-body').val('');

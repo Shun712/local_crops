@@ -1,6 +1,15 @@
 class ChatsController < ApplicationController
   def create
-    @chat = current_user.chats.create(chat_params)
+    @chat = current_user.chats.build(chat_params)
+    if @chat.save
+      ActionCable.server.broadcast(
+        "chatroom_#{@chat.chatroom_id}",
+        { type: :create, html: (render_to_string partial: 'chat', locals: { chat: @chat }, layout: false), chat: @chat.as_json }
+      )
+      head :ok
+    else
+      head :bad_request
+    end
   end
 
   def edit
@@ -9,12 +18,25 @@ class ChatsController < ApplicationController
 
   def update
     @chat = current_user.chats.find(params[:id])
-    @chat.update(chat_update_params)
+    if @chat.update(chat_update_params)
+      ActionCable.server.broadcast(
+        "chatroom_#{@chat.chatroom_id}",
+        { type: :update, html: (render_to_string partial: 'chat', locals: { chat: @chat }, layout: false), chat: @chat.as_json }
+      )
+      head :ok
+    else
+      head :bad_request
+    end
   end
 
   def destroy
     @chat = current_user.chats.find(params[:id])
     @chat.destroy!
+    ActionCable.server.broadcast(
+      "chatroom_#{@chat.chatroom_id}",
+      { type: :delete, html: (render_to_string partial: 'chat', locals: { chat: @chat }, layout: false), chat: @chat.as_json }
+    )
+    head :ok
   end
 
   private

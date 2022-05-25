@@ -1,6 +1,9 @@
-.chatroom.mb-3.d-flex
-  = image_tag current_user.partner(chatroom).avatar, class: 'rounded-circle user-show mr-1'
-  div
-    p.font-weight-bold = link_to current_user.partner(chatroom).username, user_path(current_user.partner(chatroom))
-    p.font-weight-bold = link_to chatroom.decorate.chat_text, chatroom_path(chatroom)
-hr
+table.table.table-striped
+  tr
+    td align="left" valign="middle"
+      = image_tag current_user.partner(chatroom).avatar, class: 'rounded-circle me-1', size: '30x30'
+      = link_to current_user.partner(chatroom).username.truncate(20), user_path(current_user.partner(chatroom))
+    td align="right" valign="middle"
+      = link_to chatroom.decorate.chat_text, chatroom_path(chatroom)
+    td align="right" valign="middle"
+      = chatroom.decorate.created_at

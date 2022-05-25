@@ -1,7 +1,8 @@
-= form_with model: [chatroom, chat], local: false do |f|
+// Rails6.0から非同期通信は、local: false
+= form_with model: [chatroom, chat], class: 'd-inline-flex', local: false do |f|
   = render 'shared/error_messages', object: chat
-  .form-group.mb-3.form-floating
-    = f.text_field :body, id: 'fl-text', placeholder: "メッセージ", class: 'form-control mb-3 input-chat-body'
+  .form-group.form-floating
+    = f.text_field :body, id: 'fl-text', placeholder: "メッセージ", class: 'form-control input-chat-body', required: ""
     = f.label :body, for: 'fl-text'
   - if chat.new_record?
     = f.submit '送信', class: 'btn btn-primary btn-raised'

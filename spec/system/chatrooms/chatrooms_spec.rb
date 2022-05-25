@@ -30,14 +30,6 @@ RSpec.describe 'Chatrooms', type: :system do
       expect(current_path).to eq chatroom_path(Chatroom.first)
     end
 
-    it 'テキストを入力しないで送信ボタンを押すとエラーメッセージが表示されること', js: true do
-      visit user_path(other_user)
-      click_on 'チャット'
-      click_button '送信'
-      sleep 0.5
-      expect(page.driver.browser.switch_to.alert.text).to eq 'メッセージを入力してください'
-    end
-
     it 'テキストを入力して送信ボタンを押すとメッセージが表示されること', js: true do
       visit user_path(other_user)
       click_on 'チャット'

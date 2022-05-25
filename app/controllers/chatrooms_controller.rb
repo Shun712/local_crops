@@ -2,7 +2,7 @@ class ChatroomsController < ApplicationController
   def index
     @chatrooms = current_user.chatrooms
                              .includes(:users, chats: :user)
-                             .sorted
+                             .order("chats.created_at ASC")
                              .page(params[:page])
                              .per(12)
   end
@@ -11,7 +11,7 @@ class ChatroomsController < ApplicationController
     users = [current_user]
     users << User.find(params[:user_id])
     @chatroom = Chatroom.chatroom_for_user(users)
-    @chats = @chatroom.chats.order(created_at: :desc).limit(100).reverse
+    @chats = @chatroom.chats.recent(100)
     @chatroom_user = current_user.chatroom_users.find_by(chatroom_id: @chatroom.id)
     redirect_to chatroom_path(@chatroom)
   end

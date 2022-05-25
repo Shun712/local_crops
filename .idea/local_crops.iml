@@ -153,6 +153,20 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="activemodel-serializers-xml (vbundled(1.0.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/activemodel-serializers-xml-1.0.2/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/activemodel-serializers-xml-1.0.2/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="activerecord (vbundled(6.1.5)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -751,6 +765,31 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/dotenv-rails-2.7.6/lib" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="draper (vbundled(4.0.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/draper-4.0.2/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/draper-4.0.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/draper-4.0.2/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/draper-4.0.2/.github" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/draper-4.0.2/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/draper-4.0.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/draper-4.0.2/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/draper-4.0.2/.github" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/draper-4.0.2/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/draper-4.0.2/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/draper-4.0.2/.github" />
+        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -2078,6 +2117,25 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/regexp_parser-2.2.1/lib" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="request_store (vbundled(1.5.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/request_store-1.5.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/request_store-1.5.1/test" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/request_store-1.5.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/request_store-1.5.1/test" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/request_store-1.5.1/test" />
+        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">

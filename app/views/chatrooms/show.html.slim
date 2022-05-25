@@ -8,9 +8,11 @@
   .bg-light.shadow-lg.rounded-3.overflow-hidden.p-2
     .row
       .col-md-6.col-12.offset-md-3.mb-3
-        .card.border-0.shadow
-          .card-body
-            ul.list-unstyled#chat-box
-              = render @chatroom.chats.includes(:user).order(created_at: :desc).limit(100).reverse
+        .card.border-0.shadow#chatroom data-chatroom-id="#{@chatroom.id}" data-current-user-id="#{current_user.id}"
+          .card-header
+            .chats
+              ul.list-unstyled#chat-box
+                = render @chatroom.chats
+          .card-body.text-center
             // Chat.newなら新規フォーム、@chatなら編集フォームとなる
             = render 'chats/form', chatroom: @chatroom, chat: @chat ||= Chat.new

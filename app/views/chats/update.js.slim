@@ -1,5 +1,0 @@
-- if @chat.errors.present?
-  | alert("#{@chat.errors.full_messages.join('\n')}");
-- else
-  | $("#chat-#{@chat.id}").replaceWith("#{j render('chats/chat', chat: @chat)}");
-  | $("#chat-edit-modal").modal('hide');
