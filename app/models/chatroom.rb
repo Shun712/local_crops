@@ -11,7 +11,6 @@ class Chatroom < ApplicationRecord
   has_many :chatroom_users, dependent: :destroy
   has_many :users, through: :chatroom_users
   has_many :chats, dependent: :destroy
-  scope :recent, ->(count) { order(created_at: :desc).limit(count) }
 
   def self.chatroom_for_user(users)
     user_ids = users.map(&:id).sort
