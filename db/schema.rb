@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_21_020433) do
+ActiveRecord::Schema.define(version: 2022_05_26_185203) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -95,6 +95,18 @@ ActiveRecord::Schema.define(version: 2022_05_21_020433) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "notifications", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "subject_type", null: false
+    t.bigint "subject_id", null: false
+    t.integer "notification_type", null: false
+    t.boolean "read", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_type", "subject_id"], name: "index_notifications_on_subject"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "relationships", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "follower_id", null: false
     t.bigint "followed_id", null: false
@@ -153,6 +165,7 @@ ActiveRecord::Schema.define(version: 2022_05_21_020433) do
   add_foreign_key "chats", "chatrooms"
   add_foreign_key "chats", "users"
   add_foreign_key "crops", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "relationships", "users", column: "followed_id"
   add_foreign_key "relationships", "users", column: "follower_id"
   add_foreign_key "reservations", "crops"

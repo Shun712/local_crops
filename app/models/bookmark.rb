@@ -22,8 +22,16 @@
 class Bookmark < ApplicationRecord
   belongs_to :user
   belongs_to :crop
+  has_one :notification, as: :subject, dependent: :destroy
   validates :user_id, presence: true
   validates :crop_id, presence: true
   validates :user_id, uniqueness: { scope: :crop_id }
   scope :sorted, -> { order(harvested_on: :desc) }
+  after_create_commit :create_notifications
+
+  private
+
+  def create_notifications
+    Notification.create(user: crop.user, subject: self, notification_type: :bookmarked_to_own_crop)
+  end
 end
