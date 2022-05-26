@@ -28,12 +28,16 @@ Rails.application.routes.draw do
   namespace :mypage do
     get 'following', to: 'relationships#following'
     get 'follower', to: 'relationships#follower'
+    resources :notifications, only: %i[index]
   end
   resources :reservations, only: %i[index new create destroy]
   resources :bookmarks, only: %i[index create destroy]
   resources :relationships, only: %i[create destroy]
   resources :chatrooms, only: %i[index create show], shallow: true do
     resources :chats
+  end
+  resources :notifications, only: [] do
+    patch :read, on: :member
   end
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
