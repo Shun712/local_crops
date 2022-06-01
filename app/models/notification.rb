@@ -4,7 +4,7 @@
 #
 #  id                :bigint           not null, primary key
 #  notification_type :integer          not null
-#  read              :boolean          default(FALSE), not null
+#  read              :boolean          default("unread"), not null
 #  subject_type      :string(255)      not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
@@ -31,7 +31,7 @@ class Notification < ApplicationRecord
   def redirect_path
     case notification_type.to_sym
     when :reserved_to_own_crop
-      crop_path(subject.crop)
+      reservations_path
     when :bookmarked_to_own_crop
       crop_path(subject.crop)
     when :followed_me

@@ -43,17 +43,17 @@ ja:
         transaction: 取引
       chat:
         body: メッセージ
-    time:
-      formats:
-        default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
-          long: "%Y/%m/%d %H:%M"
-          short: "%m/%d %H:%M"
     models:
       user: ユーザー
       feedback: お問い合わせ
       crop: 作物
       reservation: 予約
       chat: メッセージ
+  time:
+    formats:
+      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      long: "%Y/%m/%d %H:%M"
+      short: "%m/%d %H:%M"
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>

@@ -46,6 +46,10 @@
           i.fa-solid.fa-comment
           |  チャットルーム
       li.nav-item
+        = link_to mypage_notifications_path, class: "nav-link" do
+          i.fa-solid.fa-bell
+          |  通知
+      li.nav-item
         = link_to destroy_user_session_path, class: "nav-link", method: :delete do
           i.fa-solid.fa-arrow-right-from-bracket
           |  ログアウト

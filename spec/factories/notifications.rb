@@ -4,7 +4,7 @@
 #
 #  id                :bigint           not null, primary key
 #  notification_type :integer          not null
-#  read              :boolean          default(FALSE), not null
+#  read              :boolean          default("unread"), not null
 #  subject_type      :string(255)      not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null

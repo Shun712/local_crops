@@ -30,6 +30,6 @@ class Chat < ApplicationRecord
   private
 
   def create_notifications
-    Notification.create(user: user, subject: self, notification_type: :chat_to_me)
+    Notification.create(user: user.partner(chatroom), subject: self, notification_type: :chat_to_me)
   end
 end
