@@ -25,7 +25,7 @@ class Notification < ApplicationRecord
   belongs_to :user
   belongs_to :subject, polymorphic: true
 
-  enum notification_type: { reserved_to_own_crop: 0, bookmarked_to_own_crop: 1, followed_me: 2, chat_to_me: 3 }
+  enum notification_type: { reserved_to_own_crop: 0, bookmarked_to_own_crop: 1, followed_me: 2, chat_to_me: 3, create_crop_by_follow_user: 4 }
   enum read: { unread: false, read: true }
 
   def redirect_path
@@ -38,6 +38,8 @@ class Notification < ApplicationRecord
       user_path(subject.follower)
     when :chat_to_me
       chatroom_path(subject.chatroom)
+    when :create_crop_by_follow_user
+      crop_path(subject)
     end
   end
 end
