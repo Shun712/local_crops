@@ -11,6 +11,6 @@
         - @notifications.each do |notification|
           = render "#{notification.notification_type}", notification: notification
       - else
-        .text-center
-        | お知らせはありません
+        .text-center.font-weight-bold
+          | お知らせはありません
       = paginate @notifications, theme: 'bootstrap-5'
