@@ -1,0 +1,9 @@
+= link_to read_notification_path(notification), class: "notification-item border-bottom mt-1 #{'read' if notification.read}", method: :patch do
+  = image_tag notification.subject.user.avatar, class: 'rounded-circle me-1', size: '30x30'
+  object
+    = link_to notification.subject.user.username, user_path(notification.subject.user)
+    | さんがあなたの
+  object
+    = link_to '作物', crop_path(notification.subject.crop)
+    | をブックマークしました。
+    = l notification.created_at, format: :short

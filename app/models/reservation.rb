@@ -23,7 +23,16 @@
 class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :crop
+  has_one :notification, as: :subject, dependent: :destroy
   validates :user_id, uniqueness: { scope: :crop_id }
   validates :received_at, presence: true
   scope :sorted, -> { order(received_at: :desc) }
+  scope :recent, ->(count) { sorted.limit(count) }
+  after_create_commit :create_notifications
+
+  private
+
+  def create_notifications
+    Notification.create(user: crop.user, subject: self, notification_type: :reserved_to_own_crop)
+  end
 end

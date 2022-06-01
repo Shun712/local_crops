@@ -1,0 +1,9 @@
+.modal#reservation-index-modal
+  .modal-dialog.modal-xl
+    .modal-content
+      .modal-header
+        h5.modal-title
+          = "#{current_user.partner(@chatroom).username}さんとの予約"
+        button.btn-close aria-label="Close" data-bs-dismiss="modal" type="button"
+      .modal-body
+        = render 'reservations/reservation_list'

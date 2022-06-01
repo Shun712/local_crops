@@ -3,15 +3,30 @@ require 'rails_helper'
 RSpec.describe 'Chatrooms', type: :system do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
+  let!(:crop_by_user) { create(:crop, user: user) }
+  let!(:reservation) { create(:reservation, crop: crop_by_user, user: other_user) }
   before do
     sign_in user
   end
 
   describe 'ページレイアウト' do
     context 'ユーザー詳細ページ' do
-      it 'ユーザー詳細ページに「チャット」ボタンが存在すること' do
+      before do
         visit user_path(other_user)
+      end
+      it 'ユーザー詳細ページに「チャット」ボタンが存在すること' do
         expect(page).to have_content 'チャット'
+      end
+
+      it '予約一覧がモーダルで確認できること', js: true do
+        click_on 'チャット'
+        find('.index-button').click
+        within "#reservation-#{reservation.id}" do
+          expect(page).to have_content reservation.crop.name
+          expect(page).to have_content reservation.user.username
+          expect(page).to have_content reservation.received_at.strftime('%Y/%m/%d')
+          expect(page).to have_content reservation.received_at.strftime('%H:%M')
+        end
       end
     end
 

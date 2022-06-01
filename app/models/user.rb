@@ -50,6 +50,7 @@ class User < ApplicationRecord
   has_many :chatroom_users, dependent: :destroy
   has_many :chatrooms, through: :chatroom_users
   has_many :chats, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)

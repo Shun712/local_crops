@@ -271,3 +271,11 @@
 .chat-form {
   background: #3b3f96;
 }
+
+// 通知一覧
+.notification-item {
+  overflow-x: auto;
+  .read {
+    background: #f1f1f1;
+  }
+}

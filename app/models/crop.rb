@@ -36,6 +36,8 @@ class Crop < ApplicationRecord
   scope :not_reserved, -> { includes(:reservations).where(reservations: { crop_id: nil }) }
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_users, through: :bookmarks, source: :user
+  has_one :notification, as: :subject, dependent: :destroy
+  after_create_commit :create_notifications
 
   def harvested_after_a_week?
     harvested_on < 1.week.ago
@@ -45,5 +47,11 @@ class Crop < ApplicationRecord
 
   def picture_presence
     errors.add(:picture, 'ファイルを添付してください') unless picture.attached?
+  end
+
+  def create_notifications
+    user.followers.each do |follower|
+      Notification.create(user: follower, subject: self, notification_type: :create_crop_by_follow_user)
+    end
   end
 end
