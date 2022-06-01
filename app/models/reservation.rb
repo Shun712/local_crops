@@ -27,6 +27,7 @@ class Reservation < ApplicationRecord
   validates :user_id, uniqueness: { scope: :crop_id }
   validates :received_at, presence: true
   scope :sorted, -> { order(received_at: :desc) }
+  scope :recent, ->(count) { sorted.limit(count) }
   after_create_commit :create_notifications
 
   private

@@ -1,4 +1,12 @@
 class ChatsController < ApplicationController
+  def index
+    @chatroom = Chatroom.find(params[:chatroom_id])
+    @reservations = Reservation.includes(:user, :crop)
+                               .where(user_id: current_user.id, crop_id: current_user.partner(@chatroom).crops.ids)
+                               .or(Reservation.where(user_id: current_user.partner(@chatroom).id, crop_id: current_user.crops.ids))
+                               .recent(3)
+  end
+
   def create
     @chat = current_user.chats.build(chat_params)
     if @chat.save

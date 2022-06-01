@@ -1,5 +1,5 @@
 tr.align-middle id="reservation-#{reservation.id}"
-  td.px-3
+  td
     = image_tag reservation.crop.picture, class: 'rounded-circle user-reservation'
     br
       = link_to reservation.crop.name, crop_path(reservation.crop)
