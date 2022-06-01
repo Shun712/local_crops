@@ -22,8 +22,8 @@
 #
 FactoryBot.define do
   factory :notification do
-    user { nil }
-    subject { nil }
+    association :user, factory: :user, strategy: :create
+    association :subject, factory: :bookmark, strategy: :create
     notification_type { 1 }
     read { false }
   end

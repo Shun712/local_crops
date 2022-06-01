@@ -23,5 +23,19 @@
 require 'rails_helper'
 
 RSpec.describe Notification, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:notification) { create(:notification) }
+
+  it 'notificationインスタンスが有効な状態であること' do
+    expect(notification).to be_valid
+  end
+
+  it 'user_idがnilの場合、無効な状態であること' do
+    notification.user_id = nil
+    expect(notification).not_to be_valid
+  end
+
+  it 'subject_idがnilの場合、無効な状態であること' do
+    notification.subject_id = nil
+    expect(notification).not_to be_valid
+  end
 end
