@@ -3,11 +3,14 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  address                :string(255)
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string(255)
 #  confirmed_at           :datetime
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
+#  latitude               :float(24)
+#  longitude              :float(24)
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
