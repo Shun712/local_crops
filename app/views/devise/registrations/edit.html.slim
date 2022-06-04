@@ -16,11 +16,14 @@
                 = f.file_field :avatar, class: 'form-control'
               = image_tag @user.avatar, class: 'rounded-circle ms-4 mb-3 user-detail'
               .form-group.mb-3.form-floating
-                = f.text_field :username, id: 'fl-text', placeholder: "お名前", class: 'form-control'
+                = f.text_field :username, id: 'fl-text', placeholder: "お名前", class: 'form-control', required: ""
                 = f.label :username, for: 'fl-text'
               .form-group.mb-3.form-floating
-                = f.email_field :email, id: 'fl-text', placeholder: "メールアドレス", class: 'form-control'
+                = f.email_field :email, id: 'fl-text', placeholder: "メールアドレス", class: 'form-control', required: ""
                 = f.label :email, for: 'fl-text'
+              .form-group.mb-3.form-floating
+                = f.text_field :address, id: 'fl-text', placeholder: "住所", class: 'form-control', required: ""
+                = f.label :address, for: 'fl-text'
               .text-center.pt-4
                 = f.submit class: 'btn btn-primary btn-raised me-5'
                 = link_to '削除', destroy_mypage_account_path, class: 'btn btn-outline-info delete-button', method: :delete, data: { confirm: '本当に削除しますか?' }

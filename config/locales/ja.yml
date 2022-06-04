@@ -27,6 +27,7 @@ ja:
         updated_at: 更新日
         username: お名前
         avatar: アバター画像
+        address: 住所
       feedback:
         name: お名前
         email: メールアドレス
