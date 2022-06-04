@@ -54,6 +54,8 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :chatroom_users
   has_many :chats, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)
