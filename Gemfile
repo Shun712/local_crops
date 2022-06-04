@@ -44,6 +44,7 @@ gem 'active_storage_validations'
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 gem 'draper'
+gem 'geocoder'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
