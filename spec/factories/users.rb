@@ -30,6 +30,8 @@ FactoryBot.define do
   factory :user do
     username { Faker::Name.name }
     email { Faker::Internet.unique.email }
+    postcode { '1000005' }
+    address { '東京都千代田区丸の内' }
     password { 'testpassword' }
     password_confirmation { 'testpassword' }
     confirmed_at { Time.current }
