@@ -125,8 +125,7 @@ class User < ApplicationRecord
   end
 
   def distance_within_5km?(object)
-    lat, long = latitude, longitude
-    Geocoder::Calculations.distance_between([lat, long],
+    Geocoder::Calculations.distance_between([latitude, longitude],
                                             [object.user.latitude, object.user.longitude]) < 5.0
   end
 
