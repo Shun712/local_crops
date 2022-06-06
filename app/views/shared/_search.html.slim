@@ -1,0 +1,7 @@
+= search_form_for @q do |f|
+  .col-md-10
+    .form-group
+      = f.search_field :name_cont, placeholder: "作物名で検索", class: 'form-control'
+  .col-md-2
+    .form-group
+      = f.submit nil, class: 'btn btn-primary'

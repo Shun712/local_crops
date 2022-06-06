@@ -2087,6 +2087,34 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="ransack (vbundled(3.2.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/bug_report_templates" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/bug_report_templates" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/bug_report_templates" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="rb-fsevent (vbundled(0.11.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
