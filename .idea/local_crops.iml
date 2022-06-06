@@ -1062,25 +1062,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="jp_prefecture (vbundled(1.1.1)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jp_prefecture-1.1.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jp_prefecture-1.1.1/data" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jp_prefecture-1.1.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jp_prefecture-1.1.1/data" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/jp_prefecture-1.1.1/data" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="json (vbundled(2.6.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -2102,6 +2083,34 @@
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rake-13.0.6/doc" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/rake-13.0.6/exe" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ransack (vbundled(3.2.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/bug_report_templates" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/bug_report_templates" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ransack-3.2.1/bug_report_templates" />
         </excluded>
       </library>
     </orderEntry>

@@ -54,26 +54,5 @@
         = link_to destroy_user_session_path, class: "nav-link", method: :delete do
           i.fa-solid.fa-arrow-right-from-bracket
           | ログアウト
-      li.nav-item.dropdown
-        a.nav-link.dropdown-toggle data-bs-auto-close="outside" data-bs-toggle="dropdown" href="#"  Dropdown
-        ul.dropdown-menu
-          li
-            a.dropdown-item href="#"  Action link
-          li.dropdown
-            a.dropdown-item.dropdown-toggle data-bs-toggle="dropdown" href="#"  Dropdown
-            ul.dropdown-menu
-              li
-                a.dropdown-item href="#"  Action link
-              li
-                a.dropdown-item href="#"  Another action
-              li
-                a.dropdown-item href="#"  Something else here
-              li
-                a.dropdown-item href="#"  Yet another link
-          li
-            a.dropdown-item href="#"  Another action
-          li.dropdown-divider
-          li
-            a.dropdown-item href="#"  Something else here
       li.nav-item
-        a.nav-link.disabled aria-disabled="true" href="#" tabindex="-1"  作物名で検索
+        = render 'shared/search_form'

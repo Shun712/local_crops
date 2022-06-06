@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   get 'terms', to: 'static_pages#terms'
   get 'privacy', to: 'static_pages#privacy'
   resources :feedbacks, only: %i[new create]
-  resources :crops
+  resources :crops do
+    collection do
+      get :search
+    end
+  end
   resources :users, only: %i[show]
   namespace :mypage do
     get 'following', to: 'relationships#following'

@@ -73,23 +73,11 @@ RSpec.describe User, type: :model do
       expect(user.errors[:password]).to include("は6文字以上で入力してください")
     end
 
-    it "郵便番号がなければ無効な状態であること" do
-      user = build(:user, postcode: nil)
-      user.valid?
-      expect(user.errors[:postcode]).to include("を入力してください")
-    end
-
     it "郵便番号は7文字であること" do
       postcode = '10000005'
       user = build(:user, postcode: postcode)
       user.valid?
       expect(user.errors[:postcode]).to include("は7文字で入力してください")
-    end
-
-    it "住所がなければ無効な状態であること" do
-      user = build(:user, address: nil)
-      user.valid?
-      expect(user.errors[:address]).to include("を入力してください")
     end
   end
 end
