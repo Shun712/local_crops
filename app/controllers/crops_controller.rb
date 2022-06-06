@@ -46,6 +46,13 @@ class CropsController < ApplicationController
     redirect_to root_path, success: '作物を削除しました'
   end
 
+  def search
+    @crops = @q.result(distinct: true)
+               .includes(:user)
+               .page(params[:page])
+               .per(12)
+  end
+
   private
 
   def crop_params

@@ -3,6 +3,18 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
+  before_action :set_search
+
+  def set_search
+    if params[:q]
+      if params[:q][:name_cont]
+        @search_word = params[:q][:name_cont]
+      else
+        @search_word = params[:q][:description_cont]
+      end
+    end
+    @q = Crop.ransack(params[:q])
+  end
 
   protected
 
