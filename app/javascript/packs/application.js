@@ -20,6 +20,7 @@ require("smooth-scroll")
 require("tiny-slider")
 require("prismjs")
 require('./theme')
+require('./address_autofill')
 
 Rails.start()
 ActiveStorage.start()

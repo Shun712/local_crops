@@ -3,11 +3,15 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  address                :string(255)
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string(255)
 #  confirmed_at           :datetime
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
+#  latitude               :float(24)
+#  longitude              :float(24)
+#  postcode               :integer
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
@@ -67,6 +71,25 @@ RSpec.describe User, type: :model do
       user = build(:user, password: password)
       user.valid?
       expect(user.errors[:password]).to include("は6文字以上で入力してください")
+    end
+
+    it "郵便番号がなければ無効な状態であること" do
+      user = build(:user, postcode: nil)
+      user.valid?
+      expect(user.errors[:postcode]).to include("を入力してください")
+    end
+
+    it "郵便番号は7文字であること" do
+      postcode = '10000005'
+      user = build(:user, postcode: postcode)
+      user.valid?
+      expect(user.errors[:postcode]).to include("は7文字で入力してください")
+    end
+
+    it "住所がなければ無効な状態であること" do
+      user = build(:user, address: nil)
+      user.valid?
+      expect(user.errors[:address]).to include("を入力してください")
     end
   end
 end

@@ -35,7 +35,7 @@ RSpec.describe 'Crops', type: :system do
 
   describe '作物一覧ページ' do
     let!(:user) { create(:user) }
-    let!(:other_user) { create(:user) }
+    let!(:other_user) { create(:user, address: '東京都千代田区大手町') }
     let!(:crop) { create(:crop, user: user) }
     let!(:crop_by_other_user) { create(:crop, user: other_user) }
     let!(:crop_two_weeks_ago) { create(:crop, :two_weeks_ago) }
@@ -83,6 +83,10 @@ RSpec.describe 'Crops', type: :system do
 
       it '予約済みの作物は作物が表示されないこと' do
         expect(page).not_to have_css "#crop-#{reservation.crop.id}"
+      end
+
+      it '作物は5km以内のユーザーのものだけが表示されること' do
+        expect(page).to have_css "#crop-#{crop_by_other_user.id}"
       end
     end
   end
