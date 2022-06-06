@@ -31,8 +31,8 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
+            format: { with: VALID_EMAIL_REGEX },
+            uniqueness: { case_sensitive: false }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -57,8 +57,6 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-  # include JpPrefecture
-  # jp_prefecture :prefecture_code
   validates :postcode, presence: true, length: { is: 7 }
   validates :address, presence: true
 
@@ -125,15 +123,14 @@ class User < ApplicationRecord
   end
 
   def distance_within_5km?(object)
-    Geocoder::Calculations.distance_between([latitude, longitude],
-                                            [object.user.latitude, object.user.longitude]) < 5.0
+    distance = Geocoder::Calculations.distance_between([latitude, longitude],
+                                                       [object.user.latitude, object.user.longitude])
+    distance < 5.0
   end
 
-  # def prefecture_name
-  #   JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
-  # end
-  #
-  # def prefecture_name=(prefecture_name)
-  #   self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
-  # end
+  def distance(object)
+    distance = Geocoder::Calculations.distance_between([latitude, longitude],
+                                            [object.user.latitude, object.user.longitude])
+    distance.round(1)
+  end
 end

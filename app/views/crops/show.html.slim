@@ -29,6 +29,13 @@
               a.blog-entry-meta-link.text-nowrap
                 = image_tag @crop.user.avatar, class: 'rounded-circle me-1 user-show'
                 = link_to @crop.user.username, user_path(@crop.user)
+            .fs-sm.text-nowrap.text-start
+              a.blog-entry-meta-link.text-nowrap
+                | 距　離
+              span.blog-entry-meta-divider.mx-2
+              a.blog-entry-meta-link.text-nowrap
+                = current_user.distance(@crop)
+                |  km
             - if current_user&.own?(@crop)
               = link_to '編集', edit_crop_path(@crop), class: 'btn btn-outline-warning btn-sm my-2 me-2 edit-button'
               = link_to '削除', crop_path(@crop), class: 'btn btn-outline-info btn-sm my-2 delete-button', method: :delete, data: { confirm: '本当に削除しますか?' }
