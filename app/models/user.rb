@@ -57,8 +57,7 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-  validates :postcode, presence: true, length: { is: 7 }
-  validates :address, presence: true
+  validates :postcode, length: { is: 7 }
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)
