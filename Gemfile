@@ -45,6 +45,7 @@ gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 gem 'draper'
 gem 'geocoder'
+gem 'jp_prefecture'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

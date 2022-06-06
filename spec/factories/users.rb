@@ -11,6 +11,7 @@
 #  encrypted_password     :string(255)      default(""), not null
 #  latitude               :float(24)
 #  longitude              :float(24)
+#  postcode               :integer
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)

@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(version: 2022_06_04_041445) do
     t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "postcode"
     t.string "address"
     t.float "latitude"
     t.float "longitude"

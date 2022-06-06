@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
     # user登録でユーザー名を登録できるようにする
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
     # user更新でユーザー名、メールアドレス、アバター画像、住所を更新できるようにする
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[username email avatar address latitude longitude])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[username email avatar postcode address latitude longitude])
   end
 end

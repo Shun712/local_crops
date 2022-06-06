@@ -22,7 +22,10 @@
                 = f.email_field :email, id: 'fl-text', placeholder: "メールアドレス", class: 'form-control', required: ""
                 = f.label :email, for: 'fl-text'
               .form-group.mb-3.form-floating
-                = f.text_field :address, id: 'fl-text', placeholder: "住所", class: 'form-control', required: ""
+                = f.text_field :postcode, id: 'postcode', placeholder: "郵便番号", class: 'form-control', required: ""
+                = f.label :postcode, for: 'fl-text'
+              .form-group.mb-3.form-floating
+                = f.text_field :address, id: 'address', placeholder: "都道府県・市区町村", class: 'form-control', required: ""
                 = f.label :address, for: 'fl-text'
               .text-center.pt-4
                 = f.submit class: 'btn btn-primary btn-raised me-5'

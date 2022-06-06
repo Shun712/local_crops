@@ -11,6 +11,7 @@
 #  encrypted_password     :string(255)      default(""), not null
 #  latitude               :float(24)
 #  longitude              :float(24)
+#  postcode               :integer
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
@@ -56,6 +57,10 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+  include JpPrefecture
+  jp_prefecture :prefecture_code
+  validates :postcode, presence: true, length: { is: 7 }
+  validates :address, presence: true
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)
@@ -123,5 +128,13 @@ class User < ApplicationRecord
     lat, long = latitude, longitude
     Geocoder::Calculations.distance_between([lat, long],
                                             [object.user.latitude, object.user.longitude]) < 5.0
+  end
+
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+  end
+
+  def prefecture_name=(prefecture_name)
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 end
