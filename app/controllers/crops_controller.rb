@@ -48,6 +48,7 @@ class CropsController < ApplicationController
 
   def search
     @crops = @q.result(distinct: true)
+               .sorted
                .includes(:user)
                .page(params[:page])
                .per(12)

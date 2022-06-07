@@ -6,13 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_search
 
   def set_search
-    if params[:q]
-      if params[:q][:name_cont]
-        @search_word = params[:q][:name_cont]
-      else
-        @search_word = params[:q][:description_cont]
-      end
-    end
+    @search_word = params[:q][:name_or_description_cont] if params[:q]
     @q = Crop.ransack(params[:q])
   end
 
