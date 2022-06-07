@@ -51,7 +51,7 @@
           | 通知
           = render 'shared/unread_badge'
       li.nav-item
-        = link_to destroy_user_session_path, class: "nav-link", method: :delete do
+        = link_to destroy_user_session_path, class: "nav-link", method: :delete, data: { confirm: 'ログアウトします。よろしいですか?' } do
           i.ci-sign-out.me-1
           | ログアウト
       li.nav-item
