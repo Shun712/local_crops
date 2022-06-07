@@ -9,32 +9,32 @@
   .offcanvas-body
     ul.navbar-nav
       li.nav-item
-        = link_to root_path, class: "nav-link" do
-          i.fa-solid.fa-house.me-1
-          | ホーム
-      li.nav-item
-        = link_to about_path, class: "nav-link" do
-          i.fa-solid.fa-circle-question.me-1
-          | 使い方
-      li.nav-item
-        = link_to new_crop_path, class: "nav-link" do
-          i.fa-solid.fa-carrot.me-1
-          | 作物登録
-      li.nav-item
         = link_to user_path(current_user), class: "nav-link" do
-          i.fa-solid.fa-user-pen
+          i.ci-user.me-1
           | プロフィール
       li.nav-item
+        = link_to about_path, class: "nav-link" do
+          i.ci-help.me-1
+          | 使い方
+      li.nav-item
+        = link_to root_path, class: "nav-link" do
+          i.ci-view-grid.me-1
+          | 作物一覧
+      li.nav-item
+        = link_to new_crop_path, class: "nav-link" do
+          i.ci-carrot.me-1
+          | 作物登録
+      li.nav-item
         = link_to reservations_path, class: "nav-link" do
-          i.fa-solid.fa-list.me-1
+          i.ci-view-list.me-1
           | 予約リスト
       li.nav-item
         = link_to bookmarks_path, class: "nav-link" do
-          i.fa-solid.fa-bookmark.me-1
+          i.ci-bookmark.me-1
           | ブックマーク
       li.nav-item.dropdown
         a.nav-link.dropdown-toggle data-bs-auto-close="outside" data-bs-toggle="dropdown"
-          i.fa-solid.fa-user.me-1
+          i.ci-add-user.me-1
           | ユーザー
         ul.dropdown-menu
           li
@@ -43,16 +43,16 @@
             = link_to 'フォロワー', mypage_follower_path, class: "dropdown-item"
       li.nav-item
         = link_to chatrooms_path, class: "nav-link" do
-          i.fa-solid.fa-comment.me-1
+          i.ci-chat.me-1
           | チャットルーム
       li.nav-item
         = link_to mypage_notifications_path, class: "nav-link d-flex align-items-center" do
-          i.fa-solid.fa-bell.me-1
+          i.ci-bell.me-1
           | 通知
           = render 'shared/unread_badge'
       li.nav-item
         = link_to destroy_user_session_path, class: "nav-link", method: :delete do
-          i.fa-solid.fa-arrow-right-from-bracket
+          i.ci-sign-out.me-1
           | ログアウト
       li.nav-item
         = render 'shared/search_form'
