@@ -30,6 +30,10 @@ class Reservation < ApplicationRecord
   scope :recent, ->(count) { sorted.limit(count) }
   after_create_commit :create_notifications
 
+  def pasted_date
+    received_at < 1.day.ago
+  end
+
   private
 
   def create_notifications
