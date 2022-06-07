@@ -27,9 +27,8 @@ ja:
         updated_at: 更新日
         username: お名前
         avatar: アバター画像
-        city: 都道府県・市区町村
+        address: 都道府県・市区町村・(*番地)
         postcode: 郵便番号
-        street: 番地（*任意）
       feedback:
         name: お名前
         email: メールアドレス

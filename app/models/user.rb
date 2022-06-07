@@ -4,7 +4,6 @@
 #
 #  id                     :bigint           not null, primary key
 #  address                :string(255)
-#  city                   :string(255)
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string(255)
 #  confirmed_at           :datetime
@@ -16,7 +15,6 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
-#  street                 :string(255)
 #  unconfirmed_email      :string(255)
 #  username               :string(255)      default(""), not null
 #  created_at             :datetime         not null
@@ -60,8 +58,6 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   validates :postcode, length: { is: 7 }, allow_nil: true
-  validates :address, presence: true, allow_nil: true
-  before_update :address
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)
@@ -135,10 +131,5 @@ class User < ApplicationRecord
     distance = Geocoder::Calculations.distance_between([latitude, longitude],
                                             [object.user.latitude, object.user.longitude])
     distance.round(1)
-  end
-
-  def address
-    self.city = city
-    self.address = [city, street].compact.join
   end
 end

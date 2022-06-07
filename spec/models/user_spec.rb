@@ -4,7 +4,6 @@
 #
 #  id                     :bigint           not null, primary key
 #  address                :string(255)
-#  city                   :string(255)
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string(255)
 #  confirmed_at           :datetime
@@ -16,7 +15,6 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
-#  street                 :string(255)
 #  unconfirmed_email      :string(255)
 #  username               :string(255)      default(""), not null
 #  created_at             :datetime         not null

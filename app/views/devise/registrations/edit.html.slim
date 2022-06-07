@@ -25,13 +25,10 @@
                 = f.text_field :postcode, id: 'postcode', placeholder: "郵便番号", class: 'form-control', required: ""
                 = f.label :postcode, for: 'fl-text'
               .form-group.mb-3.form-floating
-                = f.text_field :city, id: 'city', placeholder: "都道府県・市区町村", class: 'form-control', required: ""
-                = f.label :city, for: 'fl-text'
-              .form-group.mb-3.form-floating
-                = f.text_field :street, id: 'fl-text', placeholder: "番地（*任意）", class: 'form-control'
-                = f.label :street, for: 'fl-text'
+                = f.text_field :address, id: 'address', placeholder: "都道府県・市区町村・（*番地）", class: 'form-control', required: ""
+                = f.label :address, for: 'fl-text'
               h6
-                | *番地を入力すると正確な位置になります
+                | *番地まで入力すると正確な位置になります
               .text-center.pt-4
                 = f.submit class: 'btn btn-primary btn-raised me-5'
                 = link_to '退会', destroy_mypage_account_path, class: 'btn btn-outline-info delete-button', method: :delete, data: { confirm: '退会してアカウントが消去されます。よろしいですか?' }
