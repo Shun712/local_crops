@@ -4,7 +4,7 @@ $(function () {
             '#postcode'
         ],
         address : {
-            '#address' : '%3%4%5'
+            '#city' : '%3%4%5'
         }
     });
 });
