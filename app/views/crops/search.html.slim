@@ -1,15 +1,26 @@
 .page-title-overlap.bg-accent.pt-4.pb-5
   .container.pt-2.pb-3.pt-lg-3.pb-lg-4
     .d-lg-flex.justify-content-between.pb-3
-      .order-lg-1.pe-lg-4.text-left.text-lg-start
+      .order-lg-1.pe-lg-4.text-left.text-lg-start.d-flex
         h1.h3.text-light.mb-2.ms-5
           = "\"#{@search_word}\""
           | の検索結果
+        .my-sm-0.my-3.text-sm-end.pt-1.ms-4.flex-column
+          .d-flex.align-items-center.text-nowrap.fs-sm.sort
+            .mb-2.ms-sm-3.me-2.text-muted
+              span.fw-medium.text-light.me-1
+                | 並び順
+            .mb-2.ps-sm-2.ps-2.border-start.border-light.text-muted
+              span.fw-medium.text-light.me-1
+                = sort_link(@q, :user_id, "生産者")
+            .mb-2.ps-sm-2.ps-2.border-start.border-light.text-muted
+              span.fw-medium.text-light.me-1
+                = sort_link(@q, :harvested_on, "収穫日")
 .container.mb-5.pb-3
   .bg-light.shadow-lg.rounded-3.overflow-hidden.p-2
     .row
       .col-md-10.offset-md-1
-        .row.pb-4
+        .row
           - if @crops.present?
             = render @crops
           - else

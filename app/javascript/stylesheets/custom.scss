@@ -109,6 +109,10 @@
   transition: all 0.15s ease-in-out;
 }
 
+.sort a {
+  color: white !important;
+}
+
 // 作物詳細画像
 .crop-show {
   object-fit: cover;
