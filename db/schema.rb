@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 2022_06_04_041445) do
   create_table "chatroom_users", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "chatroom_id", null: false
-    t.datetime "last_read_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chatroom_id"], name: "index_chatroom_users_on_chatroom_id"

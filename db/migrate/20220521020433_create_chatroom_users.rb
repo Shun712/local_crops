@@ -3,7 +3,6 @@ class CreateChatroomUsers < ActiveRecord::Migration[6.1]
     create_table :chatroom_users do |t|
       t.references :user, null: false, foreign_key: true
       t.references :chatroom, null: false, foreign_key: true
-      t.datetime :last_read_at
 
       t.timestamps
     end

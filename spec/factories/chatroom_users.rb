@@ -2,12 +2,11 @@
 #
 # Table name: chatroom_users
 #
-#  id           :bigint           not null, primary key
-#  last_read_at :datetime
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  chatroom_id  :bigint           not null
-#  user_id      :bigint           not null
+#  id          :bigint           not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  chatroom_id :bigint           not null
+#  user_id     :bigint           not null
 #
 # Indexes
 #
@@ -24,6 +23,5 @@ FactoryBot.define do
   factory :chatroom_user do
     association :user, factory: :user, strategy: :create
     association :chatroom, factory: :chatroom, strategy: :create
-    last_read_at { "2022-05-21 11:04:34" }
   end
 end
