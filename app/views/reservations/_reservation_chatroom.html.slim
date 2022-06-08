@@ -1,0 +1,17 @@
+tr.align-middle id="reservation-#{reservation_chatroom.id}" class="#{'past' if reservation_chatroom.pasted_date}"
+  td
+    = image_tag reservation_chatroom.crop.picture, class: 'rounded-circle user-reservation'
+    br
+      = link_to reservation_chatroom.crop.name, crop_path(reservation_chatroom.crop)
+  - if current_user.id == reservation_chatroom.user.id
+    td
+      span.badge.rounded-pill.bg-accent.reservation  受取
+  - else
+    td
+      span.badge.rounded-pill.bg-danger.reservation 引渡
+
+  td
+    = reservation_chatroom.received_at.strftime('%Y/%m/%d')
+    br
+    = reservation_chatroom.received_at.strftime('%H:%M')
+  td= link_to '取消', reservation_path(reservation_chatroom), class: 'btn btn-info btn-sm my-2 delete-button', method: :delete, data: { confirm: '本当に取消しますか?' }
