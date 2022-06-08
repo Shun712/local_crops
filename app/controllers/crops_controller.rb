@@ -1,18 +1,22 @@
 class CropsController < ApplicationController
   def index
-    @crops = if params[:q]
-               @q.result(distinct: true)
+    if params[:q]
+      @crops = @q.result(distinct: true)
                  .includes(:user)
                  .page(params[:page])
                  .per(12)
-             else
-               Crop.harvested_within_a_week
-                   .sorted
+    else
+      # 収穫1週間以内、未予約、距離5km以内の作物を取得
+      local_crops = []
+      Crop.harvested_within_a_week.not_reserved.each do |crop|
+        local_crops << crop if current_user.distance_within_5km?(crop)
+      end
+      @crops = Crop.where(id: local_crops.map{ |crop| crop.id })
                    .includes(:user)
-                   .not_reserved
+                   .sorted
                    .page(params[:page])
                    .per(12)
-             end
+    end
   end
 
   def new
