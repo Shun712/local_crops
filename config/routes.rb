@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Deviseのマッピングはするが、skipして何も設定しない
   devise_for :users, skip: %i[sessions registrations passwords],
                      controllers: {
