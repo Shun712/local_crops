@@ -31,8 +31,8 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, length: { maximum: 255 },
-            format: { with: VALID_EMAIL_REGEX },
-            uniqueness: { case_sensitive: false }
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -129,7 +129,7 @@ class User < ApplicationRecord
 
   def distance(object)
     distance = Geocoder::Calculations.distance_between([latitude, longitude],
-                                            [object.user.latitude, object.user.longitude])
+                                                       [object.user.latitude, object.user.longitude])
     distance.round(1)
   end
 end
