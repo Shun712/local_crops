@@ -5,13 +5,13 @@
         h1.h3.text-light.mb-2.ms-5 作物一覧
         .my-sm-0.my-3.text-sm-end.pt-1.ms-4.flex-column
           .d-flex.align-items-center.text-nowrap.fs-sm.sort
-            .mb-2.ms-sm-3.me-2.text-muted
+            .mb-2.ms-sm-3.me-2
               span.fw-medium.text-light.me-1
                 | 並び順
-            .mb-2.ps-sm-2.ps-2.border-start.border-light.text-muted
+            .mb-2.ps-sm-2.ps-2.border-start.border-light
               span.fw-medium.text-light.me-1
                 = sort_link(@q, :user_id, "生産者")
-            .mb-2.ps-sm-2.ps-2.border-start.border-light.text-muted
+            .mb-2.ps-sm-2.ps-2.border-start.border-light
               span.fw-medium.text-light.me-1
                 = sort_link(@q, :harvested_on, "収穫日")
 .container.mb-5.pb-3
