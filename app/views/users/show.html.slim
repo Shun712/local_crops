@@ -7,14 +7,16 @@
         h3.h5.mt-2.text-light
           = @user.username
     .my-sm-0.my-3.text-sm-end.pt-1.ms-4.flex-column
-      .d-flex.align-items-center.text-nowrap.fs-sm
-        .mb-2.ms-sm-3.me-2.text-muted
+      .d-flex.align-items-center.text-nowrap.fs-smx
+        .mb-2.ms-sm-3.me-2.text-muted.align-items-sm-end
           span.fw-medium.text-light.me-1
-            = @user.followers.count
+            div id="follower_count_#{@user.id}"
+              = @user.followers.count
           span.text-white.opacity-70 followers
         .mb-2.ps-sm-2.ps-2.border-start.border-light.text-muted
           span.fw-medium.text-light.me-1
-            = @user.following.count
+            div id="following_count_#{@user.id}"
+              = @user.following.count
           span.text-white.opacity-70 following
       .d-flex.align-items-center.text-nowrap.fs-sm
         - if current_user&.id == @user.id

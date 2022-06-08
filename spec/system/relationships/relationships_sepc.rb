@@ -13,10 +13,11 @@ RSpec.describe 'Relationships', type: :system do
         visit user_path(other_user)
         expect {
           within "#follow-area-#{other_user.id}" do
-            click_link 'フォロー'
-            expect(page).to have_content 'フォロー中'
+            click_link 'フォローする'
+            expect(page).to have_content 'フォロー解除'
           end
         }.to change(user.following, :count).by(1)
+        expect(page).to have_content "1\nfollowers"
       end
 
       it 'フォロー解除できること', js: true do
@@ -24,10 +25,11 @@ RSpec.describe 'Relationships', type: :system do
         visit user_path(other_user)
         expect {
           within "#follow-area-#{other_user.id}" do
-            click_link 'フォロー中'
-            expect(page).to have_content 'フォロー'
+            click_link 'フォロー解除'
+            expect(page).to have_content 'フォローする'
           end
         }.to change(user.following, :count).by(-1)
+        expect(page).to have_content "0\nfollowers"
       end
     end
 
@@ -40,7 +42,7 @@ RSpec.describe 'Relationships', type: :system do
         it 'フォロー中のユーザーが表示されていること' do
           expect(page).to have_content other_user.username
           expect(page).to have_link other_user.username, href: user_path(other_user)
-          expect(page).to have_content 'フォロー中'
+          expect(page).to have_content 'フォロー解除'
         end
       end
 
@@ -62,8 +64,8 @@ RSpec.describe 'Relationships', type: :system do
           create(:relationship, follower_id: user.id, followed_id: other_user.id)
           visit user_path(other_user)
         end
-        it '「フォロー中」と表示されること' do
-          expect(page).to have_content 'フォロー中'
+        it '「フォロー解除」と表示されること' do
+          expect(page).to have_content 'フォロー解除'
         end
       end
 
@@ -82,8 +84,8 @@ RSpec.describe 'Relationships', type: :system do
           visit user_path(user)
         end
         it 'フォロー・フォロワー人数が表示されること' do
-          expect(page).to have_content "#{user.followers.count}followers"
-          expect(page).to have_content "#{user.following.count}following"
+          expect(page).to have_content "#{user.followers.count}\nfollowers"
+          expect(page).to have_content "#{user.following.count}\nfollowing"
         end
       end
     end
