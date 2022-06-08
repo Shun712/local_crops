@@ -49,6 +49,8 @@ gem 'ransack'
 gem 'gimei'
 gem 'meta-tags'
 gem 'config'
+gem 'cancancan'
+gem 'rails_admin', '~> 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
