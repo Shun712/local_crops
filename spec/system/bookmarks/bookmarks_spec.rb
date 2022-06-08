@@ -12,7 +12,7 @@ RSpec.describe 'Bookmarks', type: :system do
 
     context '作物一覧ページ' do
       before do
-        visit root_path
+        visit crops_path
       end
 
       context '他人の作物の場合' do

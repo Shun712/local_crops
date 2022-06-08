@@ -12,7 +12,7 @@ RSpec.describe 'UserSessions', type: :system do
         fill_in 'メールアドレス', with: user.email
         fill_in 'パスワード', with: 'testpassword'
         click_button 'ログイン'
-        expect(current_path).to eq root_path
+        expect(current_path).to eq crops_path
         expect(page).to have_content('ログインしました。')
       end
     end
@@ -20,10 +20,10 @@ RSpec.describe 'UserSessions', type: :system do
     context '認証情報に誤りがあること' do
       it 'ログインできないこと' do
         fill_in 'メールアドレス', with: user.email
-        fill_in 'パスワード', with: 'password'
+        fill_in 'パスワード', with: 'invalidpassword'
         click_button 'ログイン'
         expect(current_path).to eq new_user_session_path
-        expect(page).to have_content('Eメールまたはパスワードが違います。')
+        expect(page).to have_content('メールアドレスまたはパスワードが違います。')
       end
     end
   end
@@ -31,7 +31,7 @@ RSpec.describe 'UserSessions', type: :system do
   describe 'ログアウト' do
     before do
       sign_in user
-      visit root_path
+      visit crops_path
     end
     it 'ログアウトできること' do
       click_on('ログアウト')

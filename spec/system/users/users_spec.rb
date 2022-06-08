@@ -48,8 +48,8 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_selector("img[src$='avatar.png']")
         expect(page).to have_content user.username
         expect(page).to have_selector("img[src$='test.png']")
-        expect(page).to have_content "1follow"
-        expect(page).to have_content "1follower"
+        expect(page).to have_content "1\nfollow"
+        expect(page).to have_content "1\nfollower"
         within ".page-title-overlap" do
           expect(page).to have_content 'プロフィール編集'
         end
@@ -97,7 +97,7 @@ RSpec.describe 'Users', type: :system do
 
       it 'アカウントを削除できること', js: true do
         page.accept_confirm { find('.delete-button').click }
-        expect(current_path).to eq new_user_session_path
+        expect(current_path).to eq root_path
       end
     end
   end

@@ -23,8 +23,9 @@ require 'rails_helper'
 
 RSpec.describe Chat, type: :model do
   let!(:user) { create(:user) }
-  let!(:chatroom) { create(:chatroom, user: user) }
-  let!(:chat) { create(:chat, user: user, chatroom: chatroom) }
+  let!(:other_user) { create(:user) }
+  let(:chatroom) { create(:chatroom, name: ["\"#{user.id}\":\"#{other_user.id}\""]) }
+  let(:chat) { create(:chat, user: user, chatroom: chatroom) }
 
   context 'バリデーション' do
     it '有効な状態であること' do
