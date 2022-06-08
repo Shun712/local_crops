@@ -47,6 +47,7 @@ gem 'draper'
 gem 'geocoder'
 gem 'ransack'
 gem 'gimei'
+gem 'meta-tags'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
