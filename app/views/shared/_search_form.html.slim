@@ -1,7 +1,5 @@
 = search_form_for @q, url: search_crops_path do |f|
   .input-group
-    = f.search_field :name_cont, placeholder: "作物名で検索", class: 'form-control'
+    i.ci-search.position-absolute.top-50.translate-middle-y.text-muted.fs-base.ms-3
+    = f.search_field :name_or_description_cont, placeholder: "作物名、説明で検索", class: 'form-control'
     = f.submit nil, class: 'btn btn-primary'
-  .input-group.mt-1
-    = f.search_field :description_cont, placeholder: "作物説明で検索", class: 'form-control'
-    = f.submit nil, class: 'btn btn-danger'

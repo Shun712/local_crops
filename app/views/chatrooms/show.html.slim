@@ -15,6 +15,6 @@
                 = render @chatroom.chats
           .card-body.d-inline-flex.justify-content-center
             = link_to chatroom_chats_path(chatroom_id: @chatroom.id), remote: true, class: "btn btn-accent me-2 index-button" do
-              i.fa-solid.fa-list.fa-2x.me-1.pt-1
+              i.ci-view-list.fa-2x.me-1.pt-2
             // Chat.newなら新規フォーム、@chatなら編集フォームとなる
             = render 'chats/form', chatroom: @chatroom, chat: @chat ||= Chat.new

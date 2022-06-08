@@ -1,11 +1,18 @@
 class CropsController < ApplicationController
   def index
-    @crops = Crop.harvested_within_a_week
-                 .sorted
+    @crops = if params[:q]
+               @q.result(distinct: true)
                  .includes(:user)
-                 .not_reserved
                  .page(params[:page])
                  .per(12)
+             else
+               Crop.harvested_within_a_week
+                   .sorted
+                   .includes(:user)
+                   .not_reserved
+                   .page(params[:page])
+                   .per(12)
+             end
   end
 
   def new

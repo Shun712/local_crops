@@ -1,6 +1,9 @@
 .navbar-toolbar
-  .container.d-flex
-    .navbar-toolbar
-      = link_to 'ログイン', new_user_session_path, class: 'btn btn-primary rounded-pill navbar-tool ms-1 ms-lg-0 me-lg-2'
-    .navbar-toolbar
-      = link_to 'アカウント登録', new_user_registration_path, class: 'btn btn-outline-primary rounded-pill navbar-tool ms-1 ms-lg-0 me-lg-2'
+  .my-sm-0.text-center.pt-1.flex-column
+    .d-inline-flex.align-items-center.text-nowrap.fs-sm
+      .navbar-toolbar
+        = link_to '使い方', about_path, class: 'btn btn-warning rounded-pill navbar-tool ms-1 ms-lg-0 me-lg-2'
+      .navbar-toolbar
+        = link_to 'ログイン', new_user_session_path, class: 'btn btn-primary rounded-pill navbar-tool ms-1 ms-lg-0 me-lg-2'
+      .navbar-toolbar
+        = link_to 'アカウント登録', new_user_registration_path, class: 'btn btn-outline-primary rounded-pill navbar-tool ms-1 ms-lg-0 me-lg-2'

@@ -6,13 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_search
 
   def set_search
-    if params[:q]
-      if params[:q][:name_cont]
-        @search_word = params[:q][:name_cont]
-      else
-        @search_word = params[:q][:description_cont]
-      end
-    end
+    @search_word = params[:q][:name_or_description_cont] if params[:q]
     @q = Crop.ransack(params[:q])
   end
 
@@ -22,6 +16,6 @@ class ApplicationController < ActionController::Base
     # user登録でユーザー名を登録できるようにする
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
     # user更新でユーザー名、メールアドレス、アバター画像、住所を更新できるようにする
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[username email avatar postcode address latitude longitude])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[username email avatar postcode address city street latitude longitude])
   end
 end

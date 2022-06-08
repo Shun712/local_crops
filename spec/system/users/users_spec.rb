@@ -38,15 +38,18 @@ RSpec.describe 'Users', type: :system do
     before do
       sign_in user
       create_list(:crop, 10, user: user)
+      user.follow(other_user)
+      other_user.follow(user)
     end
 
     context 'ページレイアウト' do
       it 'ユーザー情報が表示されること' do
-        # TODO フォロー数のテスト実装
         visit user_path(user)
         expect(page).to have_selector("img[src$='avatar.png']")
         expect(page).to have_content user.username
         expect(page).to have_selector("img[src$='test.png']")
+        expect(page).to have_content "1follow"
+        expect(page).to have_content "1follower"
         within ".page-title-overlap" do
           expect(page).to have_content 'プロフィール編集'
         end
