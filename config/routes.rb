@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   end
   resources :notifications, only: [] do
     patch :read, on: :member
+    patch :read_all, on: :collection
   end
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
