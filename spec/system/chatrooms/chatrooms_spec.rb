@@ -23,7 +23,6 @@ RSpec.describe 'Chatrooms', type: :system do
         find('.index-button').click
         within "#reservation-#{reservation.id}" do
           expect(page).to have_content reservation.crop.name
-          expect(page).to have_content reservation.user.username
           expect(page).to have_content reservation.received_at.strftime('%Y/%m/%d')
           expect(page).to have_content reservation.received_at.strftime('%H:%M')
         end

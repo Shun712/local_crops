@@ -19,7 +19,7 @@ RSpec.describe 'Social_Profiles', type: :system do
         click_on('ログアウト')
         find_link(href: '/users/auth/line').click
         expect(page).to have_content('ログインしました。')
-        expect(current_path).to eq root_path
+        expect(current_path).to eq crops_path
       end
     end
 
@@ -42,7 +42,7 @@ RSpec.describe 'Social_Profiles', type: :system do
         click_on('ログアウト')
         find_link(href: '/users/auth/twitter').click
         expect(page).to have_content('ログインしました。')
-        expect(current_path).to eq root_path
+        expect(current_path).to eq crops_path
       end
     end
 

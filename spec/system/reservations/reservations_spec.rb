@@ -14,7 +14,7 @@ RSpec.describe 'Reservations', type: :system do
   describe '予約登録', js: true do
     context '作物一覧ページ' do
       it '新規登録できること' do
-        visit root_path
+        visit crops_path
         within "#crop-#{crop_by_other_user.id}" do
           expect(page).to have_css '.reserve-button'
           click_link '予約する'
@@ -22,7 +22,7 @@ RSpec.describe 'Reservations', type: :system do
         fill_in '受取日時', with: '002022-5-5-15:00T00:16:12'
         click_on '確定'
         expect(page).to have_content '予約を登録しました'
-        expect(current_path).to eq root_path
+        expect(current_path).to eq crops_path
       end
     end
 
@@ -34,7 +34,7 @@ RSpec.describe 'Reservations', type: :system do
         fill_in '受取日時', with: '002022-5-5-15:00T00:16:12'
         click_on '確定'
         expect(page).to have_content '予約を登録しました'
-        expect(current_path).to eq root_path
+        expect(current_path).to eq crops_path
       end
     end
   end

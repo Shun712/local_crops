@@ -1,18 +1,22 @@
 class CropsController < ApplicationController
   def index
-    @crops = if params[:q]
-               @q.result(distinct: true)
+    if params[:q]
+      @crops = @q.result(distinct: true)
                  .includes(:user)
                  .page(params[:page])
                  .per(12)
-             else
-               Crop.harvested_within_a_week
-                   .sorted
+    else
+      # 収穫1週間以内、未予約、距離5km以内の作物を取得
+      local_crops = []
+      Crop.harvested_within_a_week.not_reserved.each do |crop|
+        local_crops << crop if current_user.distance_within_5km?(crop)
+      end
+      @crops = Crop.where(id: local_crops.map{ |crop| crop.id })
                    .includes(:user)
-                   .not_reserved
+                   .sorted
                    .page(params[:page])
                    .per(12)
-             end
+    end
   end
 
   def new
@@ -22,7 +26,7 @@ class CropsController < ApplicationController
   def create
     @crop = current_user.crops.build(crop_params)
     if @crop.save
-      redirect_to root_path, success: '作物を登録しました'
+      redirect_to crops_path, success: '作物を登録しました'
     else
       flash.now[:danger] = '登録に失敗しました'
       render :new
@@ -40,7 +44,7 @@ class CropsController < ApplicationController
   def update
     @crop = current_user.crops.find(params[:id])
     if @crop.update(crop_params)
-      redirect_to root_path, success: '作物を更新しました'
+      redirect_to crops_path, success: '作物を更新しました'
     else
       flash.now[:danger] = '作物の更新に失敗しました'
       render :edit
@@ -50,7 +54,7 @@ class CropsController < ApplicationController
   def destroy
     @crop = current_user.crops.find(params[:id])
     @crop.destroy!
-    redirect_to root_path, success: '作物を削除しました'
+    redirect_to crops_path, success: '作物を削除しました'
   end
 
   def search

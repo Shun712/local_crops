@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Deviseのマッピングはするが、skipして何も設定しない
   devise_for :users, skip: %i[sessions registrations passwords],
                      controllers: {
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
     post 'password', to: 'users/passwords#create', as: :user_password
     get 'password/edit', to: 'users/passwords#edit', as: :edit_user_password
   end
-  root 'crops#index'
+  root 'static_pages#about'
   get 'about', to: 'static_pages#about'
   get 'terms', to: 'static_pages#terms'
   get 'privacy', to: 'static_pages#privacy'
@@ -42,6 +43,7 @@ Rails.application.routes.draw do
   end
   resources :notifications, only: [] do
     patch :read, on: :member
+    patch :read_all, on: :collection
   end
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'

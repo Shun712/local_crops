@@ -11,7 +11,7 @@
       = f.label :name, for: 'fl-text'
     .form-group.mb-3.form-floating
       = f.text_area :description, id: 'fl-text', placeholder: "説明", class: 'form-control'
-      label 説明 (*任意)
+      label 説明 (* 任意)
     .form-group.mb-3
       = f.label :harvested_on, class: 'mx-3'
       = f.date_select :harvested_on, {}, {class: 'form-control', style: 'display: inline-block;width: auto;'}

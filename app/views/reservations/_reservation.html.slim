@@ -5,11 +5,13 @@ tr.align-middle id="reservation-#{reservation.id}" class="#{'past' if reservatio
       = link_to reservation.crop.name, crop_path(reservation.crop)
   - if current_user.id == reservation.user.id
     td
-      span.badge.rounded-pill.bg-success.reservation  受取
+      span.badge.rounded-pill.bg-accent.reservation  受取
     td
       = image_tag reservation.crop.user.avatar, class: 'rounded-circle user-reservation'
       br
         = link_to reservation.crop.user.username, user_path(reservation.crop.user)
+    td
+      = render 'users/chat_area', user: reservation.crop.user
   - else
     td
       span.badge.rounded-pill.bg-danger.reservation 引渡
@@ -17,6 +19,8 @@ tr.align-middle id="reservation-#{reservation.id}" class="#{'past' if reservatio
       = image_tag reservation.user.avatar, class: 'rounded-circle user-reservation'
       br
         = link_to reservation.user.username, user_path(reservation.user)
+    td
+      = render 'users/chat_area', user: reservation.user
   td
     = reservation.received_at.strftime('%Y/%m/%d')
     br

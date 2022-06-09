@@ -2,12 +2,11 @@
 #
 # Table name: chatroom_users
 #
-#  id           :bigint           not null, primary key
-#  last_read_at :datetime
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  chatroom_id  :bigint           not null
-#  user_id      :bigint           not null
+#  id          :bigint           not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  chatroom_id :bigint           not null
+#  user_id     :bigint           not null
 #
 # Indexes
 #

@@ -16,7 +16,7 @@ RSpec.describe 'Crops', type: :system do
         fill_in '説明', with: 'テスト説明'
         select_date('2022-5-4', from: '収穫日')
         click_button '登録する'
-        expect(current_path).to eq root_path
+        expect(current_path).to eq crops_path
         expect(page).to have_content '作物を登録しました'
       end
     end
@@ -42,7 +42,7 @@ RSpec.describe 'Crops', type: :system do
     let!(:reservation) { create(:reservation) }
     before do
       sign_in user
-      visit root_path
+      visit crops_path
     end
 
     context 'ページレイアウト' do
@@ -155,7 +155,7 @@ RSpec.describe 'Crops', type: :system do
         fill_in '説明', with: '編集:説明'
         select_date('2022-5-5', from: '収穫日')
         click_button '更新する'
-        expect(current_path).to eq root_path
+        expect(current_path).to eq crops_path
         expect(page).to have_content '作物を更新しました'
         visit crop_path(crop)
         expect(page).to have_selector("img[src$='test2.png']")

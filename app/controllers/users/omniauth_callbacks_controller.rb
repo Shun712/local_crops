@@ -14,7 +14,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     user = User.find_for_oauth!(auth_params)
     if user.present?
       sign_in(:user, user)
-      redirect_to root_path, success: 'ログインしました。'
+      redirect_to crops_path, success: 'ログインしました。'
     else
       user = User.sign_up(auth_params)
       sign_in(:user, user)

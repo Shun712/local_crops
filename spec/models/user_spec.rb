@@ -4,6 +4,7 @@
 #
 #  id                     :bigint           not null, primary key
 #  address                :string(255)
+#  admin                  :boolean          default(FALSE)
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string(255)
 #  confirmed_at           :datetime

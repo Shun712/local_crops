@@ -1,3 +1,4 @@
+- set_meta_tags title: 'ログインページ'
 .container.py-4.py-lg-5.my-4
   .row
     .col-md-6.offset-md-3
@@ -20,9 +21,6 @@
               i.ci-locked.position-absolute.top-50.translate-middle-y.text-muted.fs-base.ms-3
               .password-toggle.w-100
                 = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form-control", required: ""
-                label.password-toggle-btn aria-label=("Show/hide password")
-                  input.password-toggle-check type="checkbox"
-                  span.password-toggle-indicator
             - if devise_mapping.rememberable?
             .d-flex.flex-wrap.justify-content-between
               .form-check

@@ -1,0 +1,10 @@
+meta:
+  site: LocalCrops
+  title: LocalCrops = 地元作物のマッチングアプリケーション
+  description: 自分が育てた作物を、地域の方へお裾分けしたり受け取ったりできるサービスです。
+  keywords:
+    - Local
+    - LocalCrops
+    - お裾分け
+  og:
+    type: website
