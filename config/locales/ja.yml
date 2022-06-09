@@ -52,6 +52,13 @@ ja:
       crop: 作物
       reservation: 予約
       chat: メッセージ
+      bookmark: ブックマーク
+      chatroom: チャットルーム
+      chatroom_user: チャットルーム_ユーザー
+      notification: 通知
+      Relationship: フォロー関係
+      Social_profile: SNSアカウント
+
   time:
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
