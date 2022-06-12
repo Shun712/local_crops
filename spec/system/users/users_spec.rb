@@ -11,7 +11,7 @@ RSpec.describe 'Users', type: :system do
       it '新規登録できること' do
         fill_in 'ユーザー名', with: 'テストユーザー'
         fill_in 'メールアドレス', with: 'test@example.com'
-        fill_in 'パスワード(6文字以上)', with: 'password'
+        fill_in 'パスワード　(6文字以上)', with: 'password'
         fill_in 'パスワード確認', with: 'password'
         click_button 'アカウント登録'
         expect(page).to have_content '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください'
@@ -24,7 +24,7 @@ RSpec.describe 'Users', type: :system do
       it '新規登録できないこと' do
         fill_in 'ユーザー名', with: ' '
         fill_in 'メールアドレス', with: 'test@example.com'
-        fill_in 'パスワード(6文字以上)', with: 'password'
+        fill_in 'パスワード　(6文字以上)', with: 'password'
         fill_in 'パスワード確認', with: 'password'
         click_button 'アカウント登録'
         expect(page).to have_content 'お名前を入力してください'
