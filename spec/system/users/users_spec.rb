@@ -18,6 +18,7 @@ RSpec.describe 'Users', type: :system do
         visit current_path
         expect(page).not_to have_content '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください'
       end
+
     end
 
     context '入力情報に間違いがある場合' do
