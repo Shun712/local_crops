@@ -1,0 +1,51 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+    command: bundle exec puma -C config/puma.rb
+
+    volumes:
+      - .:/local_crops
+      - public-data:/local_crops/public
+      - tmp-data:/local_crops/tmp
+      - log-data:/local_crops/log
+    networks:
+      - local_crops-network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: local_crops_development
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - local_crops-network
+
+  web:
+    build:
+      context: ./nginx_docker
+    volumes:
+      - public-data:/local_crops/public
+      - tmp-data:/local_crops/tmp
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    networks:
+      - local_crops-network
+
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+  db-data:
+
+networks:
+  local_crops-network:
+    external: true
