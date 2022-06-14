@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_06_08_220519) do
 
-  create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
+  create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_220519) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8mb4", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "utf8", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 2022_06_08_220519) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8mb4", force: :cascade do |t|
+  create_table "active_storage_variant_records", charset: "utf8", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "bookmarks", charset: "utf8mb4", force: :cascade do |t|
+  create_table "bookmarks", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "crop_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_220519) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
-  create_table "chatroom_users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "chatroom_users", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "chatroom_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -60,13 +60,13 @@ ActiveRecord::Schema.define(version: 2022_06_08_220519) do
     t.index ["user_id"], name: "index_chatroom_users_on_user_id"
   end
 
-  create_table "chatrooms", charset: "utf8mb4", force: :cascade do |t|
+  create_table "chatrooms", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "chats", charset: "utf8mb4", force: :cascade do |t|
+  create_table "chats", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "chatroom_id"
     t.text "body", null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_220519) do
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
-  create_table "crops", charset: "utf8mb4", force: :cascade do |t|
+  create_table "crops", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.text "description"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_220519) do
     t.index ["user_id"], name: "index_crops_on_user_id"
   end
 
-  create_table "feedbacks", charset: "utf8mb4", force: :cascade do |t|
+  create_table "feedbacks", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
     t.text "body", null: false
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_220519) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "notifications", charset: "utf8mb4", force: :cascade do |t|
+  create_table "notifications", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "subject_type", null: false
     t.bigint "subject_id", null: false
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_220519) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
-  create_table "relationships", charset: "utf8mb4", force: :cascade do |t|
+  create_table "relationships", charset: "utf8", force: :cascade do |t|
     t.bigint "follower_id", null: false
     t.bigint "followed_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_220519) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
-  create_table "reservations", charset: "utf8mb4", force: :cascade do |t|
+  create_table "reservations", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "crop_id", null: false
     t.datetime "received_at", null: false
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_220519) do
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
-  create_table "social_profiles", charset: "utf8mb4", force: :cascade do |t|
+  create_table "social_profiles", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "provider", null: false
     t.string "uid", null: false
@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_220519) do
     t.index ["user_id"], name: "index_social_profiles_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

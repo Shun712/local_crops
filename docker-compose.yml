@@ -4,7 +4,6 @@ services:
     build:
       context: .
     command: bundle exec puma -C config/puma.rb
-
     volumes:
       - .:/local_crops
       - public-data:/local_crops/public
@@ -12,6 +11,8 @@ services:
       - log-data:/local_crops/log
     networks:
       - local_crops-network
+    environment:
+      - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
     depends_on:
       - db
 
