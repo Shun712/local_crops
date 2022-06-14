@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Deviseのマッピングはするが、skipして何も設定しない
-  devise_for :users, skip: %i[sessions registrations passwords],
+  devise_for :users, skip: %i[sessions registrations],
                      controllers: {
                        confirmations: 'users/confirmations',
-                       omniauth_callbacks: 'users/omniauth_callbacks'
+                       omniauth_callbacks: 'users/omniauth_callbacks',
+                       passwords: 'users/passwords'
                      }
   devise_scope :user do
     get 'login', to: 'users/sessions#new', as: :new_user_session
@@ -15,9 +16,6 @@ Rails.application.routes.draw do
     get 'mypage/account/edit', to: 'users/registrations#edit', as: :edit_mypage_account
     put 'mypage/account', to: 'users/registrations#update', as: :mypage_account
     delete 'mypage/account', to: 'users/registrations#destroy', as: :destroy_mypage_account
-    get 'password', to: 'users/passwords#new', as: :new_user_password
-    post 'password', to: 'users/passwords#create', as: :user_password
-    get 'password/edit', to: 'users/passwords#edit', as: :edit_user_password
   end
   root 'static_pages#about'
   get 'terms', to: 'static_pages#terms'
