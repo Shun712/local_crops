@@ -1,4 +1,4 @@
-tr.align-middle id="reservation-#{reservation.id}" class="#{'past' if reservation.pasted_date}"
+tr.align-middle id="reservation-#{reservation.id}" class="#{'past' if reservation.pasted_datetime}"
   td
     = image_tag reservation.crop.picture, class: 'rounded-circle user-reservation'
     br
