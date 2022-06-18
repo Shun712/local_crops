@@ -35,7 +35,7 @@ RSpec.describe 'UserSessions', type: :system do
     end
     it 'ログアウトできること' do
       click_on('ログアウト')
-      expect(current_path).to eq new_user_session_path
+      expect(current_path).to eq root_path
       expect(page).to have_content('ログアウトしました。')
     end
   end

@@ -15,6 +15,7 @@ services:
       - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
     depends_on:
       - db
+      - chrome
 
   db:
     image: mysql:5.7
@@ -40,6 +41,15 @@ services:
       - app
     networks:
       - local_crops-network
+
+  chrome:
+    image: selenium/standalone-chrome-debug:latest
+    shm_size: 256m
+    networks:
+      - local_crops-network
+    ports:
+      - "4444:4444"
+      - "5900:5900"
 
 volumes:
   public-data:

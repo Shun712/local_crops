@@ -25,7 +25,7 @@ ADD Gemfile.lock /local_crops/Gemfile.lock
 
 # bundle installの実行
 RUN gem install bundler
-RUN bundle install
+RUN bundle install --path vendor/bundle
 # RUN bundle update
 
 # ホストのアプリケーションディレクトリ内をすべてコンテナにコピー
