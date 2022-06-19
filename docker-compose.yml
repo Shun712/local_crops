@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-    command: bundle exec puma -C config/puma.rb
+    command: bundle exec puma -C config/puma.rb -e production
     volumes:
       - .:/local_crops
       - public-data:/local_crops/public
@@ -14,20 +14,20 @@ services:
     environment:
       - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
     depends_on:
-      - db
+#      - db
       - chrome
 
-  db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: local_crops_development
-    volumes:
-      - db-data:/var/lib/mysql
-    networks:
-      - local_crops-network
+#  db:
+#    image: mysql:5.7
+#    environment:
+#      MYSQL_ROOT_PASSWORD: password
+#      MYSQL_USER: user
+#      MYSQL_PASSWORD: password
+#      MYSQL_DATABASE: local_crops_development
+#    volumes:
+#      - db-data:/var/lib/mysql
+#    networks:
+#      - local_crops-network
 
   web:
     build:
