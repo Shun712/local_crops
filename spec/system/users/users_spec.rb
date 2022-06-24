@@ -69,7 +69,7 @@ RSpec.describe 'Users', type: :system do
     let!(:user) { create(:user) }
     before do
       sign_in user
-      visit edit_mypage_account_path
+      visit edit_account_path
     end
 
     context 'ページレイアウト' do

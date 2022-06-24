@@ -29,6 +29,6 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # メール認証後のページ遷移先を設定
   def after_confirmation_path_for(_resource_name, resource)
     sign_in(resource)
-    edit_mypage_account_path
+    edit_account_path
   end
 end

@@ -22,7 +22,7 @@
       .d-flex.align-items-center.text-nowrap.fs-sm
         - if current_user&.id == @user.id
           .my-sm-0.text-sm-end.pt-1.ms-4.text-center
-            = link_to 'プロフィール編集', edit_mypage_account_path, class: 'btn btn-warning btn-sm rounded-pill'
+            = link_to 'プロフィール編集', edit_account_path, class: 'btn btn-warning btn-sm rounded-pill'
         - else
           .mb-2.ms-sm-3.me-2.text-muted
             = render 'follow_area', user: @user
