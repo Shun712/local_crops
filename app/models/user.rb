@@ -68,7 +68,7 @@ class User < ApplicationRecord
   def self.sign_up(auth)
     user = User.new(
       username: auth['info']['name'],
-      email: auth['info']['email'] || Faker::Internet.email,
+      email: auth['info']['email'] || Faker::Internet.email(domain: 'example.com'),
       password: Devise.friendly_token[0, 20]
     )
     user.skip_confirmation!
@@ -85,9 +85,9 @@ class User < ApplicationRecord
   end
 
   def default_avatar
-    unless avatar.attached?
-      avatar.attach(io: File.open(Rails.root.join('app/assets/images/default-avatar.png')), filename: 'default-avatar.png')
-    end
+    return avatar if avatar.attached?
+    avatar.attach(io: File.open(Rails.root.join('app/assets/images/default-avatar.png')),
+                  filename: 'default-avatar.png')
   end
 
   def bookmark(crop)
@@ -122,15 +122,13 @@ class User < ApplicationRecord
     end
   end
 
-  def distance_within_5km?(object)
-    distance = Geocoder::Calculations.distance_between([latitude, longitude],
-                                                       [object.user.latitude, object.user.longitude])
-    distance < 5.0
-  end
-
   def distance(object)
     distance = Geocoder::Calculations.distance_between([latitude, longitude],
                                                        [object.user.latitude, object.user.longitude])
     distance.round(1)
+  end
+
+  def distance_within_5km?(object)
+    distance(object) < 5.0
   end
 end
