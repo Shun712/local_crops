@@ -25,7 +25,7 @@ places.each do |place|
     address: place[1],
     password: 'password',
     password_confirmation: 'password',
-    confirmed_at: Time.now
+    confirmed_at: Time.zone.now
   )
   puts "\"#{user.username}\" has created!"
 end
