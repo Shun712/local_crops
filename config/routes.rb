@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     get 'password/edit', to: 'users/passwords#edit', as: :edit_user_password
   end
   root 'static_pages#about'
-  get 'about', to: 'static_pages#about'
   get 'terms', to: 'static_pages#terms'
   get 'privacy', to: 'static_pages#privacy'
   resources :feedbacks, only: %i[new create]
