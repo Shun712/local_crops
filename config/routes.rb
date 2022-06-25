@@ -17,7 +17,8 @@ Rails.application.routes.draw do
     put 'account', to: 'users/registrations#update', as: :account
     delete 'account', to: 'users/registrations#destroy', as: :destroy_account
   end
-  root 'static_pages#about'
+  root 'static_pages#top'
+  get 'about', to: 'static_pages#about'
   get 'terms', to: 'static_pages#terms'
   get 'privacy', to: 'static_pages#privacy'
   resources :feedbacks, only: %i[new create]

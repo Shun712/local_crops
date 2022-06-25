@@ -3,7 +3,7 @@
     .d-lg-flex.justify-content-between.pb-3
       .order-lg-1.pe-lg-4.text-left.text-lg-start
         h1.h3.text-light.mb-2.ms-5 お問い合わせ
-.container.pb-4.pb-lg-5.mb-4
+.container
   .bg-light.shadow-lg.rounded-3.overflow-hidden.p-2.pb-4
     .row
       .col-md-8.offset-md-2
@@ -21,5 +21,5 @@
                 .col-12
                   = f.label :body
                   = f.text_area :body, autofocus: true, autocomplete: "body", placeholder: "お問い合わせ内容を入力してください。", class: "form-control rounded-start", required: "", rows: 6
-              .text-end.pt-4
-                = f.submit '送信', class: 'btn btn-primary mt-4'
+              .text-center.pt-1
+                = f.submit '送信', class: 'btn btn-primary w-50 mt-4'
