@@ -1,22 +1,12 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  def new
-    super
-  end
-
   def create
     # super
     devise_create
   end
 
-  def edit; end
-
   def update
     # super
     devise_update
-  end
-
-  def destroy
-    super
   end
 
   def devise_create
