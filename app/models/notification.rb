@@ -24,8 +24,11 @@ class Notification < ApplicationRecord
   include Rails.application.routes.url_helpers
   belongs_to :user
   belongs_to :subject, polymorphic: true
-
-  enum notification_type: { reserved_to_own_crop: 0, bookmarked_to_own_crop: 1, followed_me: 2, chat_to_me: 3, create_crop_by_follow_user: 4 }
+  enum notification_type: { reserved_to_own_crop: 0,
+                            bookmarked_to_own_crop: 1,
+                            followed_me: 2,
+                            chat_to_me: 3,
+                            create_crop_by_follow_user: 4 }
   enum read: { unread: false, read: true }
 
   def redirect_path

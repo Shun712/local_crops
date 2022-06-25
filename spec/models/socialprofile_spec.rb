@@ -9,9 +9,9 @@ RSpec.describe SocialProfile, type: :model do
     end
 
     it "ユーザーがなければ無効な状態であること" do
-      social_profile = build(:social_profile, user_id: nil)
+      social_profile = build(:social_profile, user: nil)
       social_profile.valid?
-      expect(social_profile.errors[:user_id]).to include('を入力してください')
+      expect(social_profile.errors[:user]).to include('を入力してください')
     end
 
     it "プロバイダーがなければ無効な状態であること" do
