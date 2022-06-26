@@ -7,7 +7,7 @@ class CropsController < ApplicationController
                        .select do |crop|
         current_user.distance_within_5km?(crop)
       end
-      @crops = Crop.where(id: sorted_crops.map { |crop| crop.id })
+      @crops = Crop.where(id: sorted_crops.map(&:id))
                    .includes(user: { avatar_attachment: :blob })
                    .page(params[:page])
                    .per(12)
@@ -16,7 +16,7 @@ class CropsController < ApplicationController
       local_crops = Crop.harvested_within_a_week.not_reserved.select do |crop|
         current_user.distance_within_5km?(crop)
       end
-      @crops = Crop.where(id: local_crops.map { |crop| crop.id })
+      @crops = Crop.where(id: local_crops.map(&:id))
                    .includes(user: { avatar_attachment: :blob })
                    .sorted
                    .page(params[:page])
@@ -69,7 +69,7 @@ class CropsController < ApplicationController
                        .select do |crop|
       current_user.distance_within_5km?(crop)
     end
-    @crops = Crop.where(id: searched_crops.map { |crop| crop.id })
+    @crops = Crop.where(id: searched_crops.map(&:id))
                  .includes(user: { avatar_attachment: :blob })
                  .page(params[:page])
                  .per(12)

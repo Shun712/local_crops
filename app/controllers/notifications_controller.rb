@@ -7,7 +7,7 @@ class NotificationsController < ApplicationController
 
   def read_all
     notifications = current_user.notifications.where(read: 'unread')
-    notifications.each { |notification| notification.read! }
+    notifications.each(&:read!)
     redirect_to mypage_notifications_path, success: 'すべて既読にしました'
   end
 end
