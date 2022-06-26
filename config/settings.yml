@@ -8,3 +8,4 @@ meta:
     - お裾分け
   og:
     type: website
+    image_path: ogp.png
