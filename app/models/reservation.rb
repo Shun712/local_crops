@@ -29,9 +29,16 @@ class Reservation < ApplicationRecord
   scope :sorted, -> { order(received_at: :desc) }
   scope :recent, ->(count) { sorted.limit(count) }
   after_create_commit :create_notifications
+  validate :received_at_check
 
   def date_passed?
     received_at < Time.zone.now
+  end
+
+  def received_at_check
+    if date_passed?
+      errors.add(:received_at, "は現在時刻より遅い時間を選択してください")
+    end
   end
 
   private
