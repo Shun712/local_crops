@@ -24,6 +24,6 @@ FactoryBot.define do
   factory :reservation do
     association :user, factory: :user, strategy: :create
     association :crop, factory: :crop, strategy: :create
-    received_at { Date.today }
+    received_at { Date.tomorrow }
   end
 end

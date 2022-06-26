@@ -23,7 +23,7 @@
 require 'rails_helper'
 
 RSpec.describe Reservation, type: :model do
-  let!(:reservation){ create(:reservation)}
+  let!(:reservation){ create(:reservation) }
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:crop) { create(:crop, user: user) }
@@ -45,10 +45,10 @@ RSpec.describe Reservation, type: :model do
       expect(reservation.errors[:crop]).to include("を入力してください")
     end
 
-    it "受け取り日時がなければ無効な状態であること" do
-      reservation = build(:reservation, received_at: nil)
+    it "受け取り日時が過去であれば無効な状態であること" do
+      reservation = build(:reservation, received_at: Date.yesterday)
       reservation.valid?
-      expect(reservation.errors[:received_at]).to include("を入力してください")
+      expect(reservation.errors[:received_at]).to include("は現在時刻より遅い時間を選択してください")
     end
   end
 end

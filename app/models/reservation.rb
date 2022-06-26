@@ -36,9 +36,9 @@ class Reservation < ApplicationRecord
   end
 
   def received_at_check
-    if date_passed?
-      errors.add(:received_at, 'は現在時刻より遅い時間を選択してください')
-    end
+    return unless date_passed?
+
+    errors.add(:received_at, 'は現在時刻より遅い時間を選択してください')
   end
 
   private
