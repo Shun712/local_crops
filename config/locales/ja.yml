@@ -28,7 +28,7 @@ ja:
         username: お名前
         avatar: アバター画像
         address: 都道府県・市区町村（・ * 番地）
-        postcode: 郵便番号
+        postcode: 郵便番号 (ハイフン無し)
       feedback:
         name: お名前
         email: メールアドレス
