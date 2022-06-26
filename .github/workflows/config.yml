@@ -43,7 +43,6 @@ jobs:
           bundle install --jobs 4 --retry 3
       - name: setup db schema
         run: |
-          sudo service mysql start
           bundle exec rails db:create ridgepole:apply --trace
       - name: run spec
         run: bundle exec rspec
