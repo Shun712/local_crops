@@ -2,6 +2,8 @@ class BookmarksController < ApplicationController
   def index
     @crops = Crop.joins(:bookmarks)
                  .where(bookmarks: { user_id: current_user.id })
+                 .with_attached_picture
+                 .includes(user: {avatar_attachment: :blob })
                  .sorted
                  .page(params[:page])
                  .per(12)

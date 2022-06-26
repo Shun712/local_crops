@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.includes(:user, :crop)
+    @reservations = Reservation.includes(user: { avatar_attachment: :blob }, crop: { picture_attachment: :blob })
                                .where(user_id: current_user.id)
                                .or(Reservation.where(crop_id: current_user.crops.ids))
                                .sorted
