@@ -16,11 +16,11 @@ module ApplicationHelper
         type: Settings.meta.og.type,
         url: request.original_url,
         image: image_url(Settings.meta.og.image_path),
-        locale: 'ja_JP',
+        locale: 'ja_JP'
       },
       twitter: {
         card: 'summary_large_image'
-      },
+      }
     }
   end
 end
