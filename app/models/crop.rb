@@ -38,6 +38,7 @@ class Crop < ApplicationRecord
   has_many :bookmark_users, through: :bookmarks, source: :user
   has_one :notification, as: :subject, dependent: :destroy
   after_create_commit :create_notifications
+  acts_as_mappable through: :user
 
   def harvested_after_a_week?
     harvested_on < 1.week.ago

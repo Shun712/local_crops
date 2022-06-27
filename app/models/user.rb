@@ -59,6 +59,9 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   validates :postcode, length: { is: 7 }, allow_nil: true
+  acts_as_mappable distance_field_name: :distance,
+                   lat_column_name: :latitude,
+                   lng_column_name: :longitude
 
   def self.find_for_oauth!(auth)
     User.joins(:social_profiles)
