@@ -192,6 +192,10 @@ GEM
     faraday-net_http (2.0.1)
     ffi (1.15.5)
     geocoder (1.8.0)
+    geokit (1.13.1)
+    geokit-rails (2.3.2)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     gimei (1.0.1)
       romaji
     globalid (1.0.0)
@@ -498,6 +502,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   geocoder
+  geokit-rails
   gimei
   html2slim
   jbuilder (~> 2.7)
