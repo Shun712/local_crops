@@ -1,23 +1,20 @@
 class CropsController < ApplicationController
   def index
     if params[:q]
-      sorted_crops = @q.result(distinct: true)
-                       .harvested_within_a_week
-                       .not_reserved
-                       .select do |crop|
-        current_user.distance_within_5km?(crop)
-      end
-      @crops = Crop.where(id: sorted_crops.map(&:id))
-                   .includes(user: { avatar_attachment: :blob })
-                   .page(params[:page])
-                   .per(12)
+      @crops = @q.result(distinct: true)
+                 .within(5, :origin => [current_user.latitude, current_user.longitude])
+                 .includes(user: { avatar_attachment: :blob })
+                 .harvested_within_a_week
+                 .not_reserved
+                 .page(params[:page])
+                 .per(12)
     else
       # 収穫1週間以内、未予約、距離5km以内の作物を取得
-      local_crops = Crop.harvested_within_a_week.not_reserved.select do |crop|
-        current_user.distance_within_5km?(crop)
-      end
-      @crops = Crop.where(id: local_crops.map(&:id))
+      @crops = Crop.within(5, :origin => [current_user.latitude, current_user.longitude])
+                   .with_attached_picture
                    .includes(user: { avatar_attachment: :blob })
+                   .harvested_within_a_week
+                   .not_reserved
                    .sorted
                    .page(params[:page])
                    .per(12)
@@ -63,16 +60,14 @@ class CropsController < ApplicationController
   end
 
   def search
-    searched_crops = @q.result(distinct: true)
-                       .harvested_within_a_week
-                       .not_reserved
-                       .select do |crop|
-      current_user.distance_within_5km?(crop)
-    end
-    @crops = Crop.where(id: searched_crops.map(&:id))
-                 .includes(user: { avatar_attachment: :blob })
-                 .page(params[:page])
-                 .per(12)
+    @crops = @q.result(distinct: true)
+               .within(5, :origin => [current_user.latitude, current_user.longitude])
+               .with_attached_picture
+               .includes(user: { avatar_attachment: :blob })
+               .harvested_within_a_week
+               .not_reserved
+               .page(params[:page])
+               .per(12)
   end
 
   private
