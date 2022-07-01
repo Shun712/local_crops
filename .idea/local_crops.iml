@@ -1114,6 +1114,50 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="geokit (vbundled(1.13.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-1.13.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-1.13.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-1.13.1/fixtures" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-1.13.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-1.13.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-1.13.1/fixtures" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-1.13.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-1.13.1/fixtures" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="geokit-rails (vbundled(2.3.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-rails-2.3.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-rails-2.3.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-rails-2.3.2/gemfiles" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-rails-2.3.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-rails-2.3.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-rails-2.3.2/gemfiles" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-rails-2.3.2/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/geokit-rails-2.3.2/gemfiles" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="gimei (vbundled(1.0.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

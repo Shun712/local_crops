@@ -1,24 +1,28 @@
 class CropsController < ApplicationController
   def index
-    if params[:q]
-      @crops = @q.result(distinct: true)
-                 .within(5, :origin => [current_user.latitude, current_user.longitude])
-                 .includes(user: { avatar_attachment: :blob })
-                 .harvested_within_a_week
-                 .not_reserved
-                 .page(params[:page])
-                 .per(12)
+    if params[:near]
+      crops = Crop.sorted_by_distance(current_user)
+      crop_ids = crops.pluck(:id)
+    elsif params[:far]
+      crops = Crop.sorted_by_distance(current_user)
+      crop_ids = crops.pluck(:id).reverse
+    elsif params[:new]
+      crops = Crop.sorted_by_new_harvested(current_user)
+      crop_ids = crops.pluck(:id)
+    elsif params[:old]
+      crops = Crop.sorted_by_old_harvested(current_user)
+      crop_ids = crops.pluck(:id)
     else
       # 収穫1週間以内、未予約、距離5km以内の作物を取得
-      @crops = Crop.within(5, :origin => [current_user.latitude, current_user.longitude])
-                   .with_attached_picture
-                   .includes(user: { avatar_attachment: :blob })
-                   .harvested_within_a_week
-                   .not_reserved
-                   .sorted
-                   .page(params[:page])
-                   .per(12)
+      crops = Crop.sorted_by_new_harvested(current_user)
+      crop_ids = crops.pluck(:id)
     end
+    @crops = Crop.where(id: crop_ids)
+                 .order_as_specified(id: crop_ids)
+                 .with_attached_picture
+                 .includes(user: { avatar_attachment: :blob })
+                 .page(params[:page])
+                 .per(12)
   end
 
   def new
@@ -61,7 +65,7 @@ class CropsController < ApplicationController
 
   def search
     @crops = @q.result(distinct: true)
-               .within(5, :origin => [current_user.latitude, current_user.longitude])
+               .within(5, origin: current_user.position)
                .with_attached_picture
                .includes(user: { avatar_attachment: :blob })
                .harvested_within_a_week

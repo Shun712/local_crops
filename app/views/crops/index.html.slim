@@ -5,16 +5,22 @@
       .order-lg-1.pe-lg-4.text-left.text-lg-start.d-flex
         h1.h3.text-light.mb-2.ms-5 作物一覧
         .my-sm-0.my-3.text-sm-end.pt-1.ms-4.flex-column
-          .d-flex.align-items-center.text-nowrap.fs-sm.sort
+          .d-flex.align-items-center.text-nowrap.fs-sm
             .mb-2.ms-sm-3.me-2
               span.fw-medium.text-light.me-1
                 | 並び順
             .mb-2.ps-sm-2.ps-2.border-start.border-light
               span.fw-medium.text-light.me-1
-                = sort_link(@q, :user_id, "生産者")
+                = link_to '近い', crops_path(near: 'true'), class: "sort-link #{'active' if current_page?('/crops?near=true')}"
             .mb-2.ps-sm-2.ps-2.border-start.border-light
               span.fw-medium.text-light.me-1
-                = sort_link(@q, :harvested_on, "収穫日")
+                = link_to '遠い', crops_path(far: 'true'), class: "sort-link #{'active' if current_page?('/crops?far=true')}"
+            .mb-2.ps-sm-2.ps-2.border-start.border-light
+              span.fw-medium.text-light.me-1
+                = link_to '新しい', crops_path(new: 'true'), class: "sort-link #{'active' if current_page?('/crops?new=true')}"
+            .mb-2.ps-sm-2.ps-2.border-start.border-light
+              span.fw-medium.text-light.me-1
+                = link_to '古い', crops_path(old: 'true'), class: "sort-link #{'active' if current_page?('/crops?old=true')}"
 .container.pb-3
   .bg-light.shadow-lg.rounded-3.overflow-hidden.p-2
     .row

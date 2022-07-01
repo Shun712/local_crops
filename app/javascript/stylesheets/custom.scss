@@ -113,6 +113,15 @@
   color: white !important;
 }
 
+.sort-link {
+  color: white !important;
+}
+
+.active {
+  text-decoration: none;
+  color: #57d878 !important;
+}
+
 // 作物詳細画像
 .crop-show {
   object-fit: cover;
