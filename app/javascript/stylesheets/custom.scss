@@ -175,6 +175,32 @@
   height: 40px;
 }
 
+.my-parts {
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+.my-parts table {
+  border: 1px solid rgba(0,0,0,.1);
+  table-layout: fixed;
+  width: 970px;
+  margin-inline: auto;
+}
+
+.my-lists table {
+  border: 1px solid rgba(0,0,0,.1);
+  table-layout: fixed;
+  width: 400px;
+  margin-inline: auto;
+}
+
+.my-parts th, .my-parts td {
+  padding: .6em;
+  text-align: center;
+}
+.my-parts th {
+  font-weight: bold;
+}
+
 .badge.reservation {
   font-size: 1.00rem;
 }
