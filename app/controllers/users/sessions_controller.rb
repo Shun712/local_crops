@@ -1,4 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
+  skip_before_action :address_empty
+
   def create
     # super
     devise_create

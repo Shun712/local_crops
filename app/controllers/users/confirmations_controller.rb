@@ -1,4 +1,6 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
+  skip_before_action :address_empty
+
   def show
     # super
     devise_show

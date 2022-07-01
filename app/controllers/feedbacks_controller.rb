@@ -1,5 +1,6 @@
 class FeedbacksController < ApplicationController
   skip_before_action :authenticate_user!
+  skip_before_action :address_empty
 
   def new
     @feedback = Feedback.new

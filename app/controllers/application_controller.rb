@@ -4,10 +4,17 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   before_action :set_search
+  before_action :address_empty
 
   def set_search
     @search_word = params[:q][:name_or_description_cont] if params[:q]
     @q = Crop.ransack(params[:q])
+  end
+
+  def address_empty
+    if current_user.address.blank?
+      redirect_to edit_account_path, danger: '住所を登録してください'
+    end
   end
 
   protected
