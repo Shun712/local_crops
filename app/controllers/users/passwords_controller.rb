@@ -1,4 +1,6 @@
 class Users::PasswordsController < Devise::PasswordsController
+  before_action :ensure_normal_user, only: :create
+
   def update
     # super
     devise_update
@@ -22,6 +24,12 @@ class Users::PasswordsController < Devise::PasswordsController
     else
       set_minimum_password_length
       respond_with resource
+    end
+  end
+
+  def ensure_normal_user
+    if params[:user][:email].downcase == 'guestuser@example.com'
+      redirect_to root_path, danger: 'ゲストユーザーのパスワード再設定はできません。'
     end
   end
 end

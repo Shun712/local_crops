@@ -24,6 +24,12 @@ class Users::SessionsController < Devise::SessionsController
     respond_to_on_destroy
   end
 
+  def guest_login
+    user = User.guest
+    sign_in user
+    redirect_to crops_path, success: 'ゲストユーザーとしてログインしました'
+  end
+
   protected
 
   def after_sign_in_path_for(_resource)

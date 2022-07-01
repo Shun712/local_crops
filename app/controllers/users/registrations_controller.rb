@@ -1,4 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :ensure_normal_user, only: %i[update destroy]
+
   def create
     # super
     devise_create
@@ -41,6 +43,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       flash.now[:danger] = 'プロフィールの更新に失敗しました'
       render :edit
+    end
+  end
+
+  def ensure_normal_user
+    if resource.email == 'guestuser@example.com'
+      redirect_to edit_account_path, danger: 'ゲストユーザーは更新・削除できません。'
     end
   end
 

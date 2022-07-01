@@ -16,4 +16,10 @@ class Feedback < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX }
   before_save :downcase_email
   validates :body, presence: true, length: { maximum: 1000 }
+
+  private
+
+  def downcase_email
+    self.email = email.downcase
+  end
 end

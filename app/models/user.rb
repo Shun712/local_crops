@@ -139,4 +139,14 @@ class User < ApplicationRecord
   def distance_within_5km?(object)
     distance(object) < 5.0
   end
+
+  def self.guest
+    find_or_create_by!(email: 'guestuser@example.com')
+  end
+
+  private
+
+  def downcase_email
+    self.email = email.downcase
+  end
 end
