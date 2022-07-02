@@ -41,6 +41,10 @@ jobs:
       - name: setup db schema
         run: |
           bundle exec rails db:create db:schema:load --trace
+      - name: Prepare webpacker
+        run: |
+          yarn install
+          bundle exec bin/webpack
       - name: run spec
         run: bundle exec rspec
       - name: Archive rspec result screenshots
