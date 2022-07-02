@@ -43,7 +43,6 @@ jobs:
           bundle exec rails db:create db:schema:load --trace
       - name: Prepare webpacker
         run: |
-          rm -rf bin/webpack*
           rails webpacker:install
           bundle exec rails webpacker:compile
       - name: run spec
