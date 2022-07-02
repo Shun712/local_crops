@@ -1,5 +1,5 @@
 name: Test
-on: [push]
+on: [ push ]
 jobs:
   rspec:
     runs-on: ubuntu-latest
@@ -41,6 +41,11 @@ jobs:
       - name: setup db schema
         run: |
           bundle exec rails db:create db:schema:load --trace
+      - name: Prepare webpacker
+        run: |
+          rm -rf bin/webpack*
+          rails webpacker:install
+          bundle exec rails webpacker:compile
       - name: run spec
         run: bundle exec rspec
       - name: Archive rspec result screenshots
