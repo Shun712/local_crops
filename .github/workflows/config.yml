@@ -43,8 +43,7 @@ jobs:
           bundle exec rails db:create db:schema:load --trace
       - name: Prepare webpacker
         run: |
-          yarn install
-          bundle exec bin/webpack
+          NODE_ENV=test bundle exec rails webpacker:compile
       - name: run spec
         run: bundle exec rspec
       - name: Archive rspec result screenshots
