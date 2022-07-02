@@ -16,6 +16,8 @@ RSpec.describe 'Social_Profiles', type: :system do
         find_link(href: '/users/auth/line').click
         expect(page).to have_content('Line アカウントによる認証に成功しました。')
         expect(current_path).to eq edit_account_path
+        fill_in 'user[address]', with: '埼玉県吉川市上内川'
+        click_button '更新する'
         click_on('ログアウト')
         visit new_user_session_path
         find_link(href: '/users/auth/line').click
@@ -40,6 +42,8 @@ RSpec.describe 'Social_Profiles', type: :system do
         find_link(href: '/users/auth/twitter').click
         expect(page).to have_content('Twitter アカウントによる認証に成功しました。')
         expect(current_path).to eq edit_account_path
+        fill_in 'user[address]', with: '埼玉県吉川市上内川'
+        click_button '更新する'
         click_on('ログアウト')
         visit new_user_session_path
         find_link(href: '/users/auth/twitter').click

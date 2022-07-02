@@ -12,9 +12,9 @@ class ApplicationController < ActionController::Base
   end
 
   def address_empty
-    if current_user.address.blank?
-      redirect_to edit_account_path, danger: '住所を登録してください'
-    end
+    return if current_user.address?
+
+    redirect_to edit_account_path, danger: '住所を登録してください'
   end
 
   protected

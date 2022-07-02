@@ -12,6 +12,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_update
   end
 
+  def destroy
+    # super
+    devise_destroy
+  end
+
   def devise_create
     build_resource(sign_up_params)
 
@@ -47,10 +52,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def devise_destroy
+    resource.destroy
+    Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+    set_flash_message! :success, :destroyed
+    yield resource if block_given?
+    respond_with_navigational(resource){ redirect_to after_sign_out_path_for(resource_name) }
+  end
+
   def ensure_normal_user
-    if resource.email == 'guestuser@example.com'
-      redirect_to edit_account_path, danger: 'ゲストユーザーは更新・削除できません。'
-    end
+    return if current_user.email != 'guestuser@example.com'
+
+    redirect_to edit_account_path, danger: 'ゲストユーザーは更新・削除できません。'
   end
 
   protected

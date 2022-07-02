@@ -1,6 +1,8 @@
 class Users::PasswordsController < Devise::PasswordsController
-  before_action :ensure_normal_user, only: :create
+  before_action :ensure_normal_user, %i[create]
   skip_before_action :address_empty
+
+  def create; end
 
   def update
     # super
@@ -29,8 +31,8 @@ class Users::PasswordsController < Devise::PasswordsController
   end
 
   def ensure_normal_user
-    if params[:user][:email].downcase == 'guestuser@example.com'
-      redirect_to root_path, danger: 'ゲストユーザーのパスワード再設定はできません。'
-    end
+    return if params[:user][:email].downcase != 'guestuser@example.com'
+
+    redirect_to root_path, danger: 'ゲストユーザーのパスワード再設定はできません。'
   end
 end
