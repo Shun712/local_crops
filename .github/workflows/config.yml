@@ -1,5 +1,5 @@
 name: Test
-on: [ push ]
+on: [push]
 jobs:
   rspec:
     runs-on: ubuntu-latest
@@ -34,16 +34,6 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-      - name: install node
-        run: |
-          curl -sL https://deb.nodesource.com/setup_12.x | bash -
-          apt-get install -y nodejs
-      - name: install yarn
-        run: |
-          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-          echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-          apt-get update
-          apt-get install -y yarn
       - name: setup bundle
         if: steps.cache-gems.outputs.cache-hit != 'true'
         run: |
@@ -51,11 +41,6 @@ jobs:
       - name: setup db schema
         run: |
           bundle exec rails db:create db:schema:load --trace
-      - name: Prepare webpacker
-        run: |
-          rm -rf bin/webpack*
-          rails webpacker:install
-          bundle exec rails webpacker:compile
       - name: run spec
         run: bundle exec rspec
       - name: Archive rspec result screenshots
