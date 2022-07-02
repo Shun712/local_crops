@@ -16,6 +16,7 @@ default: &default
   username: root
   password: mysql
   socket: /tmp/mysql.sock
+  host: db
 
 development:
   <<: *default
