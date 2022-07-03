@@ -1,5 +1,4 @@
 Capybara.default_max_wait_time = 5
-Capybara.server = :puma, { Silent: true }
 
 options = ::Selenium::WebDriver::Chrome::Options.new
 options.add_argument('--headless')
