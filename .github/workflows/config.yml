@@ -16,7 +16,6 @@ jobs:
       image: ruby:2.7.5
     env:
       RAILS_ENV: test
-      GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS}}
     steps:
       - uses: actions/checkout@v2
       - name: Install chrome
@@ -56,7 +55,7 @@ jobs:
       - name: Webpack compilation
         run: bundle exec rails webpacker:compile
       - name: run spec
-        run: bundle exec rspec
+        run: bundle exec rspec spec/models
       - name: Archive rspec result screenshots
         if: failure()
         uses: actions/upload-artifact@v3
