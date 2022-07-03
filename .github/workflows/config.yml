@@ -50,12 +50,13 @@ jobs:
           bundle install --jobs 4 --retry 3
       - name: setup db schema
         run: |
-          bundle exec rails webpacker:install
           bundle exec rails db:create db:schema:load --trace
       - name: Webpack compilation
-        run: bundle exec rails webpacker:compile
+        run: |
+          bundle exec rails webpacker:install
+          bundle exec rails webpacker:compile
       - name: run spec
-        run: bundle exec rspec spec/models
+        run: bundle exec rspec
       - name: Archive rspec result screenshots
         if: failure()
         uses: actions/upload-artifact@v3
