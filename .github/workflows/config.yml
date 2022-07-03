@@ -50,6 +50,7 @@ jobs:
           bundle install --jobs 4 --retry 3
       - name: setup db schema
         run: |
+          bundle exec rails webpacker:install
           bundle exec rails db:create db:schema:load --trace
       - name: Webpack compilation
         run: bundle exec rails webpacker:compile
