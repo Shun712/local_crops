@@ -57,7 +57,7 @@ jobs:
           bundle exec rails webpacker:install
           bundle exec rails webpacker:compile
       - name: run spec
-        run: bundle exec rspec
+        run: bundle exec rspec spec/models
       - name: Archive rspec result screenshots
         if: failure()
         uses: actions/upload-artifact@v3
