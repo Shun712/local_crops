@@ -56,7 +56,7 @@ RSpec.describe 'Notifications', type: :system do
       it '通知が来ること' do
         sign_in user
         visit mypage_notifications_path
-        expect(page).to have_content "#{other_user.username}さんがチャットルームにコメントしました。"
+        expect(page).to have_content "さんがチャットルームにコメントしました。"
       end
     end
 

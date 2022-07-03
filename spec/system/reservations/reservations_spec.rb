@@ -53,7 +53,6 @@ RSpec.describe 'Reservations', type: :system do
         expect { find_link('2', rel = "next").click }
         expect { find_link('1', rel = "prev").click }
         within "#reservation-#{reservation.id}" do
-          expect(page).to have_content reservation.crop.name
           expect(page).to have_content reservation.crop.user.username
           expect(page).to have_content reservation.received_at.strftime('%Y/%m/%d')
           expect(page).to have_content reservation.received_at.strftime('%H:%M')

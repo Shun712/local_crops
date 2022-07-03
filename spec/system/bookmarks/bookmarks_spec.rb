@@ -17,7 +17,7 @@ RSpec.describe 'Bookmarks', type: :system do
 
       context '他人の作物の場合' do
         it 'ブックマークできること' do
-          expect(page).to have_css "#bookmark_area-#{crop_by_other_user.id}"
+          expect(page).to have_selector "#bookmark_area-#{crop_by_other_user.id}"
           expect { user.bookmark(crop_by_other_user) }.to change { Bookmark.count }.by(1)
         end
 
