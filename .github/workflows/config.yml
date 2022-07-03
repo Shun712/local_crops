@@ -18,52 +18,25 @@ jobs:
       RAILS_ENV: test
     steps:
       - uses: actions/checkout@v2
-      - name: Install chrome
-        run: |
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
-          echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
-          apt update -y
-          apt install -y google-chrome-stable libvips
-      - name: bundler config
-        run: bundle config set path 'vendor/bundle'
-      - name: cache gems
-        id: cache-gems
-        uses: actions/cache@v2
+      - name: Set up Ruby 2.7
+        uses: ruby/setup-ruby@v1
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-      - name: install node
+          ruby-version: 2.7.5
+          bundler-cache: true
+      - name: Install dependencies
         run: |
-          curl -sL https://deb.nodesource.com/setup_12.x | bash -
-          apt-get install -y nodejs
-      - name: install yarn
+          gem install bundler
+          bundle install --jobs 4 --retry 3 --path vendor/bundle
+      - name: set database.yml
+        run: cp -v config/database.ci.yml config/database.yml
+      - name: Create database
+        env:
+          RAILS_ENV: test
         run: |
-          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-          echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-          apt-get update
-          apt-get install -y yarn
-      - name: setup bundle
-        if: steps.cache-gems.outputs.cache-hit != 'true'
-        run: |
-          bundle install --jobs 4 --retry 3
-      - name: setup db schema
-        run: |
-          bundle exec rails db:create db:schema:load --trace
-      - name: Prepare webpacker
-        run: |
-          bundle exec bin/webpack
-      - name: run spec
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+      - name: Run tests
         run: bundle exec rspec
-      - name: Archive rspec result screenshots
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: rspec result screenshots
-          path: |
-            tmp/screenshots/
-            tmp/capybara/
   rubocop:
     runs-on: ubuntu-latest
     container:
