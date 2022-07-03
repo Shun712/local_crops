@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'Bookmarks', type: :system do
   describe 'ブックマーク' do
-    let(:user) { create(:user) }
-    let(:other_user) { create(:user) }
-    let(:crop_by_user) { create(:crop, user: user) }
-    let(:crop_by_other_user) { create(:crop, user: other_user) }
+    let!(:user) { create(:user) }
+    let!(:other_user) { create(:user) }
+    let!(:crop_by_user) { create(:crop, user: user) }
+    let!(:crop_by_other_user) { create(:crop, user: other_user) }
     before do
       sign_in user
     end
