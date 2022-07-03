@@ -51,6 +51,8 @@ jobs:
       - name: setup db schema
         run: |
           bundle exec rails db:create db:schema:load --trace
+      - name: Webpack compilation
+        run: NODE_ENV=test bundle exec rails webpacker:compile
       - name: run spec
         run: bundle exec rspec
       - name: Archive rspec result screenshots
