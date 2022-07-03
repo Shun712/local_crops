@@ -15,7 +15,7 @@ RSpec.describe 'Chatrooms', type: :system do
         visit user_path(other_user)
       end
       it 'ユーザー詳細ページに「チャット」ボタンが存在すること' do
-        expect(page).to have_selector 'チャット'
+        expect(page).to have_css '.chat-button'
       end
 
       it '予約一覧がモーダルで確認できること', js: true do
