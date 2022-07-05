@@ -16,7 +16,7 @@ jobs:
       image: ruby:2.7.5
     env:
       RAILS_ENV: test
-      GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS}} ||
+      GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS}}
     steps:
       - uses: actions/checkout@v2
       - name: Install chrome

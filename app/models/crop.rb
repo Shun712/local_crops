@@ -47,25 +47,27 @@ class Crop < ApplicationRecord
   end
 
   def self.sorted_by_distance(object)
-    harvested_within_a_week
+    within(5, origin: object.position)
+      .includes(:user)
+      .harvested_within_a_week
       .not_reserved
-      .sort_by { |crop| crop.user.distance_to(object.position) if object.distance_within_5km?(crop) }
+      .sort_by { |crop| crop.user.distance_to(object.position)}
   end
 
   def self.sorted_by_new_harvested(object)
-    harvested_within_a_week
+    within(5, origin: object.position)
+      .includes(:user)
+      .harvested_within_a_week
       .sorted
       .not_reserved
-      .includes(:user)
-      .within(5, origin: object.position)
   end
 
   def self.sorted_by_old_harvested(object)
-    harvested_within_a_week
+    within(5, origin: object.position)
+      .includes(:user)
+      .harvested_within_a_week
       .unsorted
       .not_reserved
-      .includes(:user)
-      .within(5, origin: object.position)
   end
 
   private
