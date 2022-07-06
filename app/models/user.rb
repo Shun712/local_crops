@@ -132,7 +132,7 @@ class User < ApplicationRecord
 
   def distance(object)
     distance = Geocoder::Calculations.distance_between(position,
-                                                       [object.user.latitude, object.user.longitude])
+                                                       object.user.position)
     distance.round(1)
   end
 

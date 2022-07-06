@@ -31,7 +31,7 @@ places.each do |place|
   puts "\"#{user.username}\" has created!"
 end
 
-User.create(
+guest = User.create(
   email: guest_user[0],
   username: guest_user[1],
   postcode: guest_user[2],
@@ -40,4 +40,13 @@ User.create(
   password_confirmation: 'password',
   confirmed_at: Time.zone.now
 )
+
+# ユーザー
+user1 = User.first
+user2 = User.second
+
+# フォロー
+guest.follow(user1)
+user2.follow(guest)
+
 puts "ゲストユーザー has created!"
