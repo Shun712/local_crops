@@ -32,7 +32,7 @@ class Crop < ApplicationRecord
   # 1週間以内に収穫した作物を抽出
   scope :harvested_within_a_week, -> { where('harvested_on >= ?', 1.week.ago.beginning_of_day) }
   scope :sorted, -> { order(harvested_on: :desc) }
-  scope :unsorted, -> { order(harvested_on: :asc) }
+  scope :reverse_sorted, -> { order(harvested_on: :asc) }
   # 未予約の作物を抽出
   scope :not_reserved, -> { includes(:reservations).where(reservations: { crop_id: nil }) }
   has_many :bookmarks, dependent: :destroy
@@ -46,27 +46,10 @@ class Crop < ApplicationRecord
     harvested_on < 1.week.ago
   end
 
-  def self.sorted_by_distance(object)
+  def self.within_distance(object)
     within(5, origin: object.position)
       .includes(:user)
       .harvested_within_a_week
-      .not_reserved
-      .sort_by { |crop| crop.user.distance_to(object.position)}
-  end
-
-  def self.sorted_by_new_harvested(object)
-    within(5, origin: object.position)
-      .includes(:user)
-      .harvested_within_a_week
-      .sorted
-      .not_reserved
-  end
-
-  def self.sorted_by_old_harvested(object)
-    within(5, origin: object.position)
-      .includes(:user)
-      .harvested_within_a_week
-      .unsorted
       .not_reserved
   end
 

@@ -1,20 +1,25 @@
 class CropsController < ApplicationController
   def index
     if params[:near]
-      crops = Crop.sorted_by_distance(current_user)
+      crops = Crop.within_distance(current_user)
+                  .sort_by { |crop| crop.user.distance_to(current_user.position)}
       crop_ids = crops.pluck(:id)
     elsif params[:far]
-      crops = Crop.sorted_by_distance(current_user)
+      crops = Crop.within_distance(current_user)
+                  .sort_by { |crop| crop.user.distance_to(current_user.position)}
       crop_ids = crops.pluck(:id).reverse
     elsif params[:new]
-      crops = Crop.sorted_by_new_harvested(current_user)
+      crops = Crop.within_distance(current_user)
+                  .sorted
       crop_ids = crops.pluck(:id)
     elsif params[:old]
-      crops = Crop.sorted_by_old_harvested(current_user)
+      crops = Crop.within_distance(current_user)
+                  .reverse_sorted
       crop_ids = crops.pluck(:id)
     else
       # 収穫1週間以内、未予約、距離5km以内の作物を取得
-      crops = Crop.sorted_by_new_harvested(current_user)
+      crops = Crop.within_distance(current_user)
+                  .sorted
       crop_ids = crops.pluck(:id)
     end
     @crops = Crop.where(id: crop_ids)
