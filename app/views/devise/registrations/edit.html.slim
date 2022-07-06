@@ -4,7 +4,7 @@
     .d-inline-flex.align-items-center.text-nowrap.fs-sm
       .order-1.pe-4.text-left.text-lg-start
         h1.h3.text-light.text-start.mb-2.ms-5 プロフィール編集
-.container.py-3
+.container.pt-3.pb-2
   .bg-light.shadow-lg.rounded-3.overflow-hidden.p-2.pb-4
     .row
       .col-md-6.offset-md-3
@@ -12,7 +12,7 @@
           .card-body
             = form_for(resource, as: resource_name, url: account_path(resource_name), html: { method: :put }) do |f|
               = render "devise/shared/error_messages", resource: resource
-              .form-group.mb-3
+              .form-group.my-3
                 = f.label :avatar, class: 'ms-3'
                 = f.file_field :avatar, class: 'form-control'
               = image_tag @user.avatar, class: 'rounded-circle ms-4 mb-3 user-detail'

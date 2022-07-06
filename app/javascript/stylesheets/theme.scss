@@ -5166,11 +5166,7 @@ textarea.form-control-lg {
   position: relative;
   padding: 0.75rem 1.125rem;
   margin-bottom: 0rem;
-  border: 1px solid transparent;
   border-radius: 0.4375rem;
-  color: #db4065;
-  background-color: #feedf1;
-  border-color: #fbbfcd;
   margin-top: 23px;
 }
 
@@ -5251,6 +5247,7 @@ textarea.form-control-lg {
   color: #db4065;
   background-color: #feedf1;
   border-color: #fbbfcd;
+  margin-bottom: 10px;
 }
 .alert-danger .alert-link {
   color: #af3351;
