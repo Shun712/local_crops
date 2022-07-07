@@ -314,14 +314,15 @@
 // 通知一覧
 .notification-item {
   overflow-x: auto;
-  .read {
-    background: #f1f1f1;
-  }
+}
+
+.read {
+  background: #d3d0d0;
 }
 
 // チャットルーム内予約一覧
 .past {
-  background: #a6acb7;
+  background: #d3d0d0;
 }
 
 // フラッシュメッセージ
