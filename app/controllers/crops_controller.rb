@@ -2,11 +2,11 @@ class CropsController < ApplicationController
   def index
     if params[:near]
       crops = Crop.within_distance(current_user)
-                  .sort_by { |crop| crop.user.distance_to(current_user.position)}
+                  .sort_by { |crop| crop.user.distance_to(current_user.position) }
       crop_ids = crops.pluck(:id)
     elsif params[:far]
       crops = Crop.within_distance(current_user)
-                  .sort_by { |crop| crop.user.distance_to(current_user.position)}
+                  .sort_by { |crop| crop.user.distance_to(current_user.position) }
       crop_ids = crops.pluck(:id).reverse
     elsif params[:new]
       crops = Crop.within_distance(current_user)

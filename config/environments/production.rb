@@ -106,7 +106,7 @@ Rails.application.configure do
     domain: 'heroku.com',
     authentication: :plain,
     user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
+    password: ENV['SENDGRID_PASSWORD']
   }
 
   # Inserts middleware to perform automatic connection switching.
