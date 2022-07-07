@@ -1,15 +1,15 @@
-tr.align-middle id="reservation-#{reservation.id}" class="#{'past' if reservation.pasted_date}"
+tr.align-middle id="reservation-#{reservation.id}" class="#{'past' if reservation.date_passed?}"
   td
     = image_tag reservation.crop.picture, class: 'rounded-circle user-reservation'
     br
-      = link_to reservation.crop.name, crop_path(reservation.crop)
+      = link_to (truncate(reservation.crop.name, length: 9)), crop_path(reservation.crop)
   - if current_user.id == reservation.user.id
     td
       span.badge.rounded-pill.bg-accent.reservation  受取
     td
       = image_tag reservation.crop.user.avatar, class: 'rounded-circle user-reservation'
       br
-        = link_to reservation.crop.user.username, user_path(reservation.crop.user)
+        = link_to (truncate(reservation.crop.user.username, length: 9)), user_path(reservation.crop.user)
     td
       = render 'users/chat_area', user: reservation.crop.user
   - else

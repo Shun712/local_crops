@@ -113,6 +113,15 @@
   color: white !important;
 }
 
+.sort-link {
+  color: white !important;
+}
+
+.active {
+  text-decoration: none;
+  color: #57d878 !important;
+}
+
 // 作物詳細画像
 .crop-show {
   object-fit: cover;
@@ -164,6 +173,32 @@
   object-fit: cover;
   width: 40px;
   height: 40px;
+}
+
+.my-parts {
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+.my-parts table {
+  border: 1px solid rgba(0,0,0,.1);
+  table-layout: fixed;
+  width: 970px;
+  margin-inline: auto;
+}
+
+.my-lists table {
+  border: 1px solid rgba(0,0,0,.1);
+  table-layout: fixed;
+  width: 400px;
+  margin-inline: auto;
+}
+
+.my-parts th, .my-parts td {
+  padding: .6em;
+  text-align: center;
+}
+.my-parts th {
+  font-weight: bold;
 }
 
 .badge.reservation {
@@ -276,15 +311,57 @@
   background: #3b3f96;
 }
 
+// チャットルーム一覧
+.my-chats {
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+.my-chats table {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  table-layout: fixed;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.my-chats td {
+  padding:0.15rem 0.05rem !important;
+  text-align: center;
+}
+
 // 通知一覧
 .notification-item {
   overflow-x: auto;
-  .read {
-    background: #f1f1f1;
-  }
 }
 
-//チャットルーム内予約一覧
+.read {
+  background: #d3d0d0;
+}
+
+// チャットルーム内予約一覧
 .past {
-  background: #a6acb7;
+  background: #d3d0d0;
+}
+
+// フラッシュメッセージ
+.alert-notice {
+  position: relative;
+  padding: 0.75rem 1.125rem;
+  margin-bottom: 0rem;
+  border-radius: 0.4375rem;
+  color: #3bc188;
+  background-color: #ecfbf5;
+  border: 1px solid #bdf1db;
+  margin-top: 23px;
+}
+
+.alert-alert {
+  position: relative;
+  padding: 0.75rem 1.125rem;
+  margin-bottom: 0rem;
+  border-radius: 0.4375rem;
+  color: #db4065;
+  background-color: #feedf1;
+  border: 1px solid #fbbfcd;
+  margin-top: 23px;
 }

@@ -19,7 +19,7 @@ RSpec.describe 'Reservations', type: :system do
           expect(page).to have_css '.reserve-button'
           click_link '予約する'
         end
-        fill_in '受取日時', with: '002022-5-5-15:00T00:16:12'
+        fill_in '受取日時', with: '002022-9-5-15:00T00:16:12'
         click_on '確定'
         expect(page).to have_content '予約を登録しました'
         expect(current_path).to eq crops_path
@@ -31,7 +31,7 @@ RSpec.describe 'Reservations', type: :system do
         visit crop_path(crop_by_other_user)
         expect(page).to have_css '.reserve-button'
         click_link '予約する'
-        fill_in '受取日時', with: '002022-5-5-15:00T00:16:12'
+        fill_in '受取日時', with: '002022-9-5-15:00T00:16:12'
         click_on '確定'
         expect(page).to have_content '予約を登録しました'
         expect(current_path).to eq crops_path
@@ -53,7 +53,6 @@ RSpec.describe 'Reservations', type: :system do
         expect { find_link('2', rel = "next").click }
         expect { find_link('1', rel = "prev").click }
         within "#reservation-#{reservation.id}" do
-          expect(page).to have_content reservation.crop.name
           expect(page).to have_content reservation.crop.user.username
           expect(page).to have_content reservation.received_at.strftime('%Y/%m/%d')
           expect(page).to have_content reservation.received_at.strftime('%H:%M')

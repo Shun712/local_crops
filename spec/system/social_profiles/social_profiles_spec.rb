@@ -15,8 +15,14 @@ RSpec.describe 'Social_Profiles', type: :system do
         expect(page).not_to have_content('ログアウト')
         find_link(href: '/users/auth/line').click
         expect(page).to have_content('Line アカウントによる認証に成功しました。')
-        expect(current_path).to eq edit_mypage_account_path
-        click_on('ログアウト')
+        expect(current_path).to eq edit_account_path
+        fill_in 'user[postcode]', with: '3420001'
+        fill_in 'user[address]', with: '埼玉県吉川市上内川'
+        click_button '更新する'
+        click_button 'メニュー'
+        page.accept_confirm { find('.logout-button').click }
+        sleep 1
+        visit new_user_session_path
         find_link(href: '/users/auth/line').click
         expect(page).to have_content('ログインしました。')
         expect(current_path).to eq crops_path
@@ -38,8 +44,13 @@ RSpec.describe 'Social_Profiles', type: :system do
         expect(page).not_to have_content('ログアウト')
         find_link(href: '/users/auth/twitter').click
         expect(page).to have_content('Twitter アカウントによる認証に成功しました。')
-        expect(current_path).to eq edit_mypage_account_path
-        click_on('ログアウト')
+        expect(current_path).to eq edit_account_path
+        fill_in 'user[postcode]', with: '3420001'
+        fill_in 'user[address]', with: '埼玉県吉川市上内川'
+        click_button '更新する'
+        click_button 'メニュー'
+        page.accept_confirm { find('.logout-button').click }
+        visit new_user_session_path
         find_link(href: '/users/auth/twitter').click
         expect(page).to have_content('ログインしました。')
         expect(current_path).to eq crops_path

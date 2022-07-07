@@ -12,14 +12,11 @@ class Chatroom < ApplicationRecord
   has_many :users, through: :chatroom_users
   has_many :chats, dependent: :destroy
 
-  def self.chatroom_for_user(users)
-    user_ids = users.map(&:id).sort
-    name = user_ids.join(':').to_s
-    unless (chatroom = find_by(name: name))
-      chatroom = new(name: name)
-      chatroom.users = users
-      chatroom.save
-    end
+  def self.find_or_create(users)
+    user_ids = users.pluck(:id).sort
+    name = user_ids.join(':')
+    chatroom = find_or_create_by(name: name)
+    chatroom.users = users
     chatroom
   end
 end

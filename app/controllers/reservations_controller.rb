@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.includes(:user, :crop)
+    @reservations = Reservation.includes(user: { avatar_attachment: :blob }, crop: { picture_attachment: :blob })
                                .where(user_id: current_user.id)
                                .or(Reservation.where(crop_id: current_user.crops.ids))
                                .sorted
@@ -15,8 +15,13 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = current_user.reservations.build(reservation_params)
-    @reservation.save
-    redirect_to crops_path, success: '予約を登録しました'
+    if @reservation.save
+      redirect_to crops_path, success: '予約を登録しました'
+    elsif @reservation.date_passed?
+      redirect_to crops_path, danger: @reservation.errors.full_messages.join
+    else
+      redirect_to crops_path, danger: '予約登録に失敗しました'
+    end
   end
 
   def destroy

@@ -1,7 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "StaticPages", type: :system do
-  describe "ヘルプページ" do
+  describe "ホームページ" do
+    before do
+      visit root_path
+    end
+
+    it "使い方の文字列が存在することを確認" do
+      expect(page).to have_content 'ホーム'
+    end
+  end
+
+  describe "使い方ページ" do
     before do
       visit about_path
     end

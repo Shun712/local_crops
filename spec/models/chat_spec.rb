@@ -28,10 +28,6 @@ RSpec.describe Chat, type: :model do
   let(:chat) { create(:chat, user: user, chatroom: chatroom) }
 
   context 'バリデーション' do
-    it '有効な状態であること' do
-      expect(chat).to be_valid
-    end
-
     it 'メッセージが1000文字以内であること' do
       chat = build(:chat, body: "a" * 1001)
       chat.valid?

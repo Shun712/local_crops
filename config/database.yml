@@ -27,6 +27,8 @@ development:
 test:
   <<: *default
   database: local_crops_test
+  password: mysql
+  host: db
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -47,7 +49,7 @@ test:
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
-#
+
 production:
   <<: *default
   database: local_crops_production

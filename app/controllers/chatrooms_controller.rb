@@ -10,7 +10,7 @@ class ChatroomsController < ApplicationController
   def create
     users = [current_user]
     users << User.find(params[:user_id])
-    @chatroom = Chatroom.chatroom_for_user(users)
+    @chatroom = Chatroom.find_or_create(users)
     @chats = @chatroom.chats.recent(100)
     @chatroom_user = current_user.chatroom_users.find_by(chatroom_id: @chatroom.id)
     redirect_to chatroom_path(@chatroom)

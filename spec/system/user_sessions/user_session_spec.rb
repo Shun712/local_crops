@@ -34,8 +34,9 @@ RSpec.describe 'UserSessions', type: :system do
       visit crops_path
     end
     it 'ログアウトできること' do
-      click_on('ログアウト')
-      expect(current_path).to eq new_user_session_path
+      click_button 'メニュー'
+      page.accept_confirm { find('.logout-button').click }
+      expect(current_path).to eq root_path
       expect(page).to have_content('ログアウトしました。')
     end
   end

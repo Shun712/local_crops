@@ -1,15 +1,15 @@
 - set_meta_tags title: 'パスワード再送ページ'
-.container.py-4.py-lg-5.my-4
+.container.pt-4.pb-2
   .row
     .col-md-6.offset-md-3
       .card.border-0.shadow
         .card-body
-          h2.h4.mb-1
+          h2.h4.mb-2
             = t('.forgot_your_password')
-          h3.fs-base.pt-4.pb-2
+          h3.fs-base.pb-2
           = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
             = render 'devise/shared/error_messages', object: resource
-            .input-group.mb-3
+            .input-group.my-3
               i.ci-mail.position-absolute.top-50.translate-middle-y.text-muted.fs-base.ms-3
               = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control rounded-start", required: ""
             .text-end.pt-4

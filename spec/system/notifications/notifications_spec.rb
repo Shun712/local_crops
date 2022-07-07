@@ -45,15 +45,14 @@ RSpec.describe 'Notifications', type: :system do
     end
 
     context 'チャットが来た場合' do
-      before do
+      it '通知が来ること' do
         sign_in other_user
         visit user_path(user)
         click_on 'チャット'
         fill_in 'メッセージ', with: 'こんにちは'
         click_button '送信'
-      end
-
-      it '通知が来ること' do
+        click_button 'メニュー'
+        page.accept_confirm { find('.logout-button').click }
         sign_in user
         visit mypage_notifications_path
         expect(page).to have_content "#{other_user.username}さんがチャットルームにコメントしました。"

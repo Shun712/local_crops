@@ -18,10 +18,23 @@ i = 0
 User.limit(15).each do |user|
   crop = user.crops.new(name: vegetables[i][0],
                         description: vegetables[i][1],
-                        harvested_on: Faker::Date.between(from: 7.days.ago, to: Date.today)
+                        harvested_on: Faker::Date.between(from: 3.days.ago, to: Date.today)
   )
   crop.picture.attach(io: File.open(Rails.root.join("app/assets/images/#{vegetables[i][2]}")), filename: vegetables[i][2])
   crop.save!
   puts "crop#{crop.id} has created!"
   i += 1
+end
+
+i = 0
+vegetables.each do |vegetable|
+  user = User.find_by(username: 'ゲストユーザー')
+  crop = user.crops.new(name: vegetable[0],
+                        description: vegetable[1],
+                        harvested_on: Faker::Date.between(from: 14.days.ago, to: 7.days.ago)
+  )
+  crop.picture.attach(io: File.open(Rails.root.join("app/assets/images/#{vegetable[2]}")), filename: vegetable[2])
+  crop.save!
+  puts "crop#{crop.id} has created!"
+  i += 1 until i == 8
 end

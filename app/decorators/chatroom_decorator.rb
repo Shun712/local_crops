@@ -2,7 +2,7 @@ class ChatroomDecorator < ApplicationDecorator
   delegate_all
 
   def chat_text
-    chats.last&.body&.truncate(30) || 'まだメッセージがありません'
+    chats.last&.body&.truncate(12) || 'コメントがありません'
   end
 
   def created_at

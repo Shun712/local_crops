@@ -1,0 +1,13 @@
+script async="" src="https://www.googletagmanager.com/gtag/js?id=G-39E58NFJ90"
+javascript:
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag("config", "G-39E58NFJ90");
+    if (#{raw current_user.to_json}) {
+        gtag('set', {'user_id': #{raw current_user.to_json}.id});
+    }

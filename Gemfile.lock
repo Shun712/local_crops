@@ -192,6 +192,10 @@ GEM
     faraday-net_http (2.0.1)
     ffi (1.15.5)
     geocoder (1.8.0)
+    geokit (1.13.1)
+    geokit-rails (2.3.2)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     gimei (1.0.1)
       romaji
     globalid (1.0.0)
@@ -288,6 +292,8 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
+    order_as_specified (1.7)
+      activerecord (>= 5.0.0)
     orm_adapter (0.5.0)
     parallel (1.22.1)
     parser (3.1.1.0)
@@ -498,6 +504,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   geocoder
+  geokit-rails
   gimei
   html2slim
   jbuilder (~> 2.7)
@@ -511,6 +518,7 @@ DEPENDENCIES
   omniauth-line
   omniauth-rails_csrf_protection
   omniauth-twitter
+  order_as_specified
   pry-byebug
   pry-rails
   puma (~> 5.0)

@@ -1,25 +1,24 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Deviseのマッピングはするが、skipして何も設定しない
-  devise_for :users, skip: %i[sessions registrations passwords],
+  devise_for :users, skip: %i[sessions registrations],
                      controllers: {
                        confirmations: 'users/confirmations',
-                       omniauth_callbacks: 'users/omniauth_callbacks'
+                       omniauth_callbacks: 'users/omniauth_callbacks',
+                       passwords: 'users/passwords'
                      }
   devise_scope :user do
     get 'login', to: 'users/sessions#new', as: :new_user_session
     post 'login', to: 'users/sessions#create', as: :user_session
+    post 'guest_login', to: 'users/sessions#guest_login', as: :guest_session
     delete 'logout', to: 'users/sessions#destroy', as: :destroy_user_session
     get 'signup', to: 'users/registrations#new', as: :new_user_registration
     post 'signup', to: 'users/registrations#create', as: :user_registration
-    get 'mypage/account/edit', to: 'users/registrations#edit', as: :edit_mypage_account
-    put 'mypage/account', to: 'users/registrations#update', as: :mypage_account
-    delete 'mypage/account', to: 'users/registrations#destroy', as: :destroy_mypage_account
-    get 'password', to: 'users/passwords#new', as: :new_user_password
-    post 'password', to: 'users/passwords#create', as: :user_password
-    get 'password/edit', to: 'users/passwords#edit', as: :edit_user_password
+    get 'account/edit', to: 'users/registrations#edit', as: :edit_account
+    put 'account', to: 'users/registrations#update', as: :account
+    delete 'account', to: 'users/registrations#destroy', as: :destroy_account
   end
-  root 'static_pages#about'
+  root 'static_pages#top'
   get 'about', to: 'static_pages#about'
   get 'terms', to: 'static_pages#terms'
   get 'privacy', to: 'static_pages#privacy'

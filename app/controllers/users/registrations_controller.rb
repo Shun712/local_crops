@@ -1,14 +1,11 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  def new
-    super
-  end
+  before_action :ensure_normal_user, only: %i[update destroy]
+  skip_before_action :address_empty
 
   def create
     # super
     devise_create
   end
-
-  def edit; end
 
   def update
     # super
@@ -16,7 +13,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def destroy
-    super
+    # super
+    devise_destroy
   end
 
   def devise_create
@@ -26,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
-        set_flash_message! :notice, :signed_up
+        set_flash_message! :success, :signed_up
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
       else
@@ -54,10 +52,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def devise_destroy
+    resource.destroy
+    Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+    set_flash_message! :success, :destroyed
+    yield resource if block_given?
+    respond_with_navigational(resource) { redirect_to after_sign_out_path_for(resource_name) }
+  end
+
+  def ensure_normal_user
+    return if current_user.email != 'guestuser@example.com'
+
+    redirect_to edit_account_path, danger: 'ゲストユーザーは更新・削除できません。'
+  end
+
   protected
 
   def after_sign_up_path_for
-    edit_mypage_account_path
+    edit_account_path
   end
 
   def after_inactive_sign_up_path_for(resource)
