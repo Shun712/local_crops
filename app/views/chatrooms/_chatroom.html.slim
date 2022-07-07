@@ -6,6 +6,6 @@
         br
           = link_to current_user.partner(chatroom).username.truncate(6), user_path(current_user.partner(chatroom))
       td valign="middle"
-        = link_to chatroom.decorate.chat_text, chatroom_path(chatroom)
+        = link_to chatroom.decorate.chat_text, chatroom_path(chatroom, anchor: 'bottom')
       td width="120px" valign="middle"
         = chatroom.decorate.created_at
