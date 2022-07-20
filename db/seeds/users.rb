@@ -16,7 +16,6 @@ places = [[3420050, '埼玉県吉川市栄町'],
           [3420004, '埼玉県吉川市鍋小路'],
           [3420005, '埼玉県吉川市川藤'],
           [3420006, '埼玉県吉川市南広島']]
-guest_user = ['guestuser@example.com', 'ゲストユーザー', 3420007, '埼玉県吉川市拾壱軒']
 
 places.each do |place|
   user = User.create(
@@ -31,7 +30,9 @@ places.each do |place|
   puts "\"#{user.username}\" has created!"
 end
 
-guest = User.create(
+guest_user = ['guestuser@example.com', 'ゲストユーザー', 3420007, '埼玉県吉川市拾壱軒']
+
+User.create(
   email: guest_user[0],
   username: guest_user[1],
   postcode: guest_user[2],
@@ -40,13 +41,4 @@ guest = User.create(
   password_confirmation: 'password',
   confirmed_at: Time.zone.now
 )
-
-# ユーザー
-user1 = User.first
-user2 = User.second
-
-# フォロー
-guest.follow(user1)
-user2.follow(guest)
-
 puts "ゲストユーザー has created!"
