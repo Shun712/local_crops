@@ -2846,37 +2846,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="ruby_http_client (vbundled(3.5.5)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/static" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/.github" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/examples" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/use_cases" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/static" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/.github" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/examples" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/use_cases" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/static" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/.github" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/examples" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/ruby_http_client-3.5.5/use_cases" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="rubyzip (vbundled(2.3.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -2979,43 +2948,6 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/semantic_range-3.0.0/lib" />
         </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="sendgrid-ruby (vbundled(6.6.2)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/static" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/.github" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/examples" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/gemfiles" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/use-cases" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/static" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/.github" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/examples" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/gemfiles" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/use-cases" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/spec" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/static" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/.github" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/examples" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/gemfiles" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.7.0/gems/sendgrid-ruby-6.6.2/use-cases" />
-        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
